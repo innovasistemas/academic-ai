@@ -26,7 +26,10 @@
                 </a>
                 &nbsp;
                 <a href="documents.php" title="Documentos">
-                    <img src="../../assets/images/pdf-icon.png" alt="documentos" style="width: 100px; height: 100px;">
+                    <img src="../../assets/images/pdf-icon.png" alt="documentos informática y matemáticas" style="width: 100px; height: 100px;">
+                </a>
+                <a href="examples.php" title="Ejemplos">
+                    <img src="../../assets/images/programming-icon.png" alt="ejemplos programación" style="width: 100px; height: 100px;">
                 </a>
             </p>
         </div>

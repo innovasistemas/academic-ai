@@ -12,10 +12,13 @@ $arrayResponse = [];
 switch ($arrayData['button']) {
     case 'list':
         $dir = $_SERVER['DOCUMENT_ROOT'] . "/academic-ai/assets/docs/";
-        $arrayResponse = [
-            'listFiles' => $objFile->listFiles($dir),
-        ];
+        break;
+    case 'list-program':
+        $dir = $_SERVER['DOCUMENT_ROOT'] . "/academic-ai/assets/examples/";
         break;
 }
+$arrayResponse = [
+    'listFiles' => $objFile->listFiles($dir),
+];
 
 $objFile->response($arrayResponse);

@@ -22,6 +22,7 @@
                         <li class=""><a href="mathematical-applications.php">Aplicaciones</a></li>
                         <li class=""><a href="questions.php">Preguntas</a></li>
                         <li class=""><a href="documents.php">Documentos</a></li>
+                        <li class=""><a href="examples.php">Ejemplos programación</a></li>
                         <li class=""><a href="about.php">Acerca</a></li>
                     </ul>
                 </section>

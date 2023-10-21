@@ -29,12 +29,12 @@
                                 </li>
                                 <li>
                                     <a href="https://github.com/innovasistemas/" target="_blank">
-                                        Github
+                                        GitHub
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://gitlab.com/innovasistemas/" target="_blank">
-                                        Gitlab
+                                        GitLab
                                     </a>
                                 </li>
                                 <li>

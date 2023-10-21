@@ -1,0 +1,30 @@
+<?php
+
+use PHPUnit\Framework\TestCase;
+use App\Classes\Calculator;
+
+class CalculatorTest extends TestCase
+{
+    public $calc;
+
+
+    public function setUp(): void 
+    {
+        $this->calc = new Calculator();
+    }
+
+
+    public function test_sum_float()
+    {
+        $result = $this->calc->sum(1, 2);
+        $this->assertEquals(3, $result);
+        $this->assertIsFloat($result);
+    }
+
+
+    public function test_sum_integer()
+    {
+        $result = $this->calc->sum(1, 2);
+        $this->assertIsFloat($result);
+    }
+}
