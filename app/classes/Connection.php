@@ -7,7 +7,7 @@ use mysqli;
 
 class Connection
 {
-    public $link;
+    public object $link;
 
     public function __construct(
         string $host, 
@@ -28,13 +28,12 @@ class Connection
 
     public function query(string $query): object
     {
-        $objResult = $this->link->query($query);
-        return $objResult;
+        return $this->link->query($query);
     }
 
 
-    public function response($array)
+    public function actionQuery(string $query): bool
     {
-        echo json_encode($array);
+        return $this->link->query($query);
     }
 }
