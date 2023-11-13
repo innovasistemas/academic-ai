@@ -4,16 +4,20 @@
 
 let divResultNumerics = document.querySelector('#div-result-numerics');
 let divConversionTable = document.querySelector('#div-conversion-table');
+let divOtherConversion = document.querySelector('#div-other-conversion');
 let divResultIntegers = document.querySelector('#div-result-integers');
 let divResultTrigonometry = document.querySelector('#div-result-trigonometry');
 let lstInitialBase = document.querySelector('#lst-initial-base');
 let lstEndBase = document.querySelector('#lst-end-base');
+let lstConversionType = document.querySelector('#lst-conversion-type');
 let lstIntegerOperation = document.querySelector('#lst-integer-operation');
 let lstTrigonometryOperation = document.querySelector('#lst-trigonometry-operation');
 let txtNumberBase = document.querySelector('#txt-number-base');
 let txtNumberInteger = document.querySelector('#txt-number-integer');
 let txtNumberReal = document.querySelector('#txt-number-real');
+let nbrLetterRoman = document.querySelector('#nbr-letter-roman');
 let btnConvertBase = document.querySelector('#btn-convert-base');
+let btnConversionNumber = document.querySelector('#btn-conversion-number');
 let btnConversionTable = document.querySelector('#btn-conversion-table');
 let btnIntegerOperation = document.querySelector('#btn-integer-operation');
 let btnTrigonometryOperation = document.querySelector('#btn-trigonometry-operation');
@@ -104,6 +108,28 @@ btnConvertBase.addEventListener('click', () => {
         })
         .catch(err => {
             divResultNumerics.innerHTML = "Hay problemas con la petición";
+        });
+});
+
+
+btnConversionNumber.addEventListener('click', () => {
+    let objJson = {
+        conversionType: lstConversionType.value, 
+        number: nbrLetterRoman.value,
+        button: 'conversion-number'
+    }; 
+    let params = {
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        body: JSON.stringify(objJson),
+        method: 'POST'
+    };
+    fetch(arrayLinks[1], params)
+        .then(data => {return data.json()})
+        .then(response => {
+            divOtherConversion.innerHTML = response.stringOutput;
+        })
+        .catch(err => {
+            divOtherConversion.innerHTML = "Hay problemas con la petición";
         });
 });
 

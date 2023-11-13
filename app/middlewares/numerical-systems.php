@@ -2,9 +2,11 @@
 
 use App\Classes\Numeric;
 use App\Classes\Logic;
+use App\Classes\ConversionLetter;
 
 include "../classes/Numeric.php";
 include "../classes/Logic.php";
+include "../classes/ConversionLetter.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
@@ -47,6 +49,31 @@ switch ($arrayData['button']) {
         $objLogic = new Logic($arrayJson);
         $matrix = $objNumeric->conversionColumns($objLogic->getArrayBinary());
         $tableMatrix = $objNumeric->generateConversionTable($matrix);
+        break;
+    case 'conversion-number':
+        switch ($arrayData['conversionType']) {
+            case 'letras':
+                $objLetters = new ConversionLetter($arrayData['number']);
+                $stringOutput = "
+                    <span class='text-info-' style='font-size: 2em;'>
+                        {$objLetters->getLetter()}
+                    </span>
+                ";
+                break;
+            case 'romano':
+                $stringOutput = "
+                    <span class='text-info-' style='font-size: 2em;'>
+                        En proceso
+                    </span>
+                ";
+                break;
+            default:
+                $stringOutput = "
+                    <span class='text-info-' style='font-size: 2em;'>
+                        Seleccione un tipo de conversión
+                    </span>
+                ";
+        }
         break;
     case 'integer-operation':
         switch ($arrayData['operation']) {

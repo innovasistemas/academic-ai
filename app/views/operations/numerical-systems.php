@@ -57,16 +57,16 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <label for="lst-type-conversion">Tipo conversión</label>
-                                    <select name="lst-type-conversion" id="lst-type-conversion" class="select">
+                                    <label for="lst-conversion-type">Tipo conversión</label>
+                                    <select name="lst-conversion-type" id="lst-conversion-type" class="select">
                                         <option value="-">Seleccione</option>
                                         <option value="romano">Romano</option>
                                         <option value="letras">Letras</option>
                                     </select>
                                 </div>   
                                 <div class="col">
-                                    <label for="txt-number-roman">Número natural</label>
-                                    <input type="number" id="txt-number-roman" name="txt-number-roman" class="input" value="1" min="0">    
+                                    <label for="nbr-letter-roman">Número natural</label>
+                                    <input type="number" id="nbr-letter-roman" name="nbr-letter-roman" class="input" value="1" min="0">    
                                 </div>
                                 <div class="col">
                                     <br>
