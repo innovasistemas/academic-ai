@@ -1,8 +1,6 @@
 <?php include "template/header.php" ?>
 
         <?php include "template/menu.php" ?>
-
-
         
                
         <div id="wrapper">
@@ -56,15 +54,16 @@
                 </div>
             </div>
 
-
+            <!-- Tabs -->
             <div class="row">
+                <div class="col-1"></div>
                 <div class="col">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Preguntas aleatorias</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="test-tab" data-bs-toggle="tab" data-bs-target="#test" type="button" role="tab" aria-controls="test" aria-selected="false">Pruebas</button>
+                        <button class="nav-link" id="test-tab" data-bs-toggle="tab" data-bs-target="#test" type="button" role="tab" aria-controls="test" aria-selected="false">Preguntas seleccionadas</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Banco de preguntas</button>
@@ -83,12 +82,12 @@
                                 <div class="row">
                                     <div class="col-3">
                                         <input type="hidden" name="txt-user-id" id="txt-user-id">
-                                        <label for="txt-user">Usuario (código)</label>
-                                        <input type="search" name="txt-user" id="txt-user" maxlength="6">
+                                        <label for="txt-user">Usuario (documento)</label>
+                                        <input type="search" name="txt-user" id="txt-user" maxlength="20">
                                     </div>
                                     <div class="col-3">
                                         <br>
-                                        <button id="btn-search-user" class="btn btn-primary">Buscar</button>
+                                        <button id="btn-search-user" class="btn btn-primary" title="Buscar el usuario y refresca los resultados de preguntas seleccionadas">Buscar y refrescar</button>
                                     </div>
                                     <div class="col-3">
                                         <span id="span-result-search" class="text-success"></span>
@@ -110,6 +109,8 @@
                                             <select name="cbo-subject" id="cbo-subject" class="select"></select>
                                         </div>
                                         <div class="col-3">
+                                            <label for="cbo-theme">Temas</label>
+                                            <select name="cbo-theme" id="cbo-theme" class="select"></select>
                                         </div>
                                         <div class="col-3">
                                         </div>
@@ -160,19 +161,26 @@
                         </div>
                         
                         <div class="tab-pane fade" id="test" role="tabpanel" aria-labelledby="test-tab">
-                            <div id="questions-selected-content"></div>
+                            <div id="questions-selected-content">
+                                <br>
+                                <p>
+                                    Aún no se ha autenticado o no tiene preguntas seleccionadas
+                                </p>
+                            </div>
                         </div>
                         
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
                     </div>
                 </div>
+                <div class="col-1"></div>
             </div>
         </div>  
         
+        <!-- Modal -->
         <div class="row">
             <div class="col-3">&nbsp;</div>
             <div class="col-3">
-                <!-- Modal -->
+                <!-- Modal begin -->
                 <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirmTitle" aria-hidden="true">>
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

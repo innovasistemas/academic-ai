@@ -12,6 +12,7 @@ let btnModalSave = document.querySelector('#btn-modal-save');
 let btnGenerateRandom = document.querySelector('#btn-generate-random');
 let spanResult = document.querySelector('#span-result-search');
 let cboSubject = document.querySelector('#cbo-subject');
+let cboTheme = document.querySelector('#cbo-theme');
 let divResult = document.querySelector('#div-result');
 let divResult2 = document.querySelector('#div-result2');
 let divQuestionsSelectedContent = document.querySelector('#questions-selected-content');
@@ -51,6 +52,14 @@ onload = (event) => {
                 });
             }
             cboSubject.innerHTML = optionSelect;
+            
+            optionSelect = "<option value='-1'>Seleccione tema</option>";
+            if (response.foundTheme !== 0) {
+                response.arrayTheme.forEach((element) => {
+                    optionSelect += `<option value="${element.id}">${element.description}</option>`;
+                });
+            }
+            cboTheme.innerHTML = optionSelect;
         })
         .catch(err => {
             divResult2.innerHTML = "Hay problemas con la petición: " + err;
@@ -82,9 +91,9 @@ btnSearchUser.addEventListener('click', () => {
                 searchQuestionSelected();
             } else {
                 spanResult.textContent = response.message;
-                divQuestionsSelectedContent.innerHTML = '';
                 divDataQuestion.classList.remove('d-block');
                 divDataQuestion.classList.add('d-none');
+                divQuestionsSelectedContent.innerHTML = `<br><p class="text-success">${response.message}</p>`;
             }
         })
         .catch(err => {
@@ -108,6 +117,7 @@ btnModalSave.addEventListener('click', () => {
             identity: 'question_selected',
             userId: txtUserId.value,
             subjectId: cboSubject.value, 
+            themeId: cboTheme.value, 
             questions: divResult2.innerHTML,
             button: 'search-question-selected'
         }; 
@@ -150,21 +160,24 @@ function searchQuestionSelected()
         .then(data => {return data.json()})
         .then(response => {
             if (response.found !== 0) {
-                let table = '<br><table>';
+                let table = '<br>';
+                table += '<table>';
                 table += '<tr>';
                 table += '<th>Asignatura</th>';
+                table += '<th>Tema</th>';
                 table += '<th>Preguntas</th>';
                 table += '</tr>';
                 response.arrayQuestionSelected.forEach((element) => {
                     table += '<tr>';
-                    table += `<td>${element.description}</td>`;
+                    table += `<td>${element.subject}</td>`;
+                    table += `<td>${element.theme}</td>`;
                     table += `<td>${element.questions}</td>`;
                     table += '</tr>';
                 });
                 table += '</table>';
                 divQuestionsSelectedContent.innerHTML = table;
             } else {
-                divQuestionsSelectedContent.innerHTML = `<br><h5 class="text-info">${response.message}</h5>`;
+                divQuestionsSelectedContent.innerHTML = `<br><p class="text-success">${response.message}</p>`;
             }
         })
         .catch(err => {
@@ -179,6 +192,7 @@ function saveQuestionsSelected()
         identity: 'question_selected',
         userId: txtUserId.value,
         subjectId: cboSubject.value, 
+        themeId: cboTheme.value, 
         questions: divResult2.innerHTML,
         button: 'insert-question-selected'
     }; 
@@ -231,13 +245,18 @@ function validateData()
 {
     let sw = false;
     if (parseInt(cboSubject.value) !== -1) {
-        if (divResult2.innerHTML !== '') {
-            btnModalSave.removeAttribute('disabled');
-            sw = true;
+        if (parseInt(cboTheme.value) !== -1) {
+            if (divResult2.innerHTML !== '') {
+                btnModalSave.removeAttribute('disabled');
+                sw = true;
+            } else {
+                pModalBody.innerHTML = '<span class="text-danger">Genere las preguntas</span>';
+                btnModalSave.setAttribute('disabled', 'disabled');
+            }
         } else {
-            pModalBody.innerHTML = '<span class="text-danger">Genere las preguntas</span>';
+            pModalBody.innerHTML = '<span class="text-danger">Seleccione un tema</span>';
             btnModalSave.setAttribute('disabled', 'disabled');
-        }
+        }   
     } else {
         pModalBody.innerHTML = '<span class="text-danger">Seleccione una asignatura</span>';
         btnModalSave.setAttribute('disabled', 'disabled');

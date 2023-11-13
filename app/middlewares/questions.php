@@ -35,9 +35,30 @@ switch ($arrayData['button']) {
             $arrayResponse['arraySubject'] = $arraySubject;
             $arrayResponse['found'] = 1;
         } else {
-            $arrayResponse['arraySubject'] = 'Usuario no registrado';
+            $arrayResponse['arraySubject'] = 'No hay asignaturas';
             $arrayResponse['found'] = 0;
         }
+
+        $objResult = $objConnection->query("
+            SELECT * 
+            FROM theme
+        ");
+        $i = 0;
+        $arrayTheme = [];
+        while ($row = $objResult->fetch_array()) {
+            $arrayTheme[$i]['id'] = $row['id'];
+            $arrayTheme[$i]['description'] = $row['description'];
+            $i++;
+        }
+
+        if ($arrayTheme != []) {
+            $arrayResponse['arrayTheme'] = $arrayTheme;
+            $arrayResponse['foundTheme'] = 1;
+        } else {
+            $arrayResponse['arrayTheme'] = 'No hay temas';
+            $arrayResponse['foundTheme'] = 0;
+        }
+        
         break;
     case 'search-user':
         $objResult = $objConnection->query("
@@ -63,17 +84,20 @@ switch ($arrayData['button']) {
         }
         break;
     case 'question_selected-user':
-        $objResult = $objConnection->query("
-            SELECT question_selected.id, description, questions
+       $objResult = $objConnection->query("
+            SELECT question_selected.id, subject.description AS subject_name, 
+                theme.description AS theme_name, questions
             FROM question_selected 
             INNER JOIN subject ON question_selected.subject_id = subject.id 
+            INNER JOIN theme ON question_selected.theme_id = theme.id 
             WHERE user_id = \"{$arrayData['userId']}\"
         ");
         $i = 0;
         $arrayQuestionSelected = [];
         while ($row = $objResult->fetch_array()) {
             $arrayQuestionSelected[$i]['id'] = $row['id'];
-            $arrayQuestionSelected[$i]['description'] = $row['description'];
+            $arrayQuestionSelected[$i]['subject'] = $row['subject_name'];
+            $arrayQuestionSelected[$i]['theme'] = $row['theme_name'];
             $arrayQuestionSelected[$i]['questions'] = $row['questions'];
             $i++;
         }
@@ -90,7 +114,8 @@ switch ($arrayData['button']) {
             SELECT * 
             FROM {$arrayData['identity']}
             WHERE user_id = \"{$arrayData['userId']}\" AND
-                subject_id = \"{$arrayData['subjectId']}\"
+                subject_id = \"{$arrayData['subjectId']}\" AND
+                theme_id = \"{$arrayData['themeId']}\"
         ");
         $i = 0;
         $arrayQuestionSelected = [];
@@ -102,7 +127,8 @@ switch ($arrayData['button']) {
             $i++;
         }
         if ($arrayQuestionSelected != []) {
-            $arrayResponse['message'] = 'Ya registró las preguntas para esta asignatura';
+            $arrayResponse['message'] = '
+                Ya registró las preguntas para esta asignatura y este tema';
             $arrayResponse['found'] = 1;
         } else {
             $arrayResponse['message'] = 'Preguntas no registradas';
@@ -112,9 +138,9 @@ switch ($arrayData['button']) {
     case 'insert-question-selected':
         $query = "
             INSERT INTO {$arrayData['identity']}
-            (user_id, subject_id, questions) 
-            VALUES(\"{$arrayData['userId']}\", \"{$arrayData['subjectId']}\",
-                \"{$arrayData['questions']}\")
+            (user_id, subject_id, theme_id, questions) 
+            VALUES(\"{$arrayData['userId']}\", \"{$arrayData['subjectId']}\", 
+                \"{$arrayData['themeId']}\", \"{$arrayData['questions']}\")
         ";
         if ($objConnection->actionQuery($query)) {
             $arrayResponse['message'] = 'Registro guardado correctamente';

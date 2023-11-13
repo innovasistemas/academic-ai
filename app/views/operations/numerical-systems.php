@@ -66,7 +66,7 @@
                                 </div>   
                                 <div class="col">
                                     <label for="txt-number-roman">Número natural</label>
-                                    <input type="number" id="txt-number-roman" name="txt-number-roman" class="input" value="1" min="1">    
+                                    <input type="number" id="txt-number-roman" name="txt-number-roman" class="input" value="1" min="0">    
                                 </div>
                                 <div class="col">
                                     <br>
