@@ -3,10 +3,12 @@
 use App\Classes\Numeric;
 use App\Classes\Logic;
 use App\Classes\ConversionLetter;
+use App\Classes\ConversionRoman;
 
 include "../classes/Numeric.php";
 include "../classes/Logic.php";
 include "../classes/ConversionLetter.php";
+include "../classes/ConversionRoman.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
@@ -55,21 +57,22 @@ switch ($arrayData['button']) {
             case 'letras':
                 $objLetters = new ConversionLetter($arrayData['number']);
                 $stringOutput = "
-                    <span class='text-info-' style='font-size: 2em;'>
+                    <span class='text-success' style='font-size: 1.2em;'>
                         {$objLetters->getLetter()}
                     </span>
                 ";
                 break;
             case 'romano':
+                $objLetters = new ConversionRoman($arrayData['number']);
                 $stringOutput = "
-                    <span class='text-info-' style='font-size: 2em;'>
-                        En proceso
+                    <span class='text-success' style='font-size: 1.2em;'>
+                        {$objLetters->getRomanNumber()}
                     </span>
                 ";
                 break;
             default:
                 $stringOutput = "
-                    <span class='text-info-' style='font-size: 2em;'>
+                    <span class='text-warning' style='font-size: 1.2em;'>
                         Seleccione un tipo de conversión
                     </span>
                 ";
