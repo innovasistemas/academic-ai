@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 class ReturnMoney
 {
     private array $arrayCurrency;
@@ -20,13 +22,13 @@ class ReturnMoney
 
     private function setDenominations(float $number): void
     {
-        $letter = "";
+        $letter = "| ";
         $num = (int) $number;
         $value = 0;
         for ($i = 0; $i < count($this->arrayCurrency); $i++) {
             $quo = (int) ($num / $this->arrayCurrency[$i]);  
             $value += $quo * $this->arrayCurrency[$i];
-            $letter .= $quo != 0 ? "{$this->arrayCurrency[$i]}: $quo \n" : "";
+            $letter .= $quo != 0 ? "{$this->arrayCurrency[$i]}: $quo | " : "";
             $num = $num %  $this->arrayCurrency[$i];  
         }
 
@@ -47,17 +49,4 @@ class ReturnMoney
     {
         return $this->response;
     }
-}
-
-
-$num = readline("Ingrese número: ");
-$objResponse = new ReturnMoney($num);
-$arrayResponse = $objResponse->getDenominations();
-if ($arrayResponse['error'] == 0) {
-    echo "Devuelta + ajuste: {$arrayResponse['money']} \n";
-    echo "Pérdida: {$arrayResponse['loss']} \n";
-    echo "Diferencia: {$arrayResponse['difference']} \n";
-    echo "Devuelta: {$arrayResponse['value']} \n{$arrayResponse['letter']}";
-} else {
-    echo "Error";
 }

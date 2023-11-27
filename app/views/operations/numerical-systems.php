@@ -1,7 +1,7 @@
                 <div class="content-tab">
-                    <h2 class="text-info">Sistemas numéricos</h2>
+                    <h3 class="h3 text-info">Sistemas numéricos</h3>
                     <hr>
-                    <h3 class="text-info">Sistemas numéricos computacionales</h3>
+                    <h4 class="h4 text-info">Sistemas numéricos computacionales</h4>
                     <form id="frm-numeric-systems">
                         <div class="container">
                             <div class="row">
@@ -53,7 +53,7 @@
 
                         <hr>
 
-                        <h3 class="text-info">Otras conversiones</h3>
+                        <h4 class="h4 text-info">Otras conversiones</h4>
                         <div class="container">
                             <div class="row">
                                 <div class="col">
@@ -62,6 +62,7 @@
                                         <option value="-">Seleccione</option>
                                         <option value="romano">Romano</option>
                                         <option value="letras">Letras</option>
+                                        <option value="devuelta">Devuelta</option>
                                     </select>
                                 </div>   
                                 <div class="col">

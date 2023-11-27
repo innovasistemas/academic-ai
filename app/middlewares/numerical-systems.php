@@ -4,11 +4,13 @@ use App\Classes\Numeric;
 use App\Classes\Logic;
 use App\Classes\ConversionLetter;
 use App\Classes\ConversionRoman;
+use App\Classes\ReturnMoney;
 
 include "../classes/Numeric.php";
 include "../classes/Logic.php";
 include "../classes/ConversionLetter.php";
 include "../classes/ConversionRoman.php";
+include "../classes/ReturnMoney.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
@@ -69,6 +71,27 @@ switch ($arrayData['button']) {
                         {$objLetters->getRomanNumber()}
                     </span>
                 ";
+                break;
+            case 'devuelta':
+                $objLetters = new ReturnMoney($arrayData['number']);
+                $arrayDenominations = $objLetters->getDenominations();
+                if ($arrayDenominations['error'] == 0) {
+                    $stringOutput = "
+                        <span class='text-success' style='font-size: 1.2em;'>
+                            Devuelta calculada: {$arrayDenominations['value']}<br>
+                            Diferencia: {$arrayDenominations['difference']}<br>
+                            Devuelta + ajuste: {$arrayDenominations['money']}<br>
+                            Pérdida: {$arrayDenominations['loss']}<br>
+                            Denominaciones:<br>{$arrayDenominations['letter']}
+                        </span>
+                    ";
+                } else {
+                    $stringOutput = "
+                        <span class='text-danger' style='font-size: 1.2em;'>
+                            Error
+                        </span>    
+                    ";  
+                }
                 break;
             default:
                 $stringOutput = "
