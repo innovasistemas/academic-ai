@@ -1,7 +1,7 @@
                 <div class="content-tab">
-                    <h2 class="text-warning">Análisis numérico</h2>
+                    <h3 class="h3 text-warning">Análisis numérico</h3>
                     <hr>
-                    <h3 class="text-warning">Números enteros</h3>
+                    <h4 class="h4 text-warning">Números enteros</h4>
                     <form id="frm-numeric">
                         <div class="row">
                             <div class="col">
@@ -30,7 +30,7 @@
                     
                     <hr>
 
-                    <h3 class="text-warning">Trigonometría y cálculo</h3>
+                    <h4 class="h4 text-warning">Trigonometría y cálculo</h4>
                     <form id="frm-trigonometry">
                         <div class="row">
                             <div class="col">

@@ -1,7 +1,7 @@
                 <div class="content-tab">
-                    <h2 class="text-danger">Álgebra lineal</h2>
+                    <h3 class="h3 text-danger">Álgebra lineal</h3>
                     <hr>
-                    <h3 class="text-danger">Matrices</h3>
+                    <h4 class="h4 text-danger">Matrices</h4>
                     <form id="frm-matrix">
                         <div class="content">
                             <div class="row">
@@ -68,12 +68,12 @@
 
                         <hr>
         
-                        <h3 class="text-danger">Determinantes</h3>
+                        <h4 class="h4 text-danger">Determinantes</h4>
                         <div id="div-result-determinant"></div>
 
                         <hr>
 
-                        <h3 class="text-danger">Sistemas de ecuaciones</h3>
+                        <h4 class="h4 text-danger">Sistemas de ecuaciones</h4>
                         <div id="div-result-ecuation"></div>
                     </form>
 

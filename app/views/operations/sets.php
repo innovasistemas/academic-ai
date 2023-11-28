@@ -1,5 +1,5 @@
                 <div class="content-tab">
-                    <h2 class="text-success">Conjuntos</h2>
+                    <h3 class="h3 text-success">Conjuntos</h3>
                     <form id="frm-sets">
                         <div class="container">
                             <div class="row">

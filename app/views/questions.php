@@ -7,7 +7,7 @@
             <div class="hero">
                 <div class="row">
                     <div class="large-12 columns">
-                        <h1>
+                        <h1 class="h1">
                             <img src="../../assets/images/question.png" style="width: 50px; height: 50px;" />
                             Preguntas 
                             <small>(Responde y aprende)</small>
@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <h2>Bienvenido a la sección de preguntas</h2>
+                    <h2 class="h2">Bienvenido a la sección de preguntas</h2>
                 </div>
             </div>
             <div class="row">
@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <h3>Comience</h3>
+                    <h3 class="h3">Comience</h3>
                 </div>
             </div>
             <div class="row">
@@ -42,7 +42,7 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <h3>Contribuya</h3>
+                    <h3 class="h3">Contribuya</h3>
                 </div>
             </div>
             <div class="row">
@@ -75,7 +75,7 @@
                                 <div class="row">&nbsp;</div>
                                 <div class="row">
                                     <div class="col-3">
-                                        <h5>Autenticación</h5>
+                                        <h5 class="h5">Autenticación</h5>
                                     </div>
                                 </div>
 
@@ -99,17 +99,17 @@
                                 <div id="div-data-question" class="d-none">
                                     <div class="row">
                                         <div class="col-3">
-                                            <h5>Seleccionar asignatura</h5>
+                                            <h5 class="h5">Asignatura/tema</h5>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-3">
-                                            <label for="cbo-subject">Asignaturas</label>
+                                            <label for="cbo-subject">Asignatura</label>
                                             <select name="cbo-subject" id="cbo-subject" class="select"></select>
                                         </div>
                                         <div class="col-3">
-                                            <label for="cbo-theme">Temas</label>
+                                            <label for="cbo-theme">Tema</label>
                                             <select name="cbo-theme" id="cbo-theme" class="select"></select>
                                         </div>
                                         <div class="col-3">
@@ -120,7 +120,7 @@
 
                                     <div class="row">
                                         <div class="col-3">
-                                            <h5>Seleccionar preguntas</h5>
+                                            <h5 class="h5">Preguntas</h5>
                                         </div>
                                     </div>
 
@@ -149,7 +149,7 @@
                                     
                                     <div class="row">
                                         <div class="col-3">
-                                            <h5>Enviar información</h5>
+                                            <h5 class="h5">Enviar información</h5>
                                             <button id="btn-save" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-confirm" data-bs-backdrop="false">Guardar</button>
                                         </div>
                                     </div>

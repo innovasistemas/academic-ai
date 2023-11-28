@@ -1,7 +1,7 @@
                 <div class="content-tab">
-                    <h2 class="text-primary">Lógica</h2>
+                    <h3 class="h3 text-primary">Lógica</h3>
                     <hr>
-                    <h3 class="text-primary">Lógica proposicional y de circuitos</h3>
+                    <h4 class="h4 text-primary">Lógica proposicional y de circuitos</h4>
                     <br>
                     <form id="frm-logic">
                         <div class="container">
@@ -61,7 +61,7 @@
                     
                     <hr>
 
-                    <h3 class="text-primary">Calculadora lógica</h3>
+                    <h4 class="h4 text-primary">Calculadora lógica</h4>
                     
                     <form id="frm-calculator">
                         <div class="row">
