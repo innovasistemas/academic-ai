@@ -2,20 +2,20 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="wrapper">
-            <div class="hero">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h1>
-                            <img src="../../assets/images/programming-icon.png" style="width: 50px; height: 50px;" />
-                            Ejemplos de programación
-                        </h1> 
-                    </div>
-                </div>
+        <div class="row hero">
+            <div class="col-12">
+                <hr>
+                <h1 class="h1">
+                    <img src="../../assets/images/programming-icon.png" style="width: 40px; height: 40px;" />
+                    Ejemplos de programación
+                </h1> 
+                <hr>
             </div>
+        </div>
 
+        <div class="container">
             <div class="row">
-                <div class="large-12- columns">
+                <div class="col-12">
                     <p>
                         Los siguientes códigos están disponibles para su descarga. 
                         Corresponden a los ejemplos desarrollados en clase y por gusto
@@ -24,7 +24,7 @@
                     
                     <div class="row">
                         <div class="col-1">&nbsp;</div>
-                        <div class="col">
+                        <div class="col-10">
                             <ul>
                                 <li>PSeInt (lógica de programación)</li>
                                 <li>Python</li>
@@ -33,13 +33,13 @@
                                 <li>C/C++</li>
                             </ul>
                         </div>
-                        <div class="col">&nbsp;</div>
+                        <div class="col-1">&nbsp;</div>
                     </div>
 
                     <div class="row">
-                        <div class="col">&nbsp;</div>
-                        <div id="div-result-files" class="col"></div>
-                        <div class="col">&nbsp;</div>
+                        <div class="col-1">&nbsp;</div>
+                        <div id="div-result-files" class="col-10 table-responsive"></div>
+                        <div class="col-1">&nbsp;</div>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,11 @@
                     arrayFiles.pop();
                     let icon;
                     let ctd = 0;
-                    let table = "<table><tr><th>Programa</th></tr><tr>";
+                    let table = `<table class="table table-hover table-white">`;
+                    table += `<thead>`;
+                    table += `<tr><th colspan="5">Programas</th></tr><tr>`;
+                    table += `</thead>`;
+                    table += `<tbody>`;
                     arrayFiles.forEach((element) => {
                         if (element.indexOf(".py", 0) > -1) {
                             icon = 'python-icon.png';
@@ -93,6 +97,9 @@
                         `;
                         ctd++;
                     });
+                    table += "</tbody>";
+                    table += "<tfoot>";
+                    table += "</tfoot>";
                     table += "<caption>";
                     table += `Total archivos: ${arrayFiles.length}`;
                     table += "</caption>";

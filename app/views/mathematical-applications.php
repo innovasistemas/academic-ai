@@ -2,16 +2,29 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="wrapper">
-            <div class="hero">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h1>
-                            <img src="../../assets/images/maths.png" style="width: 50px; height: 50px;" />
-                            Aplicaciones Matemáticas
-                        </h1> 
-                        <!-- <h1 class="text-secondary">Aplicaciones Matemáticas</h1> -->
-                    </div>
+        <div class="row hero">
+            <div class="col-12">
+                <hr>
+                <h1 class="h1">
+                    <img src="../../assets/images/maths.png" style="width: 40px; height: 40px;" />
+                    Aplicaciones Matemáticas
+                </h1> 
+                <hr>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="h2">Bienvenido a las aplicaciones</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        Pruebe diferentes operaciones matemáticas en distintas ramas y sus aplicaciones
+                        usando las opciones que ofrece la aplicación
+                    </p>
                 </div>
             </div>
             

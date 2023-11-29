@@ -2,34 +2,36 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="wrapper">
-            <div class="hero">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h1>
-                            <img src="../../assets/images/pdf-icon.png" style="width: 50px; height: 50px;" />
-                            Documentos
-                        </h1> 
-                    </div>
-                </div>
+        <div class="row hero">
+            <div class="col-12">
+                <hr>
+                <h1 class="h1">
+                    <img src="../../assets/images/pdf-icon.png" style="width: 40px; height: 40px;" />
+                    Documentos
+                </h1> 
+                <hr>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="large-12- columns">
-                    <p>
-                        Los siguientes documentos están disponibles para su descarga. Corresponden a las notas 
-                        de clase que tratan distintas temáticas: Programación, matemáticas e ingeniería de 
-                        software, entre otros.
-                    </p>
+        <div class="row container">
+            <div class="col-12">
+                <p>
+                    Los siguientes documentos están disponibles para su descarga. Corresponden a las notas 
+                    de clase que tratan distintas temáticas: Programación, matemáticas e ingeniería de 
+                    software, entre otros.
+                </p>
 
-                    <div class="row">
-                        <div class="col-1">&nbsp;</div>
-                        <div id="div-result-files" class="col-10"></div>
-                        <div class="col-1">&nbsp;</div>
-                    </div>
+                <div class="row">
+                    <div class="col-1">&nbsp;</div>
+                    <div id="div-result-files" class="col-10 table-responsive"></div>
+                    <div class="col-1">&nbsp;</div>
                 </div>
             </div>
         </div>
+
+        <br>
+        <br>
+
 
         <?php include "template/footer.php" ?>
         
@@ -49,7 +51,11 @@
                 .then(response => {
                     let arrayFiles = response.listFiles.split(',')
                     arrayFiles.pop();
-                    let table = "<table style='width: 100%;'><tr><th>Documento</th></tr><tr>";
+                    let table = `<table class="table table-hover table-white" style-="width: 100%;">`;
+                    table += `<thead>`;
+                    table += `<tr><th colspan="5">Documentos</th></tr><tr>`;
+                    table += `</thead>`;
+                    table += `<tbody>`;
                     arrayFiles.forEach((element) => {
                         if (ctd > 2 ) {
                             ctd = 0;
@@ -66,6 +72,9 @@
                         `;
                         ctd++;
                     });
+                    table += "</tbody>";
+                    table += "<tfoot>";
+                    table += "</tfoot>";
                     table += "<caption>";
                     table += `Total archivos: ${arrayFiles.length}`;
                     table += "</caption>";

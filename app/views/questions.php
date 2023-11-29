@@ -1,39 +1,39 @@
 <?php include "template/header.php" ?>
 
         <?php include "template/menu.php" ?>
-        
                
-        <div id="wrapper">
-            <div class="hero">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h1 class="h1">
-                            <img src="../../assets/images/question.png" style="width: 50px; height: 50px;" />
-                            Preguntas 
-                            <small>(Responde y aprende)</small>
-                        </h1>
-                    </div>
-                </div>
+        <div class="row hero">
+            <div class="col-12">
+                <hr>
+                <h1 class="h1">
+                    <img src="../../assets/images/question.png" style="width: 40px; height: 40px;" />
+                    Preguntas 
+                    <small>(Responde y aprende)</small>
+                </h1>
+                <hr>
             </div>
+        </div>
+
+        <div class="container">
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <h2 class="h2">Bienvenido a la sección de preguntas</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <p>
                         Responda, solucione pruebas cortas y deje que el sistema seleccione las preguntas por usted
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <h3 class="h3">Comience</h3>
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <p>
                         Aprenda resolviendo ejercicios en distintas áreas del
                         conocimiento. Solo seleccione la temática de interés.
@@ -41,12 +41,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <h3 class="h3">Contribuya</h3>
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="col-12">
                     <p>
                         Comparta lo aprendido con la comunidad para 
                         que otros aprendan de sus conocimientos.
@@ -174,7 +174,7 @@
                 </div>
                 <div class="col-1"></div>
             </div>
-        </div>  
+        </div>
         
         <!-- Modal -->
         <div class="row">

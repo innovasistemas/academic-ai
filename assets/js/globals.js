@@ -23,14 +23,12 @@ activateMenu(window.location.href.substring(window.location.href.lastIndexOf('/'
 
 function activateMenu(page)
 {
-    const $listMenu = document.querySelector('ul.right').getElementsByTagName('li'); 
-    const arrayList = Array.from($listMenu);
+    const arrayList = document.querySelectorAll('ul.active-option li a'); 
+
     arrayList.forEach((element) => {
-        if (element.innerHTML.indexOf(page, 0) >= 0) {
-            element.setAttribute('class', 'active');
-        } else {
-            element.setAttribute('class', '');
-        }
+        if (element.href.indexOf(page, 0) >= 0) {
+            element.classList.add('active', 'bg-dark', 'text-white');
+        } 
     });
 }
 

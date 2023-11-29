@@ -1,5 +1,5 @@
-        <footer>
-            <div class="row">
+        <!-- <footer class="flex-shrink-0 py-4 bg-dark text-white-50"> -->
+            <!-- <div class="row">
                 <div class="large-12 columns">
                     <div class="row">
                         <div class="large-8 columns">
@@ -41,22 +41,74 @@
                                     <a href="#!">
                                         Politica de privacidad
                                     </a>
-                                </li>
+                                </li> -->
+
+
                                 <!-- <li>
                                     <a href="http://www.fastly.com/" target="_blank"> CDN provided by
                                         <img width="48" data-2x="/dashboard/images/fastly-logo@2x.png"
                                             src="/dashboard/images/fastly-logo.png" />
                                     </a>
                                 </li> -->
-                            </ul>
+
+
+                            <!-- </ul>
                         </div>
                         <div class="large-4 columns">
                             <p class="text-right">Copyright &copy; <?php echo date("Y") ?>, Innovasistemas</p>
                         </div>
                     </div>
                 </div>
+            </div> -->
+
+
+
+
+
+        <footer class="flex-shrink-0 py-4 bg-dark text-white-50 navbar- navbar-fixed-bottom-">
+            <div class="container text-center">
+                <!-- <small>Copyright &copy; Your Website</small> -->
+                <div class="row">
+                    <div class="col">
+                        <!-- <div class="row"> -->
+                            <div class="col-8">
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">
+                                        <a href="https://innovasistemas.blogspot.com/" target="_blank">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="https://github.com/innovasistemas/" target="_blank">
+                                            GitHub
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="https://gitlab.com/innovasistemas/" target="_blank">
+                                            GitLab
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#!">
+                                            Politica de privacidad
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-right">Copyright &copy; <?php echo date("Y") ?> - Innovasistemas</small>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
             </div>
         </footer>
+
+
+
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> -->
