@@ -23,13 +23,14 @@ activateMenu(window.location.href.substring(window.location.href.lastIndexOf('/'
 
 function activateMenu(page)
 {
-    const arrayList = document.querySelectorAll('ul.active-option li a'); 
-
-    arrayList.forEach((element) => {
-        if (element.href.indexOf(page, 0) >= 0) {
-            element.classList.add('active', 'bg-dark', 'text-white');
-        } 
-    });
+    if (page !== '') {
+        const arrayList = document.querySelectorAll('ul.active-option li a'); 
+        arrayList.forEach((element) => {
+            if (element.href.indexOf(page, 0) >= 0) {
+                element.classList.add('active', 'bg-dark');
+            }
+        });
+    } 
 }
 
 

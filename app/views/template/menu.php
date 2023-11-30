@@ -35,20 +35,3 @@
             </div>
         </div>
     </nav>
-
-
-
-
-
-
-
-
-
-        <!-- <script>
-            $linkMobile = document.querySelector('#link-mobile')
-
-            $linkMobile.addEventListener('click', () => {
-                // alert('0')
-                
-            })
-        </script> -->

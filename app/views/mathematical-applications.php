@@ -66,6 +66,9 @@
             </div>
         </div>
 
+        <br>
+        <br>
+
     <?php include "template/footer.php" ?>
 
         <script src="../../assets/js/models/arrays-model.js"></script>
