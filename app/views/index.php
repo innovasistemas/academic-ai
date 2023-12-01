@@ -4,8 +4,7 @@
         
         <?php include "template/carousel.php" ?>
 
-        
-            <div class="row hero">
+            <div class="hero">
                 <div class="col-12">
                     <hr>
                     <h1 class="h1">

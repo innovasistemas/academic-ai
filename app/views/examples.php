@@ -2,7 +2,7 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="row hero">
+        <div class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
@@ -64,7 +64,7 @@
                     arrayFiles.pop();
                     let icon;
                     let ctd = 0;
-                    let table = `<table class="table table-hover table-white">`;
+                    let table = `<table class="table table-hover table-white table-bordered">`;
                     table += `<thead>`;
                     table += `<tr><th colspan="5">Programas</th></tr><tr>`;
                     table += `</thead>`;

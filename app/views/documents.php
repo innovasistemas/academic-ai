@@ -2,7 +2,7 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="row hero">
+        <div class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
@@ -51,7 +51,7 @@
                 .then(response => {
                     let arrayFiles = response.listFiles.split(',')
                     arrayFiles.pop();
-                    let table = `<table class="table table-hover table-white" style-="width: 100%;">`;
+                    let table = `<table class="table table-hover table-white table-bordered" style-="width: 100%;">`;
                     table += `<thead>`;
                     table += `<tr><th colspan="5">Documentos</th></tr><tr>`;
                     table += `</thead>`;

@@ -2,7 +2,7 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="row hero">
+        <div class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
@@ -18,15 +18,15 @@
                 <table class="table table-hover table-light">
                     <tr>
                         <th>Tipo de software</th>
-                        <td>Académico/investigación</td>
+                        <td>Académico / investigación</td>
                     </tr>
                     <tr>
                         <th>Entorno</th>
-                        <td>Página/aplicación web</td>
+                        <td>Página / aplicación web</td>
                     </tr>
                     <tr>
                         <th>Temáticas</th>
-                        <td>Ciencias / Programación / ingeniería / matemáticas / física</td>
+                        <td>Ciencias: informática / matemáticas / física</td>
                     </tr>
                     <tr>
                         <th>Desarrollado en</th>

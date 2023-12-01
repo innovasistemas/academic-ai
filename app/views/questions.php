@@ -2,7 +2,7 @@
 
         <?php include "template/menu.php" ?>
                
-        <div class="row hero">
+        <div class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
@@ -57,7 +57,7 @@
             <!-- Tabs -->
             <div class="row">
                 <div class="col-1"></div>
-                <div class="col">
+                <div class="col-10">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Preguntas aleatorias</button>
@@ -156,7 +156,7 @@
                                 </div>
                             </form>
                             <div class="row">
-                                <div class="col" id="div-result"></div>
+                                <div class="col-12" id="div-result"></div>
                             </div>
                         </div>
                         
