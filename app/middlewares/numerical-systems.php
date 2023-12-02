@@ -36,7 +36,7 @@ switch ($arrayData['button']) {
 
         $numberBase = strtoupper($arrayData['numberBase']);
         $stringOutput = "
-            <span class='text-info-' style='font-size: 2em;'>
+            <span class='text-primary' style='font-size: 1.2em;'>
                 $numberBase
                 <sub><small>{$arrayData['initialBase']}</small></sub> 
                 = 
@@ -59,7 +59,7 @@ switch ($arrayData['button']) {
             case 'letras':
                 $objLetters = new ConversionLetter($arrayData['number']);
                 $stringOutput = "
-                    <span class='text-success' style='font-size: 1.2em;'>
+                    <span class='text-primary' style='font-size: 1.2em;'>
                         {$objLetters->getLetter()}
                     </span>
                 ";
@@ -67,7 +67,7 @@ switch ($arrayData['button']) {
             case 'romano':
                 $objLetters = new ConversionRoman($arrayData['number']);
                 $stringOutput = "
-                    <span class='text-success' style='font-size: 1.2em;'>
+                    <span class='text-primary' style='font-size: 1.2em;'>
                         {$objLetters->getRomanNumber()}
                     </span>
                 ";
@@ -77,7 +77,7 @@ switch ($arrayData['button']) {
                 $arrayDenominations = $objLetters->getDenominations();
                 if ($arrayDenominations['error'] == 0) {
                     $stringOutput = "
-                        <span class='text-success' style='font-size: 1.2em;'>
+                        <span class='text-primary' style='font-size: 1.2em;'>
                             Devuelta calculada: {$arrayDenominations['value']}<br>
                             Diferencia: {$arrayDenominations['difference']}<br>
                             Devuelta + ajuste: {$arrayDenominations['money']}<br>

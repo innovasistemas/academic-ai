@@ -1,7 +1,7 @@
-        <footer class="flex-shrink-0 py-4 bg-dark text-white-50 navbar- navbar-fixed-bottom-">
-            <div class="container text-center">
+        <footer class="py-4 bg-dark text-white-50">
+            <div class="container">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-xs-2 col-md-8 col-sm-4">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item">
                                 <a href="https://innovasistemas.blogspot.com/" target="_blank">
@@ -25,7 +25,7 @@
                             </li> 
                         </ul>
                     </div>
-                    <div class="col-4">
+                    <div class="col-xs-2 col-md-4 col-sm-4">
                         <small class="text-right">Copyright &copy; <?php echo date("Y") ?> - Innovasistemas</small>
                     </div>
                 </div>

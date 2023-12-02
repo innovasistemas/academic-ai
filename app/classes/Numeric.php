@@ -61,24 +61,30 @@ class Numeric
     public function generateConversionTable($matrix)
     {
         $tableBinary = "
-            <table class='t-table border-info'>
-                <tr>
-                    <th class='t-cell border-info' colspan='4'>Binario</th>
-                    <th class='t-cell border-info'>Octal</th>
-                    <th class='t-cell border-info'>Decimal</th>
-                    <th class='t-cell border-info'>Hexadecimal</th>
-                </tr>
+            <div class='table-responsive'>
+                <table class='table table-hover table-bordered border-info'>
+                    <thead>
+                        <tr>
+                            <th colspan='4'>Binario</th>
+                            <th>Octal</th>
+                            <th>Decimal</th>
+                            <th>Hexadecimal</th>
+                        </tr>
+                    </thead>
+                    </tbody>
         ";
         
         for ($i = 0; $i < 16; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j < 7; $j++) {
                 $background = $j == 5 ? "#17a2b8" : "";
-                $tableBinary .= "<td class='t-cell border-info' style='background: $background;'>{$matrix[$i][$j]}</td>";
+                $tableBinary .= "<td style='background: $background;'>{$matrix[$i][$j]}</td>";
             }
             $tableBinary .= "</tr>";
         }
+        $tableBinary .= "</tbody>";
         $tableBinary .= "</table>";
+        $tableBinary .= "</div>";
         return $tableBinary;
     }
 
