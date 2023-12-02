@@ -5,7 +5,7 @@
                         <h4 class="h4 text-info">Sistemas numéricos computacionales</h4>
                         <form id="frm-numeric-systems">
                             <div class="row">
-                                <div class="col-xs-2 col-md-2 col-sm-4 form-group">
+                                <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                     <label for="lst-initial-base">Base inicial</label>
                                     <select name="lst-initial-base" id="lst-initial-base" class="form-select select">
                                         <option value="-">Seleccione...</option>
@@ -19,7 +19,7 @@
                                     <label for="txt-number-base">Número</label>
                                     <input type="search" id="txt-number-base" name="txt-number-base" class="form-control select" value="0" maxlength="20" data-bs-toggle="modal" data-bs-target="#exampleModal">    
                                 </div>
-                                <div class="col-xs-2 col-md-2 col-sm-4 form-group">
+                                <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                     <label for="lst-end-base">Base final</label>
                                     <select name="lst-end-base" id="lst-end-base" class="form-select select">
                                         <option value="-">Seleccione...</option>
@@ -57,10 +57,10 @@
                             <h4 class="h4 text-info">Otras conversiones</h4>
                             <div class="container-">
                                 <div class="row">
-                                    <div class="col-xs-2 col-md-2 col-sm-4 form-group"">
+                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group"">
                                         <label for="lst-conversion-type">Tipo conversión</label>
                                         <select name="lst-conversion-type" id="lst-conversion-type" class="form-select select">
-                                            <option value="-">Seleccione</option>
+                                            <option value="-">Seleccione...</option>
                                             <option value="romano">Romano</option>
                                             <option value="letras">Letras</option>
                                             <option value="devuelta">Devuelta</option>

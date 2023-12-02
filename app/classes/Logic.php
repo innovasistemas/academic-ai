@@ -117,25 +117,28 @@ class Logic
 
     private function generateTrueTable()
     {
-        $headerTable = "<table class='t-table border-primary '><tr>";
+        $tableBinary = "
+            <div class='table-responsive'>
+                <table class='table table-hover table-bordered border-primary text-center'>
+                    <thead>
+                        <tr>
+        ";
         for ($i = 0; $i < $this->n; $i++){
-            $headerTable .= 
-                "<th class=' t-cell border-primary'>" . 
+            $tableBinary .= 
+                "<th>" . 
                     chr($this->symbols[$this->symbol]['ascii'] + $i) . 
                 "</th>";
         }
-        $headerTable .= "</tr></table>";
-        
-        $tableBinary = "<table class='t-table border-primary'>";
+        $tableBinary .= "</tr></thead><tbody>";
         for ($i = 0; $i < $this->m; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j < $this->n; $j++) {
-                $tableBinary .= "<td class='t-cell border-primary'>{$this->arrayBinary[$i][$j]}</td>";
+                $tableBinary .= "<td>{$this->arrayBinary[$i][$j]}</td>";
             }
             $tableBinary .= "</tr>";
         }
-        $tableBinary .= "</table>";
-        $this->tableTrueTable = $headerTable . $tableBinary;
+        $tableBinary .= "</tbody></table></div>";
+        $this->tableTrueTable = $tableBinary;
     }
 
 
@@ -157,34 +160,38 @@ class Logic
 
     public function generateTableOperator($operator)
     {
-        $headerTable = "<table class='t-table border-primary'><tr>";
+        $tableBinary = "
+            <div class='table-responsive'>
+                <table class='table table-hover table-bordered border-primary text-center'>
+                    <thead>
+                        <tr>
+        ";
         $j = 0;
         for ($i = 0; $i <= $this->n; $i++){
             if ($i != 1) {
-                $headerTable .= 
-                    "<th class='t-cell border-primary'>" . 
-                        chr($this->symbols[$this->symbol]['ascii'] + $j) . 
-                    "</th>";
+                $tableBinary .= "
+                    <th>" . 
+                        chr($this->symbols[$this->symbol]['ascii'] + $j) . "
+                    </th>
+                ";
                 $j++;
             } else {
                 $symbol = $this->symbols[$this->symbol][$operator];
                 if ($this->n == 1) {
                     $symbol .= chr($this->symbols[$this->symbol]['ascii']);
                 } 
-                $headerTable .= "<th class='t-cell border-primary'>{$symbol}</th>";
+                $tableBinary .= "<th>{$symbol}</th>";
             }
         }
-        $headerTable .= "</tr></table>";
-        
-        $tableBinary = "<table class='t-table border-primary'>";
+        $tableBinary .= "</tr></thead><tbody>";
         for ($i = 0; $i < $this->m; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j <= $this->n; $j++) {
                 if ($j != 1) {
-                    $tableBinary .= "<td class='t-cell border-primary'>{$this->arrayOperator[$i][$j]}</td>";
+                    $tableBinary .= "<td>{$this->arrayOperator[$i][$j]}</td>";
                 } else {
                     $tableBinary .= "
-                        <td class='t-cell border-primary' style='background: #007bff;'>
+                        <td class='bg-primary text-white' style-='background: #007bff;'>
                             {$this->arrayOperator[$i][$j]}
                         </td>
                     ";
@@ -192,8 +199,8 @@ class Logic
             }
             $tableBinary .= "</tr>";
         }
-        $tableBinary .= "</table>";
-        $this->tableOperator = $headerTable . $tableBinary;
+        $tableBinary .= "</tbody></table></div>";
+        $this->tableOperator = $tableBinary;
     }
 
 
@@ -289,24 +296,5 @@ class Logic
         } else {
             return 0;
         }
-    }
-
-    
-    // public function responsex()
-    // {
-    //     $arrayResponse = [
-    //         'matrix' => $this->arrayBinary,
-    //         'table' => $this->tableTrueTable,
-    //         'tableOperator' => $this->tableOperator,
-    //         'tableExpression' => $this->tableExpression,
-    //         'symbols' => $this->symbols
-    //     ];
-    //     echo json_encode($arrayResponse);
-    // }
-
-
-    public function response($array)
-    {
-        echo json_encode($array);
     }
 }

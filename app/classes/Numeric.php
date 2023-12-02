@@ -62,7 +62,7 @@ class Numeric
     {
         $tableBinary = "
             <div class='table-responsive'>
-                <table class='table table-hover table-bordered border-info'>
+                <table class='table table-hover table-bordered border-info text-center'>
                     <thead>
                         <tr>
                             <th colspan='4'>Binario</th>
@@ -77,8 +77,10 @@ class Numeric
         for ($i = 0; $i < 16; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j < 7; $j++) {
-                $background = $j == 5 ? "#17a2b8" : "";
-                $tableBinary .= "<td style='background: $background;'>{$matrix[$i][$j]}</td>";
+                // $background = $j == 5 ? "#17a2b8" : "";
+                $style = $j == 5 ? "background: #17a2b8; color: #FFF;" : "";
+                $tableBinary .= "<td style='$style'>{$matrix[$i][$j]}</td>";
+                // $tableBinary .= "<td style='background: $background;'>{$matrix[$i][$j]}</td>";
             }
             $tableBinary .= "</tr>";
         }

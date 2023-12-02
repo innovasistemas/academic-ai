@@ -1,11 +1,13 @@
 <?php
 
+use App\Classes\Util;
 use App\Classes\Numeric;
 use App\Classes\Logic;
 use App\Classes\ConversionLetter;
 use App\Classes\ConversionRoman;
 use App\Classes\ReturnMoney;
 
+include "../classes/Util.php";
 include "../classes/Numeric.php";
 include "../classes/Logic.php";
 include "../classes/ConversionLetter.php";
@@ -14,6 +16,7 @@ include "../classes/ReturnMoney.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
+$objUtil = new Util();
 $objNumeric = new Numeric();
 $matrix = [];
 $tableMatrix = "";
@@ -220,8 +223,10 @@ switch ($arrayData['button']) {
         break;
 }
 
-echo json_encode([
+$arrayResponse = [
     'stringOutput' => $stringOutput,
     'tableMatrix' => $tableMatrix
-]);
+];
+
+$objUtil->response($arrayResponse);
 

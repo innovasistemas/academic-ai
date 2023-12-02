@@ -1,11 +1,14 @@
 <?php
 
+use App\Classes\Util;
 use App\Classes\Logic;
 
+include "../classes/Util.php";
 include "../classes/Logic.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
+$objUtil = new Util();
 $objLogic = new Logic($arrayData);
 $arrayResponse = [];
 
@@ -31,7 +34,7 @@ switch ($arrayData['button']) {
         break;
 }
 
-$objLogic->response($arrayResponse);
+$objUtil->response($arrayResponse);
 
 
 

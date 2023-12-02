@@ -70,3 +70,17 @@ body {
     height: 200px; 
     width: 100%;
 }
+
+
+/* Estilos para la calculadora */
+
+.text-calc {
+    letter-spacing: 0.1em; 
+}
+
+.btn-calc {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
