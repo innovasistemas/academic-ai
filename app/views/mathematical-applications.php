@@ -7,7 +7,7 @@
                 <hr>
                 <h1 class="h1">
                     <img src="../../assets/images/maths.png" style="width: 40px; height: 40px;" />
-                    Aplicaciones Matemáticas
+                    Aplicaciones
                 </h1> 
                 <hr>
             </div>
@@ -16,15 +16,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="h2">Bienvenido a las aplicaciones</h2>
+                    <h2 class="h2">Bienvenido a las aplicaciones en ciencias</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <p>
                         Pruebe diferentes operaciones matemáticas en distintas ramas y sus aplicaciones
-                        usando las opciones que ofrece la aplicación
+                        a otros campos de la ciencia, tal como la informática, la ingeniería, la física y 
+                        otras áreas del conocimiento usando las distintas herarmientas que ofrece esta página. 
+                        Aquí encontrará:
                     </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul>
+                        <li>Desarrollos informáticos</li>
+                        <li>Aplicaciones de ingeniería</li>
+                        <li>Cálculos matemáticos</li>
+                        <li>Problemas físicos</li>
+                        <li>Y mucho más</li>
+                    </ul>
                 </div>
             </div>
             

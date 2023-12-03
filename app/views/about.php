@@ -22,7 +22,7 @@
                     </tr>
                     <tr>
                         <th>Entorno</th>
-                        <td>Página / aplicación web</td>
+                        <td>Página web / aplicación web / web responsive</td>
                     </tr>
                     <tr>
                         <th>Temáticas</th>

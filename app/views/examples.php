@@ -23,17 +23,17 @@
                     </p>
                     
                     <div class="row">
-                        <div class="col-1">&nbsp;</div>
-                        <div class="col-10">
+                        <div class="col-12">
                             <ul>
-                                <li>PSeInt (lógica de programación)</li>
-                                <li>Python</li>
+                                <li>PSeInt (PSeudocódico Intérprete)</li>
                                 <li>PHP</li>
                                 <li>Javascript</li>
+                                <li>Python</li>
                                 <li>C/C++</li>
+                                <li>Java</li>
+                                <li>Kotlin</li>
                             </ul>
                         </div>
-                        <div class="col-1">&nbsp;</div>
                     </div>
 
                     <div class="row">

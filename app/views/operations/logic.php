@@ -73,10 +73,10 @@
                                             <table id="table-calc" class="table table-bordered text-center">
                                                 <tr>
                                                     <td colspan="2">
-                                                        <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Expresión">
+                                                        <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Exp.">
                                                     </td>
                                                     <td colspan="2">
-                                                        <input type="search" id="txt-result-calc" name="txt-result-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Resultado">
+                                                        <input type="search" id="txt-result-calc" name="txt-result-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Res.">
                                                     </td>
                                                 </tr>
                                                 <tr>
