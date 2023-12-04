@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/question.png" style="width: 40px; height: 40px;" />
+                    <img src="../../assets/images/question.png" height="40" width="40" alt="Academic AI" />
                     Preguntas 
                     <small>(Responde y aprende)</small>
                 </h1>

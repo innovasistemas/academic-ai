@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/programming-icon.png" style="width: 40px; height: 40px;" />
+                    <img src="../../assets/images/programming-icon.png" height="40" width="40" alt="Academic AI" />
                     Ejemplos de programación
                 </h1> 
                 <hr>
@@ -90,7 +90,7 @@
                         table += `
                             <td>
                                 <a href="../../assets/examples/${element}" target="_blank">
-                                    <img src="../../assets/images/${icon}" style="width: 35px; height: 35px;" />
+                                    <img src="../../assets/images/${icon}" height="35" width="35" alt="${element}" />
                                     ${element}
                                 </a>
                             </td>

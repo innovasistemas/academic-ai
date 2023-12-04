@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/pdf-icon.png" style="width: 40px; height: 40px;" />
+                    <img src="../../assets/images/pdf-icon.png" height="40" width="40" alt="Academic AI" />
                     Documentos
                 </h1> 
                 <hr>
@@ -51,7 +51,7 @@
                 .then(response => {
                     let arrayFiles = response.listFiles.split(',')
                     arrayFiles.pop();
-                    let table = `<table class="table table-hover table-white table-bordered" style-="width: 100%;">`;
+                    let table = `<table class="table table-hover table-white table-bordered">`;
                     table += `<thead>`;
                     table += `<tr><th colspan="5">Documentos</th></tr><tr>`;
                     table += `</thead>`;
@@ -65,7 +65,7 @@
                         table += `
                             <td>
                                 <a href="../../assets/docs/${element}" target="_blank">
-                                    <img src="../../assets/images/pdf-icon.png" style="width: 15px; height: 25px;" />
+                                    <img src="../../assets/images/pdf-icon.png" height="25" width="15" alt="${element}" />
                                     ${element}
                                 </a>
                             </td>
