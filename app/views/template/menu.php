@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #2a5d84 !important;">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="index.php" title="Academic AI">
-                <img src="../../favicon.png" height="40" width="40" alt="Academic AI" />
+                <img src="../../favicon.png" height="40" width="40" alt="Academic AI - Ciencia y tecnología" />
                 Academic AI
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
