@@ -1,11 +1,14 @@
 <?php
 
+use App\Classes\Util;
 use App\Classes\Matrix;
 
+include "../classes/Util.php";
 include "../classes/Matrix.php";
 
 $data = file_get_contents('php://input');
 $arrayData = json_decode($data, TRUE);
+$objUtil = new Util();
 $objMatrix = new Matrix($arrayData);
 
 switch ($arrayData['button']) {
@@ -64,7 +67,7 @@ switch ($arrayData['button']) {
         break;
 }
 
-$objMatrix->response($arrayResponse);
+$objUtil->response($arrayResponse);
 
 
 

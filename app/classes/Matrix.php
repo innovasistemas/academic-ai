@@ -73,13 +73,13 @@ class Matrix
                 $n = $this->n;
                 break;
         }
-        $tableMatrix = "<table class='t-table border-primary'>";
+        $tableMatrix = "<table class='table table-hover table-bordered border-danger text-center'>";
         for ($i = 0; $i < $m; $i++) {
             $tableMatrix .= "<tr>";
             for ($j = 0; $j < $n; $j++) {
                 $term = is_numeric($this->$matrix[$i][$j]) ? 
                     $c * $this->$matrix[$i][$j] : $this->$matrix[$i][$j];
-                $tableMatrix .= "<td class='t-cell border-primary'>$term</td>";
+                $tableMatrix .= "<td class=''>$term</td>";
             }
             $tableMatrix .= "</tr>";
         }
@@ -202,12 +202,6 @@ class Matrix
                 $this->matrixArea[$i][$j] = 'x';
             }
         } 
-    }
-
-
-    public function response($array)
-    {
-        echo json_encode($array);
     }
 }
 

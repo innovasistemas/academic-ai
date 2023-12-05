@@ -58,38 +58,49 @@ btnExecuteMatrix.addEventListener('click', () => {
         .then(response => {
             divResultMatrix.innerHTML = `
                 <hr>
-                <h3 class="text-danger">Resultados operaciones</h3>
+                <h3 class="h3 text-danger">Operaciones con matrices</h3>
 
                 <div class="row">
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family-: Consolas;">
+                    <div class="col-xs-3 col-md-6 col-sm-3">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             A<sub>${txtRowsA.value}×${txtColsA.value}</sub> = [a<sub>ij</sub>]
                         </span>
-                        ${response.matrixA}
+                        <div class="table-responsive">
+                            ${response.matrixA}
+                        </div>
                     </div>
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family: Consolas;">
+                    <div class="col-xs-3 col-md-6 col-sm-3">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             B<sub>${txtRowsB.value}×${txtColsB.value}</sub> = [b<sub>ij</sub>]
                         </span>
-                        ${response.matrixB}
+                        <div class="table-responsive">
+                            ${response.matrixB}
+                        </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family: Consolas;">
+                    <div class="col-xs-6 col-md-6 col-sm-6">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             (A + B)<sub>${txtRowsA.value}×${txtColsA.value}</sub> = C<sub>ij</sub>
                         </span>
-                        ${response.matrixSum}
+                        <div class="table-responsive">
+                            ${response.matrixSum}
+                        </div>
                     </div>
-
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family: Consolas;">
+                    <div class="col-xs-6 col-md-6 col-sm-6">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             cA<sub>${txtRowsA.value}×${txtColsA.value}</sub> = ${objJson.scalar}A<sub>ij</sub>
                         </span>
-                        ${response.scalar}
+                        <div class="table-responsive">
+                            ${response.scalar}
+                        </div>
                     </div>
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family: Consolas;">
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 col-sm-6">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             C<sub>${txtRowsA.value}×${txtColsB.value}</sub> 
                             = 
                             A<sub>${txtRowsA.value}×${txtColsA.value}</sub> 
@@ -98,55 +109,65 @@ btnExecuteMatrix.addEventListener('click', () => {
                             <br>
                             C<sub>ij</sub> = ⅀<sup>${txtColsA.value}</sup><sub>k=1</sub>(A<sub>ik</sub>xB<sub>kj</sub>)
                         </span>
-                        ${response.matrixProduct}
+                        <div class="table-responsive">
+                            ${response.matrixProduct}
+                        </div>
                     </div>
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em; font-family: Consolas;">
+                    <div class="col-xs-6 col-md-6 col-sm-6">
+                        <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             (A<sub>${txtRowsA.value}×${txtColsA.value}</sub>)<sup>T</sup> 
                             = 
                             A<sub>${txtColsA.value}×${txtRowsA.value}</sub>
                             <br>
                             A<sup>T</sup><sub>ij</sub> = A<sub>ji</sub>
                         </span>
-                        ${response.transposed}
+                        <div class="table-responsive">
+                            ${response.transposed}
+                        </div>
                     </div>
                 </div>
 
                 <hr>
-                <h3 class="text-danger">Áreas de matrices</h3>
+                <h3 class="h3 text-danger">Áreas de matrices</h3>
 
                 <div class="row">
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em;">
+                    <div class="col-xs-2 col-md-4 col-sm-4">
+                        <span class="" style="font-size: 1.2em;">
                             Diagonal principal A<sub>${txtColsA.value}</sub> 
                             = [a<sub>ii</sub>]
                             <br>
                             Diagonal secundaria A<sub>${txtColsA.value}</sub> 
                             = [a<sub>i, n-i-1</sub>]
                         </span>
-                        ${response.diagonals}
+                        <div class="table-responsive">
+                            ${response.diagonals}
+                        </div>
                     </div>
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em;">
+                    <div class="col-xs-4 col-md-4 col-sm-4">
+                        <span class="" style="font-size: 1.2em;">
                             Triangular Superior A<sub>${txtColsA.value}</sub> 
                             = 
                         </span>
-                        ${response.upperTriangular}
+                        <div class="table-responsive">
+                            ${response.upperTriangular}
+                        </div>
                     </div>
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em;">
+                    <div class="col-xs-4 col-md-4 col-sm-4">
+                        <span class="" style="font-size: 1.2em;">
                             Triángulo Superior A<sub>${txtColsA.value}</sub> 
                             = 
                         </span>
-                        ${response.upperTriangle}
+                        <div class="table-responsive">
+                            ${response.upperTriangle}
+                        </div>
                     </div>
                 </div>
             `;
 
             divResultDeterminant.innerHTML = `
                 <div class="row">
-                    <div class="col">
-                        <span class="text-primary-" style="font-size: 1em;">
+                    <div class="col-xs-4 col-md-4 col-sm-4">
+                        <span class="" style="font-size: 1.2em;">
                             Det(A<sub>${txtRowsA.value}×${txtColsA.value}</sub>) 
                             = 
                             |A<sub>${txtRowsA.value}×${txtColsA.value}</sub>| =
@@ -179,7 +200,7 @@ btnExecuteMatrix.addEventListener('click', () => {
 //             divResultDeterminant.innerHTML = `
 //                 <div class="container-grid">
 //                     <div>
-//                         <span class="text-primary-" style="font-size: 1em;">
+//                         <span class="" style="font-size: 1em;">
 //                             Det(A<sub>2×2)</sub> = |A<sub>2×2</sub>| =
 //                             ${response.determinant2x2}
 //                         </span>
