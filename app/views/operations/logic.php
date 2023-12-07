@@ -55,6 +55,8 @@
                                 </div>
                             </form>
 
+                            <br>
+
                             <div class="row">
                                 <div id="div-result" class="col-6"></div>
                                 <div id="div-result2" class="col-6"></div>

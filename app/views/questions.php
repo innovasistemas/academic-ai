@@ -56,8 +56,7 @@
 
             <!-- Tabs -->
             <div class="row">
-                <div class="col-1"></div>
-                <div class="col-10">
+                <div class="col-12">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Preguntas aleatorias</button>
@@ -73,24 +72,29 @@
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <form action="">
                                 <div class="row">&nbsp;</div>
+
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-12">
                                         <h5 class="h5">Autenticación</h5>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-3">
-                                        <input type="hidden" name="txt-user-id" id="txt-user-id">
+                                    <div class="col-xs-2 col-md-4 col-sm-4 form-group">
+                                        <input type="hidden" name="txt-user-id" id="txt-user-id" value="">
                                         <label for="txt-user">Usuario (documento)</label>
-                                        <input type="search" name="txt-user" id="txt-user" maxlength="20">
+                                        <input type="search" name="txt-user" id="txt-user" class="form-control select" maxlength="20">
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
                                         <button id="btn-search-user" class="btn btn-primary" title="Buscar el usuario y refresca los resultados de preguntas seleccionadas">Buscar y refrescar</button>
+                                        <input id="btn-reset" type="reset" class="btn btn-secondary" value="Restablecer">
                                     </div>
-                                    <div class="col-3">
-                                        <span id="span-result-search" class="text-success"></span>
+                                    <div class="col-xs-2 col-md-4 col-sm-4 form-group">
+                                        <br>
+                                        <div class="bg-dark text-white" style="font-size: 1.1em;">
+                                            <span id="span-result-search"></span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -98,59 +102,56 @@
 
                                 <div id="div-data-question" class="d-none">
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-12">
                                             <h5 class="h5">Asignatura/tema</h5>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="cbo-subject">Asignatura</label>
-                                            <select name="cbo-subject" id="cbo-subject" class="select"></select>
+                                            <select name="cbo-subject" id="cbo-subject" class="form-select select"></select>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="cbo-theme">Tema</label>
-                                            <select name="cbo-theme" id="cbo-theme" class="select"></select>
-                                        </div>
-                                        <div class="col-3">
+                                            <select name="cbo-theme" id="cbo-theme" class="form-select select"></select>
                                         </div>
                                     </div>
                                     
                                     <div class="row">&nbsp;</div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-12">
                                             <h5 class="h5">Preguntas</h5>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="txt-number-questions">Total preguntas</label>
-                                            <input type="number" id="txt-number-questions" name="txt-number-questions" class="input" value="20" min="1" readonly="">    
+                                            <input type="number" id="txt-number-questions" name="txt-number-questions" class="form-control select" value="20" min="1" readonly="">    
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="txt-questions-select">Preguntas a seleccionar</label>
-                                            <input type="number" id="txt-questions-select" name="txt-questions-select" class="input" value="2" min="1" readonly="">    
+                                            <input type="number" id="txt-questions-select" name="txt-questions-select" class="form-control select" value="2" min="1" readonly="">    
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <br>
                                             <button id="btn-generate-random" class="btn btn-primary">Generar</button>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-xs-12 col-md-8 col-sm-14 form-group">
+                                            <br>
                                             <div class="bg-dark text-white fw-bold" id="div-result2"></div>
                                         </div>
                                     </div>
                                     
-                                    <div class="row">&nbsp;</div>
-                                    
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-12">
                                             <h5 class="h5">Enviar información</h5>
-                                            <button id="btn-save" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-confirm" data-bs-backdrop="false">Guardar</button>
+                                            <button id="btn-save" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal-confirm" data-bs-backdrop="false">Guardar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +173,6 @@
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
                     </div>
                 </div>
-                <div class="col-1"></div>
             </div>
         </div>
         

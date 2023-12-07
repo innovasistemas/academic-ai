@@ -111,8 +111,6 @@ btnSave.addEventListener('click', () => {
 
 btnModalSave.addEventListener('click', () => {
     if (validateData()) {
-        // const modal2 = bootstrap.Modal.getInstance(modal);
-        // modal2.hide();
         let objJson = {
             identity: 'question_selected',
             userId: txtUserId.value,
@@ -160,13 +158,16 @@ function searchQuestionSelected()
         .then(data => {return data.json()})
         .then(response => {
             if (response.found !== 0) {
-                let table = '<br>';
-                table += '<table>';
+                let table = '<br><div class="table-responsive">';
+                table += '<table class="table table-hover table-bordered- border-secondary-">';
+                table += '<thead>';
                 table += '<tr>';
                 table += '<th>Asignatura</th>';
                 table += '<th>Tema</th>';
                 table += '<th>Preguntas</th>';
                 table += '</tr>';
+                table += '</thead>';
+                table += '</tbody>';
                 response.arrayQuestionSelected.forEach((element) => {
                     table += '<tr>';
                     table += `<td>${element.subject}</td>`;
@@ -174,7 +175,9 @@ function searchQuestionSelected()
                     table += `<td>${element.questions}</td>`;
                     table += '</tr>';
                 });
+                table += '</tbody>';
                 table += '</table>';
+                table += '</div>';
                 divQuestionsSelectedContent.innerHTML = table;
             } else {
                 divQuestionsSelectedContent.innerHTML = `<br><p class="text-success">${response.message}</p>`;

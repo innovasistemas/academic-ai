@@ -5,8 +5,35 @@ body {
     width: 100%;
 }
 
+.hero {
+    background: #efeee5;
+    padding: 1em 0;
+    margin-bottom: 2em;
+    text-align: center;
+}
 
-/* Estilos para las listas */
+
+/* Estilos para el menú principal */
+
+ul.active-option li a {
+    border-radius: 10px;
+}
+
+ul.active-option li a:hover {
+    background: #9FA6B2;
+    border-radius: 10px;
+}
+
+
+/* Estilos para el carrusel (slider) */
+
+.image-slider {
+    height: 200px; 
+    width: 100%;
+}
+
+
+/* Estilos para input y select */
 
 .select {
     border-radius: .3em;
@@ -14,13 +41,6 @@ body {
 
 .select:hover {
     border-color: #007bff;
-}
-
-.hero {
-    background: #efeee5;
-    padding: 1em 0;
-    margin-bottom: 2em;
-    text-align: center;
 }
 
 
@@ -61,14 +81,6 @@ body {
     border-style: outset;
     padding: 10px;
     box-shadow: inset 15px 15px 15px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 2px 2px 3px rgba(0,0,0,.1);
-}
-
-
-/* Estilos para el carrusel (slider) */
-
-.image-slider {
-    height: 200px; 
-    width: 100%;
 }
 
 
