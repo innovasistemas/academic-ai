@@ -1,24 +1,35 @@
 <?php
+require_once "../../vendor/autoload.php";
 
+use App\Classes\Util;
 use App\Classes\Files;
 
-include "../classes/Files.php";
-
-$data = file_get_contents('php://input');
-$arrayData = json_decode($data, TRUE);
-$objFile = new Files($arrayData);
+$objUtil = new Util();
+$objFile = new Files($objUtil->arrayData);
 $arrayResponse = [];
 
-switch ($arrayData['button']) {
+switch ($objUtil->arrayData['button']) {
     case 'list':
-        $dir = $_SERVER['DOCUMENT_ROOT'] . "/academic-ai/assets/docs/";
+        $dir =  $objUtil->baseRoot() . "/assets/docs/";
+
+        // Pendiente implementar
+        // $r1 = "$urlBase/app/Views/template/header.php";
+        // $r2 = "$urlBase/app/Views/template/menu.php";
+        // $r3 = "$urlBase/app/Views/template/footer.php";
+        // $name = $objFile->loadView($r1, $r2, $r3);
+        // header("Location: ../Views/temp/$name", TRUE, 307);
+        // exit();
+        // $arrayResponse = [
+        //     'view' => $name
+        // ];
+
         break;
     case 'list-program':
-        $dir = $_SERVER['DOCUMENT_ROOT'] . "/academic-ai/assets/examples/";
+        $dir = $objUtil->baseRoot() . "assets/examples/";
+        // $dir = $config['url']['root'] . "assets/examples/";
         break;
 }
-$arrayResponse = [
-    'listFiles' => $objFile->listFiles($dir),
-];
 
-$objFile->response($arrayResponse);
+$arrayResponse['listFiles'] = $objFile->listFiles($dir);
+
+$objUtil->response($arrayResponse);

@@ -1,0 +1,7 @@
+# Evitar accesos a carpetas
+Options -Indexes
+
+
+# Error página no encontrada: error 404
+ErrorDocument 404 http://localhost/academic-ai/app/Views/errors/404.php
+

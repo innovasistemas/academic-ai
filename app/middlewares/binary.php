@@ -1,21 +1,17 @@
 <?php
+require_once "../../vendor/autoload.php";
 
 use App\Classes\Util;
-use App\Classes\Logic;
+use App\Models\Logic;
 
-include "../classes/Util.php";
-include "../classes/Logic.php";
-
-$data = file_get_contents('php://input');
-$arrayData = json_decode($data, TRUE);
 $objUtil = new Util();
-$objLogic = new Logic($arrayData);
+$objLogic = new Logic($objUtil->arrayData);
 $arrayResponse = [];
 
-switch ($arrayData['button']) {
+switch ($objUtil->arrayData['button']) {
     case 'operators':
-        $objLogic->createTableOperator($arrayData['operator']);
-        $objLogic->generateTableOperator($arrayData['operator']);
+        $objLogic->createTableOperator($objUtil->arrayData['operator']);
+        $objLogic->generateTableOperator($objUtil->arrayData['operator']);
         $arrayResponse = [
             'table' => $objLogic->getTableTrueTable(),
             'tableOperator' => $objLogic->getTableOperator(),

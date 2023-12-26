@@ -13,6 +13,7 @@ let btnGenerateRandom = document.querySelector('#btn-generate-random');
 let spanResult = document.querySelector('#span-result-search');
 let cboSubject = document.querySelector('#cbo-subject');
 let cboTheme = document.querySelector('#cbo-theme');
+let cboActivity = document.querySelector('#cbo-activity');
 let divResult = document.querySelector('#div-result');
 let divResult2 = document.querySelector('#div-result2');
 let divQuestionsSelectedContent = document.querySelector('#questions-selected-content');
@@ -45,7 +46,7 @@ onload = (event) => {
     fetch(arrayLinks[4], params)
         .then(data => {return data.json()})
         .then(response => {
-            let optionSelect = "<option value='-1'>Seleccione asignatura</option>";
+            let optionSelect = "<option value='-1'>Seleccione...</option>";
             if (response.found !== 0) {
                 response.arraySubject.forEach((element) => {
                     optionSelect += `<option value="${element.id}">${element.description}</option>`;
@@ -53,13 +54,21 @@ onload = (event) => {
             }
             cboSubject.innerHTML = optionSelect;
             
-            optionSelect = "<option value='-1'>Seleccione tema</option>";
+            optionSelect = "<option value='-1'>Seleccione...</option>";
             if (response.foundTheme !== 0) {
                 response.arrayTheme.forEach((element) => {
                     optionSelect += `<option value="${element.id}">${element.description}</option>`;
                 });
             }
             cboTheme.innerHTML = optionSelect;
+
+            optionSelect = "<option value='-1'>Seleccione...</option>";
+            // if (response.foundTheme !== 0) {
+            //     response.arrayTheme.forEach((element) => {
+            //         optionSelect += `<option value="${element.id}">${element.description}</option>`;
+            //     });
+            // }
+            cboActivity.innerHTML = optionSelect;
         })
         .catch(err => {
             divResult2.innerHTML = "Hay problemas con la petición: " + err;

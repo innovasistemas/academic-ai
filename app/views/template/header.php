@@ -15,4 +15,4 @@
         <link type="text/css" rel="stylesheet" href="../../assets/css/customize.css" />
     </head>
 
-    <body class="d-flex- flex-column-">
+    <body>

@@ -49,6 +49,8 @@
             fetch(arrayLinks[3], params)
                 .then(data => {return data.json()})
                 .then(response => {
+                    // Pendiente implementar
+                    // window.location = `temp/${response.view}`;
                     let arrayFiles = response.listFiles.split(',')
                     arrayFiles.pop();
                     let table = `<table class="table table-hover table-white table-bordered">`;

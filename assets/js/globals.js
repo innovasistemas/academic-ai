@@ -19,6 +19,7 @@ document.addEventListener('submit', (event) => {
 });
 
 
+// Efecto para el menú
 activateMenu(window.location.href.substring(window.location.href.lastIndexOf('/') + 1));
 
 function activateMenu(page)
@@ -34,6 +35,7 @@ function activateMenu(page)
 }
 
 
+// Validación global de inputs
 function $validateElementEmpty(element)
 {
     element.value = element.value.trim();
@@ -41,4 +43,9 @@ function $validateElementEmpty(element)
 }
 
 
+// Activar los tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+});
 

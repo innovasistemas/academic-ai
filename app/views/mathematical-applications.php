@@ -44,19 +44,19 @@
             <div class="link-tabs">
                 <ul class="menu-tab">
                     <li>
-                        <a href="#!" class="link-tab" data-tab="0">Sistemas numéricos</a>
+                        <a href="#!" class="link-tab" data-tab="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sistemas numéricos">Sistemas numéricos</a>
                     </li>
                     <li>
-                        <a href="#!" class="link-tab" data-tab="1">Lógica y circuitos</a>
+                        <a href="#!" class="link-tab" data-tab="1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lógica y circuitos">Lógica y circuitos</a>
                     </li>
                     <li>
-                        <a href="#!" class="link-tab" data-tab="2">Conjuntos</a>
+                        <a href="#!" class="link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos">Conjuntos</a>
                     </li>
                     <li>
-                        <a href="#!" class="link-tab" data-tab="3">Análisis numérico</a>
+                        <a href="#!" class="link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Análisis numérico">Análisis numérico</a>
                     </li>
                     <li>
-                        <a href="#!" class="link-tab" data-tab="4">Álgebra lineal</a>
+                        <a href="#!" class="link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
                     </li>
                 </ul>
             </div>

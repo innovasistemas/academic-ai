@@ -7,22 +7,35 @@ use mysqli;
 
 class Connection
 {
-    public object $link;
+    private object $link;
+    private int $error;
+    private string $message;
 
-    public function __construct(
-        string $host, 
-        string $user, 
-        string $pass, 
-        string $database
-    ) 
+    public function __construct(array $paramsDB) 
     {
-        $this->link = new mysqli($host, $user, $pass, $database);
-        if ($this->link->connect_errno) {
-            // echo "Problemas en la conexión a la base de datos: " . 
-                // $this->link->connect_errno . " - " . $this->link->connect_error;
+        if (is_resource(@fsockopen($paramsDB['host'], $paramsDB['port']))) {
+            $this->link = new mysqli(
+                $paramsDB['host'], $paramsDB['user'], $paramsDB['password'], 
+                $paramsDB['name'], $paramsDB['port']
+            );
+            $this->message = "Conexión exitosa al servidor de base de datos";
+            $this->error = 0;
         } else {
-            // echo "Conexion exitosa a la base de datos";
+            $this->message = "No hay respuesta del servidor de base de datos";
+            $this->error = 1;
         }
+    }
+
+
+    public function getError(): int
+    {
+        return $this->error;
+    }
+
+
+    public function getMessage(): string
+    {
+        return $this->message;
     }
 
 

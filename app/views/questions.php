@@ -103,7 +103,7 @@
                                 <div id="div-data-question" class="d-none">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h5 class="h5">Asignatura/tema</h5>
+                                            <h5 class="h5">Asignatura/tema/actividad</h5>
                                         </div>
                                     </div>
 
@@ -115,6 +115,10 @@
                                         <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="cbo-theme">Tema</label>
                                             <select name="cbo-theme" id="cbo-theme" class="form-select select"></select>
+                                        </div>
+                                        <div class="col-xs-2 col-md-4 col-sm-4 form-group">
+                                            <label for="cbo-activity">Actividad</label>
+                                            <select name="cbo-activity" id="cbo-activity" class="form-select select"></select>
                                         </div>
                                     </div>
                                     
