@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Matrix
+use App\Config\App;
+
+class Matrix extends App
 {
     private $A;
     private $B;
@@ -19,6 +21,8 @@ class Matrix
 
     public function __construct() 
     {
+        parent::__construct();
+        
         srand(time());
     }
 

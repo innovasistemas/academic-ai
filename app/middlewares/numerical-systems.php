@@ -1,42 +1,41 @@
 <?php
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Util;
 use App\Models\Numeric;
 use App\Models\Logic;
 use App\Models\ConversionLetter;
 use App\Models\ConversionRoman;
 use App\Models\ReturnMoney;
 
-$objUtil = new Util();
-$objNumeric = new Numeric();
+$objNumeric = new Numeric(); 
+$objNumeric->fetchArrayData();
 $matrix = [];
 $tableMatrix = "";
 $stringOutput = "";
 
-switch ($objUtil->arrayData['button']) {
+switch ($objNumeric->arrayData['button']) {
     case 'convert-base':
-        if ($objUtil->arrayData['endBase'] == '10') {
+        if ($objNumeric->arrayData['endBase'] == '10') {
             $stringNumber = 
-                $objNumeric->baseNTo10($objUtil->arrayData['numberBase'], $objUtil->arrayData['initialBase']);
-        } elseif ($objUtil->arrayData['initialBase'] == '10') {
+                $objNumeric->baseNTo10($objNumeric->arrayData['numberBase'], $objNumeric->arrayData['initialBase']);
+        } elseif ($objNumeric->arrayData['initialBase'] == '10') {
             $stringNumber = 
-            $objNumeric->base10ToN($objUtil->arrayData['numberBase'], $objUtil->arrayData['endBase']);
+            $objNumeric->base10ToN($objNumeric->arrayData['numberBase'], $objNumeric->arrayData['endBase']);
         } else {
             $stringNumber = 
-                $objNumeric->baseNTo10($objUtil->arrayData['numberBase'], $objUtil->arrayData['initialBase']);
+                $objNumeric->baseNTo10($objNumeric->arrayData['numberBase'], $objNumeric->arrayData['initialBase']);
             $stringNumber = 
-                $objNumeric->base10ToN($stringNumber, $objUtil->arrayData['endBase']);
+                $objNumeric->base10ToN($stringNumber, $objNumeric->arrayData['endBase']);
         }
 
-        $numberBase = strtoupper($objUtil->arrayData['numberBase']);
+        $numberBase = strtoupper($objNumeric->arrayData['numberBase']);
         $stringOutput = "
             <span class='text-primary' style='font-size: 1.2em;'>
                 $numberBase
-                <sub><small>{$objUtil->arrayData['initialBase']}</small></sub> 
+                <sub><small>{$objNumeric->arrayData['initialBase']}</small></sub> 
                 = 
                 {$stringNumber}
-                <sub><small>{$objUtil->arrayData['endBase']}</small></sub> 
+                <sub><small>{$objNumeric->arrayData['endBase']}</small></sub> 
             </span>
         ";
         break;
@@ -45,14 +44,16 @@ switch ($objUtil->arrayData['button']) {
             'n' => 4, 
             'symbol' => 'lc'
         ]; 
-        $objLogic = new Logic($arrayJson);
+        $objLogic = new Logic();
+        // $objLogic->fetchArrayData();
+        $objLogic->setConfig($arrayJson);
         $matrix = $objNumeric->conversionColumns($objLogic->getArrayBinary());
         $tableMatrix = $objNumeric->generateConversionTable($matrix);
         break;
     case 'conversion-number':
-        switch ($objUtil->arrayData['conversionType']) {
+        switch ($objNumeric->arrayData['conversionType']) {
             case 'letras':
-                $objLetters = new ConversionLetter($objUtil->arrayData['number']);
+                $objLetters = new ConversionLetter($objNumeric->arrayData['number']);
                 $stringOutput = "
                     <span class='text-primary' style='font-size: 1.2em;'>
                         {$objLetters->getLetter()}
@@ -60,7 +61,7 @@ switch ($objUtil->arrayData['button']) {
                 ";
                 break;
             case 'romano':
-                $objLetters = new ConversionRoman($objUtil->arrayData['number']);
+                $objLetters = new ConversionRoman($objNumeric->arrayData['number']);
                 $stringOutput = "
                     <span class='text-primary' style='font-size: 1.2em;'>
                         {$objLetters->getRomanNumber()}
@@ -68,7 +69,7 @@ switch ($objUtil->arrayData['button']) {
                 ";
                 break;
             case 'devuelta':
-                $objLetters = new ReturnMoney($objUtil->arrayData['number']);
+                $objLetters = new ReturnMoney($objNumeric->arrayData['number']);
                 $arrayDenominations = $objLetters->getDenominations();
                 if ($arrayDenominations['error'] == 0) {
                     $stringOutput = "
@@ -97,53 +98,53 @@ switch ($objUtil->arrayData['button']) {
         }
         break;
     case 'integer-operation':
-        switch ($objUtil->arrayData['operation']) {
+        switch ($objNumeric->arrayData['operation']) {
             case 'par':
-                $isEven = $objNumeric->even(abs($objUtil->arrayData['number'])) ? 
+                $isEven = $objNumeric->even(abs($objNumeric->arrayData['number'])) ? 
                     "es par" : "es impar";
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        {$objUtil->arrayData['number']} $isEven
+                        {$objNumeric->arrayData['number']} $isEven
                     </span>
                 ";
                 break;
             case 'factorial':
-                if ($objUtil->arrayData['number'] >= 0) {
+                if ($objNumeric->arrayData['number'] >= 0) {
                     $stringOutput = "
                         <span class='text-info' style='font-size: 1.2em;'>
-                            {$objUtil->arrayData['number']}! = 
-                            {$objNumeric->factorial($objUtil->arrayData['number'])}
+                            {$objNumeric->arrayData['number']}! = 
+                            {$objNumeric->factorial($objNumeric->arrayData['number'])}
                         </span>
                     ";
                 }
                 break;
             case 'fibonacci':
-                if ($objUtil->arrayData['number'] > 0) {
+                if ($objNumeric->arrayData['number'] > 0) {
                     $stringOutput = "
                         <span class='text-info-' style='font-size: 1.2em;'>
-                            {$objNumeric->fibonacci($objUtil->arrayData['number'])}
+                            {$objNumeric->fibonacci($objNumeric->arrayData['number'])}
                         </span>
                     ";
                 }
                 break;
             case 'primo':
-                if ($objUtil->arrayData['number'] > 1) {
-                    $isPrime = $objNumeric->prime($objUtil->arrayData['number']) ? 
+                if ($objNumeric->arrayData['number'] > 1) {
+                    $isPrime = $objNumeric->prime($objNumeric->arrayData['number']) ? 
                         "es primo" : "no es primo";
                     $stringOutput = "
                         <span class='text-info-' style='font-size: 1.2em;'>
-                            {$objUtil->arrayData['number']} $isPrime
+                            {$objNumeric->arrayData['number']} $isPrime
                         </span>
                     ";
                 }
                 break;
             case 'perfecto':
-                if ($objUtil->arrayData['number'] > 0) {
-                    $isPerfect = $objNumeric->perfect($objUtil->arrayData['number']) ? 
+                if ($objNumeric->arrayData['number'] > 0) {
+                    $isPerfect = $objNumeric->perfect($objNumeric->arrayData['number']) ? 
                         "es perfecto" : "no es perfecto";
                     $stringOutput = "
                         <span class='text-info-' style='font-size: 1.2em;'>
-                            {$objUtil->arrayData['number']} $isPerfect
+                            {$objNumeric->arrayData['number']} $isPerfect
                         </span>
                     ";
                 }
@@ -151,7 +152,7 @@ switch ($objUtil->arrayData['button']) {
         }
         break;
     case 'trigonometry-operation':
-        switch ($objUtil->arrayData['operation']) {
+        switch ($objNumeric->arrayData['operation']) {
             case 'pi':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
@@ -169,45 +170,45 @@ switch ($objUtil->arrayData['button']) {
             case 'angulo':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        {$objUtil->arrayData['number']}° 
+                        {$objNumeric->arrayData['number']}° 
                         = 
-                        {$objNumeric->degreeToRadians($objUtil->arrayData['number'])}<small>rad</small>
+                        {$objNumeric->degreeToRadians($objNumeric->arrayData['number'])}<small>rad</small>
                     </span>
                 ";
                 break;
             case 'angulorad':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        {$objUtil->arrayData['number']}<small>rad</small> 
+                        {$objNumeric->arrayData['number']}<small>rad</small> 
                         = 
-                        {$objNumeric->radiansToDegree($objUtil->arrayData['number'])}°
+                        {$objNumeric->radiansToDegree($objNumeric->arrayData['number'])}°
                     </span>
                 ";
                 break;
             case 'seno':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        sen({$objUtil->arrayData['number']}) 
+                        sen({$objNumeric->arrayData['number']}) 
                         = 
-                        {$objNumeric->sinus($objUtil->arrayData['number'])}
+                        {$objNumeric->sinus($objNumeric->arrayData['number'])}
                     </span>
                 ";
                 break;
             case 'coseno':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        cos({$objUtil->arrayData['number']}) 
+                        cos({$objNumeric->arrayData['number']}) 
                         = 
-                        {$objNumeric->cosinus($objUtil->arrayData['number'])}
+                        {$objNumeric->cosinus($objNumeric->arrayData['number'])}
                     </span>
                 ";
                 break;
             case 'tangente':
                 $stringOutput = "
                     <span class='text-info-' style='font-size: 1.2em;'>
-                        tan({$objUtil->arrayData['number']}) 
+                        tan({$objNumeric->arrayData['number']}) 
                         = 
-                        {$objNumeric->tangent($objUtil->arrayData['number'])}
+                        {$objNumeric->tangent($objNumeric->arrayData['number'])}
                     </span>
                 ";
                 break;
@@ -220,5 +221,5 @@ $arrayResponse = [
     'tableMatrix' => $tableMatrix
 ];
 
-$objUtil->response($arrayResponse);
+$objNumeric->response($arrayResponse);
 

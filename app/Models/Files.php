@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Classes;
+namespace App\Models;
 
-class Files
+use App\Config\App;
+
+class Files extends App
 {
     public function __construct() 
     {
-        
+        parent::__construct();
     }
 
 
@@ -26,6 +28,7 @@ class Files
 
     public function loadView($view1, $view2, $view3)
     {
+        // Pendiente: debe estar en otra clase de classes o config
         // $name = "view";
         $name = time();
         $file = fopen("../Views/temp/$name.php", "a+");

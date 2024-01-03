@@ -1,23 +1,23 @@
 <?php
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Util;
 use App\Classes\Connection;
 use App\Models\Questions;
 
 $arrayRandom = [];
 $arrayResponse = [];
 
-$objUtil = new Util();
-$objConnection = new Connection($objUtil->getConfigDB());
+$objConnection = new Connection();
+
 $objQuestion = new Questions();
+$objQuestion->fetchArrayData();
 
 if ($objConnection->getError() == 0) {
-    switch ($objUtil->arrayData['button']) {
+    switch ($objQuestion->arrayData['button']) {
         case 'list-subject':
             $objResult = $objConnection->query("
                 SELECT * 
-                FROM {$objUtil->arrayData['identity']}
+                FROM {$objQuestion->arrayData['identity']}
             ");
             $i = 0;
             $arraySubject = [];
@@ -58,8 +58,8 @@ if ($objConnection->getError() == 0) {
         case 'search-user':
             $objResult = $objConnection->query("
                 SELECT * 
-                FROM {$objUtil->arrayData['identity']}
-                WHERE code = \"{$objUtil->arrayData['code']}\"
+                FROM {$objQuestion->arrayData['identity']}
+                WHERE code = \"{$objQuestion->arrayData['code']}\"
             ");
             $i = 0;
             $arrayUser = [];
@@ -79,13 +79,13 @@ if ($objConnection->getError() == 0) {
             }
             break;
         case 'question_selected-user':
-        $objResult = $objConnection->query("
+            $objResult = $objConnection->query("
                 SELECT question_selected.id, subject.description AS subject_name, 
                     theme.description AS theme_name, questions
                 FROM question_selected 
                 INNER JOIN subject ON question_selected.subject_id = subject.id 
                 INNER JOIN theme ON question_selected.theme_id = theme.id 
-                WHERE user_id = \"{$objUtil->arrayData['userId']}\"
+                WHERE user_id = \"{$objQuestion->arrayData['userId']}\"
             ");
             $i = 0;
             $arrayQuestionSelected = [];
@@ -107,10 +107,10 @@ if ($objConnection->getError() == 0) {
         case 'search-question-selected':
             $objResult = $objConnection->query("
                 SELECT * 
-                FROM {$objUtil->arrayData['identity']}
-                WHERE user_id = \"{$objUtil->arrayData['userId']}\" AND
-                    subject_id = \"{$objUtil->arrayData['subjectId']}\" AND
-                    theme_id = \"{$objUtil->arrayData['themeId']}\"
+                FROM {$objQuestion->arrayData['identity']}
+                WHERE user_id = \"{$objQuestion->arrayData['userId']}\" AND
+                    subject_id = \"{$objQuestion->arrayData['subjectId']}\" AND
+                    theme_id = \"{$objQuestion->arrayData['themeId']}\"
             ");
             $i = 0;
             $arrayQuestionSelected = [];
@@ -132,10 +132,10 @@ if ($objConnection->getError() == 0) {
             break;
         case 'insert-question-selected':
             $query = "
-                INSERT INTO {$objUtil->arrayData['identity']}
+                INSERT INTO {$objQuestion->arrayData['identity']}
                 (user_id, subject_id, theme_id, questions) 
-                VALUES(\"{$objUtil->arrayData['userId']}\", \"{$objUtil->arrayData['subjectId']}\", 
-                    \"{$objUtil->arrayData['themeId']}\", \"{$objUtil->arrayData['questions']}\")
+                VALUES(\"{$objQuestion->arrayData['userId']}\", \"{$objQuestion->arrayData['subjectId']}\", 
+                    \"{$objQuestion->arrayData['themeId']}\", \"{$objQuestion->arrayData['questions']}\")
             ";
             if ($objConnection->actionQuery($query)) {
                 $arrayResponse['message'] = 'Registro guardado correctamente';
@@ -146,10 +146,10 @@ if ($objConnection->getError() == 0) {
             }
             break;
         case 'generate-random':
-            if ($objUtil->arrayData['numberQuestions'] >= $objUtil->arrayData['questionSelect']) {
-                for ($i = 0; $i < $objUtil->arrayData['questionSelect']; $i++) {
+            if ($objQuestion->arrayData['numberQuestions'] >= $objQuestion->arrayData['questionSelect']) {
+                for ($i = 0; $i < $objQuestion->arrayData['questionSelect']; $i++) {
                     $arrayRandom[$i] = 
-                        $objQuestion->generateRandom(1, $objUtil->arrayData['numberQuestions']);
+                        $objQuestion->generateRandom(1, $objQuestion->arrayData['numberQuestions']);
                 }
                 $arrayResponse['randomNumber'] = $arrayRandom;
             } else {
@@ -163,4 +163,4 @@ if ($objConnection->getError() == 0) {
     $arrayResponse['found'] = 0;
 }
 
-$objUtil->response($arrayResponse);
+$objQuestion->response($arrayResponse);

@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-class Questions
+use App\Config\App;
+
+class Questions extends App
 {
 
     public function __construct() 
     {
-        
+        parent::__construct();
     }
 
 

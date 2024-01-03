@@ -1,28 +1,27 @@
 <?php
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Util;
 use App\Models\Matrix;
 
-$objUtil = new Util();
-$objMatrix = new Matrix($objUtil->arrayData);
+$objMatrix = new Matrix();
+$objMatrix->fetchArrayData();
 
-switch ($objUtil->arrayData['button']) {
+switch ($objMatrix->arrayData['button']) {
     case 'matrix-operation':
-        $objMatrix->createMatrix('A', $objUtil->arrayData['m'], $objUtil->arrayData['n']);
+        $objMatrix->createMatrix('A', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
         $arrayResponse['matrixA'] = $objMatrix->showMatrix('A');
 
-        $objMatrix->createMatrix('B', $objUtil->arrayData['p'], $objUtil->arrayData['q']);
+        $objMatrix->createMatrix('B', $objMatrix->arrayData['p'], $objMatrix->arrayData['q']);
         $arrayResponse['matrixB'] = $objMatrix->showMatrix('B');
 
-        $objMatrix->matrixEmpty('C', $objUtil->arrayData['m'], $objUtil->arrayData['n'], 0);
+        $objMatrix->matrixEmpty('C', $objMatrix->arrayData['m'], $objMatrix->arrayData['n'], 0);
         $arrayResponse['matrixSum'] = $objMatrix->sumMatrix() == 0 ?
             $objMatrix->showMatrix('C') : "<br>No se pueden sumar las matrices";
 
         $arrayResponse['scalar'] = 
-            $objMatrix->showMatrix('A', $objUtil->arrayData['scalar']);
+            $objMatrix->showMatrix('A', $objMatrix->arrayData['scalar']);
         
-        $objMatrix->matrixEmpty('C', $objUtil->arrayData['m'], $objUtil->arrayData['q'], 0);
+        $objMatrix->matrixEmpty('C', $objMatrix->arrayData['m'], $objMatrix->arrayData['q'], 0);
         $arrayResponse['matrixProduct'] = $objMatrix->productMatrix() == 0 ?
             $objMatrix->showMatrix('C') : 
             "<br>No se pueden multiplicar las matrices";    
@@ -34,21 +33,21 @@ switch ($objUtil->arrayData['button']) {
         $arrayResponse['upperTriangular'] = '-';
         $arrayResponse['upperTriangle'] = '-';
         $arrayResponse['diagonals'] = '-';
-        if ($objUtil->arrayData['m'] == $objUtil->arrayData['n']) {
-            $objMatrix->matrixEmpty('matrixArea', $objUtil->arrayData['m'], $objUtil->arrayData['n']);
+        if ($objMatrix->arrayData['m'] == $objMatrix->arrayData['n']) {
+            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
             $objMatrix->diagonal();
             $objMatrix->diagonalSecondary();
             $arrayResponse['diagonals'] = $objMatrix->showMatrix('matrixArea');
 
-            $objMatrix->matrixEmpty('matrixArea', $objUtil->arrayData['m'], $objUtil->arrayData['n']);
+            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
             $objMatrix->upperTriangular();
             $arrayResponse['upperTriangular'] = $objMatrix->showMatrix('matrixArea');
             
-            $objMatrix->matrixEmpty('matrixArea', $objUtil->arrayData['m'], $objUtil->arrayData['n']);
+            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
             $objMatrix->upperTriangle();
             $arrayResponse['upperTriangle'] = $objMatrix->showMatrix('matrixArea');
             
-            switch ($objUtil->arrayData['m']) {
+            switch ($objMatrix->arrayData['m']) {
                 case 1: 
                     $arrayResponse['determinant'] = $objMatrix->getMatrix('A');
                     break;
@@ -63,7 +62,7 @@ switch ($objUtil->arrayData['button']) {
         break;
 }
 
-$objUtil->response($arrayResponse);
+$objMatrix->response($arrayResponse);
 
 
 

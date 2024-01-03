@@ -1,16 +1,15 @@
 <?php
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Util;
-use App\Classes\Files;
+use App\Models\Files;
 
-$objUtil = new Util();
-$objFile = new Files($objUtil->arrayData);
+$objFile = new Files();
+$objFile->fetchArrayData();
 $arrayResponse = [];
 
-switch ($objUtil->arrayData['button']) {
+switch ($objFile->arrayData['button']) {
     case 'list':
-        $dir =  $objUtil->baseRoot() . "/assets/docs/";
+        $dir =  "{$objFile->baseRoot}/assets/docs/";
 
         // Pendiente implementar
         // $r1 = "$urlBase/app/Views/template/header.php";
@@ -25,11 +24,10 @@ switch ($objUtil->arrayData['button']) {
 
         break;
     case 'list-program':
-        $dir = $objUtil->baseRoot() . "assets/examples/";
-        // $dir = $config['url']['root'] . "assets/examples/";
+        $dir = "{$objFile->baseRoot}/assets/examples/";
         break;
 }
 
 $arrayResponse['listFiles'] = $objFile->listFiles($dir);
 
-$objUtil->response($arrayResponse);
+$objFile->response($arrayResponse);

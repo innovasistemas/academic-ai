@@ -1,17 +1,17 @@
 <?php
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Util;
 use App\Models\Logic;
 
-$objUtil = new Util();
-$objLogic = new Logic($objUtil->arrayData);
+$objLogic = new Logic();
+$objLogic->fetchArrayData();
+$objLogic->setConfig($objLogic->arrayData);
 $arrayResponse = [];
 
-switch ($objUtil->arrayData['button']) {
+switch ($objLogic->arrayData['button']) {
     case 'operators':
-        $objLogic->createTableOperator($objUtil->arrayData['operator']);
-        $objLogic->generateTableOperator($objUtil->arrayData['operator']);
+        $objLogic->createTableOperator($objLogic->arrayData['operator']);
+        $objLogic->generateTableOperator($objLogic->arrayData['operator']);
         $arrayResponse = [
             'table' => $objLogic->getTableTrueTable(),
             'tableOperator' => $objLogic->getTableOperator(),
@@ -30,7 +30,7 @@ switch ($objUtil->arrayData['button']) {
         break;
 }
 
-$objUtil->response($arrayResponse);
+$objLogic->response($arrayResponse);
 
 
 

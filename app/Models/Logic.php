@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Logic
+use App\Config\App;
+
+class Logic extends App
 {
     private $n;
     private $m;
@@ -16,7 +18,20 @@ class Logic
     private $symbols; 
 
 
-    public function __construct($arrayData) 
+    public function __construct() 
+    {
+        parent::__construct();
+
+        $this->arrayBinary = [];
+        $this->arrayOperator = [];
+        $this->arrayStack = [];
+        $this->tableTrueTable = "";
+        $this->tableOperator = "";
+        $this->tableExpression = "";
+    }
+
+
+    public function setConfig(array $arrayData): void
     {
         $this->symbol = $arrayData['symbol'];
 
@@ -44,13 +59,6 @@ class Logic
             $this->n = $arrayData['n'];
             $this->m = pow(2, $this->n);
         }
-
-        $this->arrayBinary = [];
-        $this->arrayOperator = [];
-        $this->arrayStack = [];
-        $this->tableTrueTable = "";
-        $this->tableOperator = "";
-        $this->tableExpression = "";
 
         $this->createTrueTable();
         $this->generateTrueTable();
