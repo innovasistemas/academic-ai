@@ -1,10 +1,10 @@
 
 const arrayLinks = [
-    '../middlewares/binary.php', 
-    '../middlewares/numerical-systems.php',
-    '../middlewares/algebra.php',
-    '../middlewares/files.php',
-    '../middlewares/questions.php'
+    '../Controllers/binary.php', 
+    '../Controllers/numerical-systems.php',
+    '../Controllers/algebra.php',
+    '../Controllers/files.php',
+    '../Controllers/questions.php'
 ];
 
 let arraySlider = [

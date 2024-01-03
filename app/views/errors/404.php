@@ -1,14 +1,19 @@
-<?php include "../../Config/Config.php" ?>
-<?php include "../template/header.php" ?>
+<?php 
+require_once "../../../vendor/autoload.php";
+use App\Config\App;
+$objApp = new App();
+?>
+
+<?php include "../template/header.php"; ?>
 
 <link type="image/png" rel="shortcut icon" href="../../../favicon.png" />
 <link type="text/css" rel="stylesheet" href="../../../assets/css/customize.css" />
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #2a5d84 !important;">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="<?= $config['url']['name'] ?>" title="<?= $config['global']['title'] ?>">
-                <img src="../../../favicon.png" height="40" width="40" alt="<?= $config['global']['title'] ?>" />
-                <?= $config['global']['title'] ?>
+            <a class="navbar-brand text-white" href="<?= $objApp->baseURL; ?>" title="<?= $objApp->appTitle; ?>">
+                <img src="../../../favicon.png" height="40" width="40" alt="<?= $objApp->appTitle; ?>" />
+                <?= $objApp->appTitle; ?>
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +51,7 @@
             </div>
             <div class="col-12">
                 <br>
-                <a class="btn btn-primary" href="<?= $config['url']['name'] ?>" title="<?= $config['global']['title'] ?>">
+                <a class="btn btn-primary" href="<?= $objApp->baseURL; ?>" title="<?= $objApp->appTitle; ?>">
                     Regresar
                 </a>
             </div>
@@ -57,4 +62,4 @@
     <br>
     <br>
 
-    <?php include "../template/footer.php" ?>
+    <?php include "../template/footer.php"; ?>

@@ -3,7 +3,7 @@
 namespace App\Config;
 
 
-abstract class App
+class App
 {
     /**
      * Título aplicación
