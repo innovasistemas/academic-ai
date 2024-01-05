@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/maths.png" height="40" width="40" alt="Academic AI" />
+                    <img src="../../public/assets/images/maths.png" height="40" width="40" alt="Academic AI" />
                     Aplicaciones
                 </h1> 
                 <hr>
@@ -84,14 +84,14 @@
 
     <?php include "template/footer.php" ?>
 
-        <script src="../../assets/js/models/arrays-model.js"></script>
-        <script src="../../assets/js/models/numerics-model.js"></script>
-        <script src="../../assets/js/models/sets-model.js"></script>
+        <script src="../../public/assets/js/models/arrays-model.js"></script>
+        <script src="../../public/assets/js/models/numerics-model.js"></script>
+        <script src="../../public/assets/js/models/sets-model.js"></script>
         
-        <script src="../../assets/js/controllers/numerics-controller.js"></script>
-        <script src="../../assets/js/controllers/logic-controller.js"></script>
-        <script src="../../assets/js/controllers/sets-controllers.js"></script>
-        <script src="../../assets/js/controllers/matrix-controller.js"></script> 
+        <script src="../../public/assets/js/controllers/numerics-controller.js"></script>
+        <script src="../../public/assets/js/controllers/logic-controller.js"></script>
+        <script src="../../public/assets/js/controllers/sets-controllers.js"></script>
+        <script src="../../public/assets/js/controllers/matrix-controller.js"></script> 
 
         <script>
             let objArray = new Arrays();

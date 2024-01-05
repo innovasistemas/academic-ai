@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <hr>
                     <h1 class="h1">
-                        <img src="../../favicon.png" height="40" width="40" alt="Academic AI" />
+                        <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI" />
                         Bienvenido a Academic AI
                     </h1> 
                     <hr>
@@ -22,7 +22,7 @@
                             <div class="card-header">
                                 &nbsp
                                 <a href="mathematical-applications.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Aplicaciones">
-                                    <img src="../../assets/images/maths.png" alt="aplicaciones matemáticas" height="70" width="70" />
+                                    <img src="../../public/assets/images/maths.png" alt="aplicaciones matemáticas" height="70" width="70" />
                                 </a>
                             </div>
                             <div class="card-body">
@@ -42,7 +42,7 @@
                             <div class="card-header">
                                 &nbsp
                                 <a href="questions.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Preguntas">
-                                    <img src="../../assets/images/question.png" alt="preguntas" height="70" width="70" />
+                                    <img src="../../public/assets/images/question.png" alt="preguntas" height="70" width="70" />
                                 </a>
                             </div>
                             <div class="card-body">
@@ -62,7 +62,7 @@
                             <div class="card-header">
                                 &nbsp
                                 <a href="documents.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Documentos">
-                                    <img src="../../assets/images/pdf-icon.png" alt="documentos informática y matemáticas" height="70" width="70" />
+                                    <img src="../../public/assets/images/pdf-icon.png" alt="documentos informática y matemáticas" height="70" width="70" />
                                 </a>
                             </div>
                             <div class="card-body">
@@ -82,7 +82,7 @@
                             <div class="card-header">
                                 &nbsp
                                 <a href="examples.php" data-bs-toggle="tooltip" data-bs-placement="right" title="Ejemplos">
-                                    <img src="../../assets/images/programming-icon.png" alt="ejemplos programación" height="70" width="70" />
+                                    <img src="../../public/assets/images/programming-icon.png" alt="ejemplos programación" height="70" width="70" />
                                 </a>
                             </div>
                             <div class="card-body">

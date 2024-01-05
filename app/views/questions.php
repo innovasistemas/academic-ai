@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/question.png" height="40" width="40" alt="Academic AI" />
+                    <img src="../../public/assets/images/question.png" height="40" width="40" alt="Academic AI" />
                     Preguntas 
                     <small>(Responde y aprende)</small>
                 </h1>
@@ -207,4 +207,4 @@
 
     <?php include "template/footer.php" ?>
 
-        <script src="../../assets/js/controllers/questions-controller.js"></script>
+        <script src="../../public/assets/js/controllers/questions-controller.js"></script>

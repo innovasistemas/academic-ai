@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../favicon.png" height="40" width="40" alt="Academic AI" />
+                    <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI" />
                     Acerca de Academic AI
                 </h1> 
                 <hr>

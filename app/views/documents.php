@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../assets/images/pdf-icon.png" height="40" width="40" alt="Academic AI" />
+                    <img src="../../public/assets/images/pdf-icon.png" height="40" width="40" alt="Academic AI" />
                     Documentos
                 </h1> 
                 <hr>
@@ -66,8 +66,8 @@
                         } 
                         table += `
                             <td>
-                                <a href="../../assets/docs/${element}" target="_blank">
-                                    <img src="../../assets/images/pdf-icon.png" height="25" width="15" alt="${element}" />
+                                <a href="../../public/assets/docs/${element}" target="_blank">
+                                    <img src="../../public/assets/images/pdf-icon.png" height="25" width="15" alt="${element}" />
                                     ${element}
                                 </a>
                             </td>

@@ -8,9 +8,9 @@ const arrayLinks = [
 ];
 
 let arraySlider = [
-    '../assets/images/banner_header11.jpg',
-    '../assets/images/banner_header2.jpg',
-    '../assets/images/banner_header3.jpg'
+    '../public/assets/images/banner_header11.jpg',
+    '../public/assets/images/banner_header2.jpg',
+    '../public/assets/images/banner_header3.jpg'
 ];
 
 

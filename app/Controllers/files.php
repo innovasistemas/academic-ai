@@ -9,7 +9,7 @@ $arrayResponse = [];
 
 switch ($objFile->arrayData['button']) {
     case 'list':
-        $dir =  "{$objFile->baseRoot}/assets/docs/";
+        $dir =  "{$objFile->baseRoot}/public/assets/docs/";
 
         // Pendiente implementar
         // $r1 = "$urlBase/app/Views/template/header.php";
@@ -24,7 +24,7 @@ switch ($objFile->arrayData['button']) {
 
         break;
     case 'list-program':
-        $dir = "{$objFile->baseRoot}/assets/examples/";
+        $dir = "{$objFile->baseRoot}/public/assets/examples/";
         break;
 }
 
