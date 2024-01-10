@@ -47,6 +47,12 @@ class Connection extends Database
     }
 
 
+    public function getLink(): object
+    {
+        return $this->link;
+    }
+
+
     public function getError(): int
     {
         return $this->error;

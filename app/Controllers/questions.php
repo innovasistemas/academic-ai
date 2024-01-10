@@ -4,12 +4,10 @@ namespace App\Controllers;
 require_once "../../vendor/autoload.php";
 
 use App\Config\App;
-use App\Classes\Connection;
 use App\Models\Questions as QuestionsModel;
 
 class Questions extends App
 {
-    private object $objConnection;
     private object $objQuestion;
     private array $arrayResponse = [];
 
@@ -17,11 +15,10 @@ class Questions extends App
     {
         parent::__construct();
 
-        $this->objConnection = new Connection();
         $this->objQuestion = new QuestionsModel();
         $this->fetchArrayData();
 
-        if ($this->objConnection->getError() == 0) {
+        if ($this->objQuestion->objConnection->getError() == 0) {
             switch ($this->arrayData['button']) {
                 case 'list-subject':
                     $this->listSubject();
@@ -43,7 +40,8 @@ class Questions extends App
                     break;
             }
         } else {
-            $this->arrayResponse['message'] = $this->objConnection->getMessage();
+            $this->arrayResponse['message'] = 
+                $this->objQuestion->objConnection->getMessage();
             $this->arrayResponse['found'] = 0;
         }
 
@@ -53,10 +51,7 @@ class Questions extends App
 
     public function listSubject(): void
     {
-        $objResult = $this->objConnection->query("
-            SELECT * 
-            FROM {$this->arrayData['identity']}
-        ");
+        $objResult = $this->objQuestion->listTable($this->arrayData['identity']);
         $i = 0;
         $arraySubject = [];
         while ($row = $objResult->fetch_array()) {
@@ -72,10 +67,7 @@ class Questions extends App
             $this->arrayResponse['found'] = 0;
         }
 
-        $objResult = $this->objConnection->query("
-            SELECT * 
-            FROM theme
-        ");
+        $objResult = $this->objQuestion->listTable('theme');
         $i = 0;
         $arrayTheme = [];
         while ($row = $objResult->fetch_array()) {
@@ -96,11 +88,8 @@ class Questions extends App
 
     public function searchUser(): void
     {
-        $objResult = $this->objConnection->query("
-            SELECT * 
-            FROM {$this->arrayData['identity']}
-            WHERE code = \"{$this->arrayData['code']}\"
-        ");
+        $objResult = $this->objQuestion->searchDatum(
+            $this->arrayData['identity'], 'code', $this->arrayData['code']);
         $i = 0;
         $arrayUser = [];
         while ($row = $objResult->fetch_array()) {
@@ -122,14 +111,8 @@ class Questions extends App
 
     public function questionSelectedUser(): void
     {
-        $objResult = $this->objConnection->query("
-            SELECT question_selected.id, subject.description AS subject_name, 
-                theme.description AS theme_name, questions
-            FROM question_selected 
-            INNER JOIN subject ON question_selected.subject_id = subject.id 
-            INNER JOIN theme ON question_selected.theme_id = theme.id 
-            WHERE user_id = \"{$this->arrayData['userId']}\"
-        ");
+        $objResult = $this->objQuestion->questionSelectedUser(
+            $this->arrayData['userId']);
         $i = 0;
         $arrayQuestionSelected = [];
         while ($row = $objResult->fetch_array()) {
@@ -151,13 +134,7 @@ class Questions extends App
 
     public function searchQuestionSelected(): void
     {
-        $objResult = $this->objConnection->query("
-            SELECT * 
-            FROM {$this->arrayData['identity']}
-            WHERE user_id = \"{$this->arrayData['userId']}\" AND
-                subject_id = \"{$this->arrayData['subjectId']}\" AND
-                theme_id = \"{$this->arrayData['themeId']}\"
-        ");
+        $objResult = $this->objQuestion->searchQuestionSelected($this->arrayData);
         $i = 0;
         $arrayQuestionSelected = [];
         while ($row = $objResult->fetch_array()) {
@@ -180,17 +157,7 @@ class Questions extends App
 
     public function insertQuestionSelected(): void
     {
-        $query = "
-            INSERT INTO {$this->arrayData['identity']}
-            (user_id, subject_id, theme_id, questions) 
-            VALUES(
-                \"{$this->arrayData['userId']}\", 
-                \"{$this->arrayData['subjectId']}\", 
-                \"{$this->arrayData['themeId']}\", 
-                \"{$this->arrayData['questions']}\"
-            )
-        ";
-        if ($this->objConnection->actionQuery($query)) {
+        if ($this->objQuestion->addQuestions($this->arrayData)) {
             $this->arrayResponse['message'] = 'Registro guardado correctamente';
             $this->arrayResponse['error'] = 0;
         } else {
