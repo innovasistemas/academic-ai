@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use App\Config\App;
-
-class Files extends App
+class Files
 {
     public function __construct() 
     {
-        parent::__construct();
+        
     }
 
 

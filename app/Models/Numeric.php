@@ -2,17 +2,13 @@
 
 namespace App\Models;
 
-use App\Config\App;
-
-class Numeric extends App
+class Numeric
 {
     private array $digitHex;
 
 
     public function __construct()
     {
-        parent::__construct();
-        
         $this->digitHex = [
             'A' => '10',
             'B' => '11',

@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Models;
 
-use App\Config\App;
-
-class Matrix extends App
+class Matrix
 {
     private $A;
     private $B;
@@ -21,8 +18,6 @@ class Matrix extends App
 
     public function __construct() 
     {
-        parent::__construct();
-        
         srand(time());
     }
 

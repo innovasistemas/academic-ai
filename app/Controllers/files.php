@@ -1,33 +1,53 @@
 <?php
+namespace App\Controllers;
+
 require_once "../../vendor/autoload.php";
 
-use App\Models\Files;
+use App\Config\App;
+use App\Models\Files as FilesModel;
 
-$objFile = new Files();
-$objFile->fetchArrayData();
-$arrayResponse = [];
+class Files extends App
+{
+    private object $objFile;
+    private array $arrayResponse = [];
 
-switch ($objFile->arrayData['button']) {
-    case 'list':
-        $dir =  "{$objFile->baseRoot}/public/assets/docs/";
+    public function __construct()
+    {
+        parent::__construct();
 
-        // Pendiente implementar
-        // $r1 = "$urlBase/app/Views/template/header.php";
-        // $r2 = "$urlBase/app/Views/template/menu.php";
-        // $r3 = "$urlBase/app/Views/template/footer.php";
-        // $name = $objFile->loadView($r1, $r2, $r3);
-        // header("Location: ../Views/temp/$name", TRUE, 307);
-        // exit();
-        // $arrayResponse = [
-        //     'view' => $name
-        // ];
+        $this->objFile = new FilesModel();
+        $this->fetchArrayData();
 
-        break;
-    case 'list-program':
-        $dir = "{$objFile->baseRoot}/public/assets/examples/";
-        break;
+        switch ($this->arrayData['button']) {
+            case 'list':
+                $this->listFiles("{$this->baseRoot}/public/assets/docs/");
+        
+                // Pendiente implementar
+                // $r1 = "$urlBase/app/Views/template/header.php";
+                // $r2 = "$urlBase/app/Views/template/menu.php";
+                // $r3 = "$urlBase/app/Views/template/footer.php";
+                // $name = $this->objFile->loadView($r1, $r2, $r3);
+                // header("Location: ../Views/temp/$name", TRUE, 307);
+                // exit();
+                // $arrayResponse = [
+                //     'view' => $name
+                // ];
+        
+                break;
+            case 'list-program':
+                $this->listFiles("{$this->baseRoot}/public/assets/examples/");
+                break;
+        }
+
+        $this->response($this->arrayResponse);
+    }
+
+
+    public function listFiles(string $dir): void
+    {
+        $this->arrayResponse['listFiles'] = $this->objFile->listFiles($dir);
+    }
 }
 
-$arrayResponse['listFiles'] = $objFile->listFiles($dir);
 
-$objFile->response($arrayResponse);
+$objController = new Files();

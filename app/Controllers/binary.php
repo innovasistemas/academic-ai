@@ -1,37 +1,72 @@
 <?php
+namespace App\Controllers;
+
 require_once "../../vendor/autoload.php";
 
+use App\Config\App;
 use App\Models\Logic;
 
-$objLogic = new Logic();
-$objLogic->fetchArrayData();
-$objLogic->setConfig($objLogic->arrayData);
-$arrayResponse = [];
+class Binary extends App
+{
+    private object $objLogic;
+    private array $arrayResponse = [];
 
-switch ($objLogic->arrayData['button']) {
-    case 'operators':
-        $objLogic->createTableOperator($objLogic->arrayData['operator']);
-        $objLogic->generateTableOperator($objLogic->arrayData['operator']);
-        $arrayResponse = [
-            'table' => $objLogic->getTableTrueTable(),
-            'tableOperator' => $objLogic->getTableOperator(),
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->objLogic = new Logic();
+        $this->fetchArrayData();
+        $this->objLogic->setConfig($this->arrayData);
+
+        switch ($this->arrayData['button']) {
+            case 'operators':
+                $this->operators();
+                break;
+            case 'true-table':
+                $this->trueTable();
+                break;
+            case 'equal':
+                $this->equal();
+                break;
+            case 'calc-symbol':
+                $this->calcSymbol();
+                break;
+        }
+        $this->response($this->arrayResponse);
+    }
+
+
+    public function operators(): void
+    {
+        $this->objLogic->createTableOperator($this->arrayData['operator']);
+        $this->objLogic->generateTableOperator($this->arrayData['operator']);
+        $this->arrayResponse = [
+            'table' => $this->objLogic->getTableTrueTable(),
+            'tableOperator' => $this->objLogic->getTableOperator(),
         ];
-        break;
-    case 'true-table':
-        $arrayResponse = [
-            'table' => $objLogic->getTableTrueTable(),
+    }
+    
+
+    public function trueTable(): void
+    {
+        $this->arrayResponse = [
+            'table' => $this->objLogic->getTableTrueTable(),
         ];
-        break;
-    case 'equal':
-        $arrayResponse = ['resultExpression' => 0];
-        break;
-    case 'calc-symbol':
-        $arrayResponse = ['symbols' => $objLogic->getSymbols()];
-        break;
+    }
+
+
+    public function equal(): void
+    {
+        $this->arrayResponse = ['resultExpression' => 0];
+    }
+
+
+    public function calcSymbol(): void
+    {
+        $this->arrayResponse = ['symbols' => $this->objLogic->getSymbols()];
+    }
 }
 
-$objLogic->response($arrayResponse);
 
-
-
-
+$objController = new Binary();

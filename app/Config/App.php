@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Config;
 
 
@@ -44,7 +43,7 @@ class App
     /**
      * Arreglo de datos para las interfaces de usuario
      */
-    public array $arrayData;
+    public array $arrayData = [];
 
 
     /**

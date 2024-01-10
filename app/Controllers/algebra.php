@@ -1,68 +1,113 @@
 <?php
+namespace App\Controllers;
+
 require_once "../../vendor/autoload.php";
 
+use App\Config\App;
 use App\Models\Matrix;
 
-$objMatrix = new Matrix();
-$objMatrix->fetchArrayData();
 
-switch ($objMatrix->arrayData['button']) {
-    case 'matrix-operation':
-        $objMatrix->createMatrix('A', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
-        $arrayResponse['matrixA'] = $objMatrix->showMatrix('A');
+class Algebra extends App
+{
+    private object $objMatrix;
+    private array $arrayResponse = [];
 
-        $objMatrix->createMatrix('B', $objMatrix->arrayData['p'], $objMatrix->arrayData['q']);
-        $arrayResponse['matrixB'] = $objMatrix->showMatrix('B');
 
-        $objMatrix->matrixEmpty('C', $objMatrix->arrayData['m'], $objMatrix->arrayData['n'], 0);
-        $arrayResponse['matrixSum'] = $objMatrix->sumMatrix() == 0 ?
-            $objMatrix->showMatrix('C') : "<br>No se pueden sumar las matrices";
-
-        $arrayResponse['scalar'] = 
-            $objMatrix->showMatrix('A', $objMatrix->arrayData['scalar']);
+    public function __construct()
+    {
+        parent::__construct();
         
-        $objMatrix->matrixEmpty('C', $objMatrix->arrayData['m'], $objMatrix->arrayData['q'], 0);
-        $arrayResponse['matrixProduct'] = $objMatrix->productMatrix() == 0 ?
-            $objMatrix->showMatrix('C') : 
-            "<br>No se pueden multiplicar las matrices";    
+        $this->objMatrix = new Matrix();
+        $this->fetchArrayData();
+
+        switch ($this->arrayData['button']) {
+            case 'matrix-operation':
+                $this->matrixOperation();
+                break;
+        }
+
+        $this->response($this->arrayResponse);
+    }
+
+
+    public function matrixOperation(): void
+    {
+        $this->objMatrix->createMatrix(
+            'A', $this->arrayData['m'], $this->arrayData['n']
+        );
+        $this->arrayResponse['matrixA'] = $this->objMatrix->showMatrix('A');
+
+        $this->objMatrix->createMatrix(
+            'B', $this->arrayData['p'], $this->arrayData['q']
+        );
+        $this->arrayResponse['matrixB'] = $this->objMatrix->showMatrix('B');
+
+        $this->objMatrix->matrixEmpty(
+            'C', $this->arrayData['m'], $this->arrayData['n'], 0
+        );
+        $this->arrayResponse['matrixSum'] = $this->objMatrix->sumMatrix() == 0 ?
+            $this->objMatrix->showMatrix('C') : 
+            "<br>No se pueden sumar las matrices";
+
+        $this->arrayResponse['scalar'] = 
+            $this->objMatrix->showMatrix('A', $this->arrayData['scalar']);
+        
+        $this->objMatrix->matrixEmpty(
+            'C', $this->arrayData['m'], $this->arrayData['q'], 0
+        );
+        $this->arrayResponse['matrixProduct'] = 
+            $this->objMatrix->productMatrix() == 0 ? 
+            $this->objMatrix->showMatrix('C') : 
+            "<br>No se pueden multiplicar las matrices";
             
-        $objMatrix->transposed('A');
-        $arrayResponse['transposed'] = $objMatrix->showMatrix('T');
+        $this->objMatrix->transposed('A');
+        $this->arrayResponse['transposed'] = $this->objMatrix->showMatrix('T');
 
         $arrayResponse['determinant'] = '-';
         $arrayResponse['upperTriangular'] = '-';
         $arrayResponse['upperTriangle'] = '-';
         $arrayResponse['diagonals'] = '-';
-        if ($objMatrix->arrayData['m'] == $objMatrix->arrayData['n']) {
-            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
-            $objMatrix->diagonal();
-            $objMatrix->diagonalSecondary();
-            $arrayResponse['diagonals'] = $objMatrix->showMatrix('matrixArea');
+        if ($this->arrayData['m'] == $this->arrayData['n']) {
+            $this->objMatrix->matrixEmpty(
+                'matrixArea', $this->arrayData['m'], $this->arrayData['n']);
+            $this->objMatrix->diagonal();
+            $this->objMatrix->diagonalSecondary();
+            $this->arrayResponse['diagonals'] = 
+                $this->objMatrix->showMatrix('matrixArea');
 
-            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
-            $objMatrix->upperTriangular();
-            $arrayResponse['upperTriangular'] = $objMatrix->showMatrix('matrixArea');
+            $this->objMatrix->matrixEmpty(
+                'matrixArea', $this->arrayData['m'], $this->arrayData['n']);
+            $this->objMatrix->upperTriangular();
+            $this->arrayResponse['upperTriangular'] = 
+                $this->objMatrix->showMatrix('matrixArea');
             
-            $objMatrix->matrixEmpty('matrixArea', $objMatrix->arrayData['m'], $objMatrix->arrayData['n']);
-            $objMatrix->upperTriangle();
-            $arrayResponse['upperTriangle'] = $objMatrix->showMatrix('matrixArea');
+            $this->objMatrix->matrixEmpty(
+                'matrixArea', $this->arrayData['m'], $this->arrayData['n']);
+            $this->objMatrix->upperTriangle();
+            $this->arrayResponse['upperTriangle'] = 
+                $this->objMatrix->showMatrix('matrixArea');
             
-            switch ($objMatrix->arrayData['m']) {
+            switch ($this->arrayData['m']) {
                 case 1: 
-                    $arrayResponse['determinant'] = $objMatrix->getMatrix('A');
+                    $this->arrayResponse['determinant'] = 
+                        $this->objMatrix->getMatrix('A');
                     break;
                 case 2: 
-                    $arrayResponse['determinant'] = $objMatrix->determinant2x2('A');
+                    $this->arrayResponse['determinant'] = 
+                        $this->objMatrix->determinant2x2('A');
                     break;
                 case 3: 
-                    $arrayResponse['determinant'] = $objMatrix->determinant3x3('A');
+                    $this->arrayResponse['determinant'] = 
+                        $this->objMatrix->determinant3x3('A');
                     break;
             } 
         }
-        break;
+    }
 }
 
-$objMatrix->response($arrayResponse);
+
+$objController = new Algebra();
+
 
 
 

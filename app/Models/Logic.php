@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use App\Config\App;
-
-class Logic extends App
+class Logic
 {
     private $n;
     private $m;
@@ -20,8 +18,6 @@ class Logic extends App
 
     public function __construct() 
     {
-        parent::__construct();
-
         $this->arrayBinary = [];
         $this->arrayOperator = [];
         $this->arrayStack = [];

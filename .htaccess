@@ -5,3 +5,9 @@ Options -Indexes
 # Error página no encontrada: error 404
 ErrorDocument 404 http://localhost/academic-ai/app/Views/errors/404.php
 
+
+# RewriteEngine On
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php/$1 [L]
+
