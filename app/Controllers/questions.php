@@ -4,6 +4,7 @@ namespace App\Controllers;
 require_once "../../vendor/autoload.php";
 
 use App\Config\App;
+use App\Classes\Validation;
 use App\Models\Questions as QuestionsModel;
 
 class Questions extends App
@@ -18,10 +19,10 @@ class Questions extends App
         $this->objQuestion = new QuestionsModel();
         $this->fetchArrayData();
 
-        if ($this->objQuestion->objConnection->getError() == 0) {
+        if ($this->objQuestion->db->getError() == 0) {
             switch ($this->arrayData['button']) {
-                case 'list-subject':
-                    $this->listSubject();
+                case 'list-loading':
+                    $this->listLoading();
                     break;
                 case 'search-user':
                     $this->searchUser();
@@ -41,7 +42,7 @@ class Questions extends App
             }
         } else {
             $this->arrayResponse['message'] = 
-                $this->objQuestion->objConnection->getMessage();
+                $this->objQuestion->db->getMessage();
             $this->arrayResponse['found'] = 0;
         }
 
@@ -49,39 +50,23 @@ class Questions extends App
     }
 
 
-    public function listSubject(): void
+    public function listLoading(): void
     {
-        $objResult = $this->objQuestion->listTable($this->arrayData['identity']);
-        $i = 0;
-        $arraySubject = [];
-        while ($row = $objResult->fetch_array()) {
-            $arraySubject[$i]['id'] = $row['id'];
-            $arraySubject[$i]['description'] = $row['description'];
-            $i++;
-        }
-        if ($arraySubject != []) {
-            $this->arrayResponse['arraySubject'] = $arraySubject;
-            $this->arrayResponse['found'] = 1;
-        } else {
-            $this->arrayResponse['arraySubject'] = 'No hay asignaturas';
-            $this->arrayResponse['found'] = 0;
-        }
-
-        $objResult = $this->objQuestion->listTable('theme');
-        $i = 0;
-        $arrayTheme = [];
-        while ($row = $objResult->fetch_array()) {
-            $arrayTheme[$i]['id'] = $row['id'];
-            $arrayTheme[$i]['description'] = $row['description'];
-            $i++;
-        }
-
-        if ($arrayTheme != []) {
-            $this->arrayResponse['arrayTheme'] = $arrayTheme;
-            $this->arrayResponse['foundTheme'] = 1;
-        } else {
-            $this->arrayResponse['arrayTheme'] = 'No hay temas';
-            $this->arrayResponse['foundTheme'] = 0;
+        foreach ($this->arrayData['entity'] as $value) {
+            $objResult = $this->objQuestion->listTable($value);
+            $i = 0;
+            $arrayEntity = [];
+            while ($row = $objResult->fetch_array()) {
+                $arrayEntity[$i]['id'] = $row['id'];
+                $arrayEntity[$i]['description'] = $row['description'];
+                $i++;
+            }
+            if ($arrayEntity != []) {
+                $this->arrayResponse["array$value"] = $arrayEntity;
+            } else {
+                $this->arrayResponse["array$value"] = 'No hay asignaturas';
+            }
+            $this->arrayResponse["found$value"] = $objResult->num_rows;
         }
     }
 
@@ -101,11 +86,10 @@ class Questions extends App
         }
         if ($arrayUser != []) {
             $this->arrayResponse['arrayUser'] = $arrayUser;
-            $this->arrayResponse['found'] = 1;
         } else {
             $this->arrayResponse['message'] = 'Usuario no registrado';
-            $this->arrayResponse['found'] = 0;
         }
+        $this->arrayResponse['found'] = $objResult->num_rows;
     }
 
 
@@ -124,34 +108,23 @@ class Questions extends App
         }
         if ($arrayQuestionSelected != []) {
             $this->arrayResponse['arrayQuestionSelected'] = $arrayQuestionSelected;
-            $this->arrayResponse['found'] = 1;
         } else {
             $this->arrayResponse['message'] = 'No ha registrado preguntas';
-            $this->arrayResponse['found'] = 0;
         }
+        $this->arrayResponse['found'] = $objResult->num_rows;
     }
 
 
     public function searchQuestionSelected(): void
     {
         $objResult = $this->objQuestion->searchQuestionSelected($this->arrayData);
-        $i = 0;
-        $arrayQuestionSelected = [];
-        while ($row = $objResult->fetch_array()) {
-            $arrayQuestionSelected[$i]['id'] = $row['id'];
-            $arrayQuestionSelected[$i]['userId'] = $row['user_id'];
-            $arrayQuestionSelected[$i]['subjectId'] = $row['subject_id'];
-            $arrayQuestionSelected[$i]['questions'] = $row['questions'];
-            $i++;
-        }
-        if ($arrayQuestionSelected != []) {
+        if ($objResult->num_rows > 0) {
             $this->arrayResponse['message'] = '
                 Ya registró las preguntas para esta asignatura y este tema';
-            $this->arrayResponse['found'] = 1;
         } else {
             $this->arrayResponse['message'] = 'Preguntas no registradas';
-            $this->arrayResponse['found'] = 0;
         }
+        $this->arrayResponse['found'] = $objResult->num_rows;
     }
 
 

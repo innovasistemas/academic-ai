@@ -4,30 +4,30 @@ namespace App\Models;
 
 require_once "../../vendor/autoload.php";
 
-use App\Classes\Connection;
+use App\Classes\QueryBuilder;
 
 class Questions
 {
-    public object $objConnection;
+    public object $db;
 
     public function __construct() 
     {
-        $this->objConnection = new Connection();
+        $this->db = new QueryBuilder();
     }
 
 
     public function listTable(string $entity): object
     {
-        return $this->objConnection->query("
-            SELECT * 
-            FROM {$entity}
-        ");
+        return $this->db->get($entity);
     }
 
 
     public function searchDatum(string $entity, string $field, string $datum): object
     {
-        return $this->objConnection->query("
+        // $this->db->select(['*']);
+        // $this->db->from([$entity]);
+        // $this->db->where($field, $datum);
+        return $this->db->query("
             SELECT * 
             FROM {$entity}
             WHERE {$field} = \"{$datum}\"
@@ -37,7 +37,7 @@ class Questions
 
     public function questionSelectedUser(string $user): object
     {
-        return $this->objConnection->query("
+        return $this->db->query("
             SELECT question_selected.id, subject.description AS subject_name, 
                 theme.description AS theme_name, questions
             FROM question_selected 
@@ -51,7 +51,7 @@ class Questions
 
     public function searchQuestionSelected(array $arrayData): object
     {
-        return $this->objConnection->query("
+        return $this->db->query("
             SELECT * 
             FROM {$arrayData['identity']}
             WHERE user_id = \"{$arrayData['userId']}\" AND
@@ -73,7 +73,7 @@ class Questions
                 \"{$arrayData['questions']}\"
             )
         ";
-        return $this->objConnection->actionQuery($query);
+        return $this->db->query($query);
     }
 
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Classes;
 
 use App\Config\Database;
@@ -8,7 +7,7 @@ use mysqli;
 
 class Connection extends Database
 {
-    private object $link;
+    protected object $link;
     private int $error;
     private string $message;
 
@@ -62,17 +61,5 @@ class Connection extends Database
     public function getMessage(): string
     {
         return $this->message;
-    }
-
-
-    public function query(string $query): object
-    {
-        return $this->link->query($query);
-    }
-
-
-    public function actionQuery(string $query): bool
-    {
-        return $this->link->query($query);
     }
 }

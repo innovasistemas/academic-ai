@@ -34,8 +34,8 @@ txtQuestionsSelect.addEventListener('change', () => {
 
 onload = (event) => {
     let objJson = {
-        identity: 'subject', 
-        button: 'list-subject'
+        entity: ['Subject', 'Theme'], 
+        button: 'list-loading'
     }; 
     let params = {
         headers: {"Content-Type": "application/json; charset=utf-8"},
@@ -47,7 +47,7 @@ onload = (event) => {
         .then(data => {return data.json()})
         .then(response => {
             let optionSelect = "<option value='-1'>Seleccione...</option>";
-            if (response.found !== 0) {
+            if (response.foundSubject !== 0) {
                 response.arraySubject.forEach((element) => {
                     optionSelect += `<option value="${element.id}">${element.description}</option>`;
                 });
@@ -185,6 +185,9 @@ function searchQuestionSelected()
                     table += '</tr>';
                 });
                 table += '</tbody>';
+                table += '<caption>';
+                table += `Total registros: ${response.found}`;
+                table += '</caption>';
                 table += '</table>';
                 table += '</div>';
                 divQuestionsSelectedContent.innerHTML = table;
