@@ -2,7 +2,7 @@
 namespace App\Classes;
 
 use App\Classes\Connection;
-use mysqli;
+// use mysqli;
 
 
 class QueryBuilder extends Connection
@@ -46,6 +46,11 @@ class QueryBuilder extends Connection
 
     public function where($field, $datum, $operator = '='): void
     {
-        $this->strWhere .= " {$field} {$operator} '{$datum}'";
+        if (strlen($this->strWhere) == 0) {
+            $this->strWhere .= " {$field} {$operator} '{$datum}'";
+        } else {
+            $this->strWhere .= " AND {$field} {$operator} '{$datum}'";
+        }
+        // echo $this->strWhere;
     }
 }

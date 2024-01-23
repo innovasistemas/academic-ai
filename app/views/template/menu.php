@@ -32,6 +32,10 @@
                     <input class="form-control me-1" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-info" type="submit" title="Buscar" data-bs-toggle="tooltip" data-bs-placement="bottom">Buscar</button>
                 </form>
+                &nbsp;
+                <a class="text-white" href="#">Es</a>
+                &nbsp;
+                <a class="text-white" href="../Classes/Translation.php">En</a>
             </div>
         </div>
     </nav>
