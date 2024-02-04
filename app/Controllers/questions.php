@@ -41,9 +41,8 @@ class Questions extends App
                     break;
             }
         } else {
-            $this->arrayResponse['message'] = 
-                $this->objQuestion->db->getMessage();
-            $this->arrayResponse['found'] = 0;
+            $this->arrayResponse['message'] = $this->objQuestion->db->getMessage();
+            $this->arrayResponse['found'] = $this->objQuestion->db->getError();
         }
 
         $this->response($this->arrayResponse);
@@ -53,7 +52,7 @@ class Questions extends App
     public function listLoading(): void
     {
         foreach ($this->arrayData['entity'] as $value) {
-            $objResult = $this->objQuestion->listTable($value);
+            $objResult = $this->objQuestion->listTable(strtolower($value));
             $i = 0;
             $arrayEntity = [];
             while ($row = $objResult->fetch_array()) {
