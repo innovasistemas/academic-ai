@@ -10,7 +10,6 @@ use App\Models\Matrix;
 class Algebra extends App
 {
     private object $objMatrix;
-    private array $arrayResponse = [];
 
 
     public function __construct()

@@ -1,2 +1,2 @@
 <?php
-header("Location: app/views/");
+header("Location: app/Views/");

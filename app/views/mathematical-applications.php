@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="h2">Bienvenido a las aplicaciones en ciencias</h2>
+                    <h2 class="h2">Aplicaciones en ciencias</h2>
                 </div>
             </div>
             <div class="row">
@@ -58,6 +58,9 @@
                     <li>
                         <a href="#!" class="link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
                     </li>
+                    <li>
+                        <a href="#!" class="link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía">Criptografía</a>
+                    </li>
                 </ul>
             </div>
         
@@ -76,6 +79,9 @@
                 
                 <!-- Álgebra lineal -->
                 <?php include "operations/algebra.php" ?>
+
+                <!-- Criptografía -->
+                <?php include "operations/cryptography.php" ?>
             </div>
         </div>
 
@@ -92,6 +98,7 @@
         <script src="../../public/assets/js/controllers/logic-controller.js"></script>
         <script src="../../public/assets/js/controllers/sets-controllers.js"></script>
         <script src="../../public/assets/js/controllers/matrix-controller.js"></script> 
+        <script src="../../public/assets/js/controllers/cryptography-controller.js"></script> 
 
         <script>
             let objArray = new Arrays();
