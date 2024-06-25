@@ -10,7 +10,6 @@ use App\Models\Questions as QuestionsModel;
 class Questions extends App
 {
     private object $objQuestion;
-    private array $arrayResponse = [];
 
     public function __construct() 
     {

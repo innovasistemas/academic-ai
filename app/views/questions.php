@@ -99,6 +99,7 @@
                                 </div>
 
                                 <div class="row">&nbsp;</div>
+                                <hr>
 
                                 <div id="div-data-question" class="d-none">
                                     <div class="row">
@@ -123,6 +124,7 @@
                                     </div>
                                     
                                     <div class="row">&nbsp;</div>
+                                    <hr>
 
                                     <div class="row">
                                         <div class="col-12">
@@ -137,7 +139,7 @@
                                         </div>
                                         <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <label for="txt-questions-select">Preguntas a seleccionar</label>
-                                            <input type="number" id="txt-questions-select" name="txt-questions-select" class="form-control select" value="2" min="1" readonly="">    
+                                            <input type="number" id="txt-questions-select" name="txt-questions-select" class="form-control select" value="2" min="1">    
                                         </div>
                                         <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                             <br>
@@ -151,6 +153,8 @@
                                             <div class="bg-dark text-white fw-bold" id="div-result2"></div>
                                         </div>
                                     </div>
+
+                                    <hr>
                                     
                                     <div class="row">
                                         <div class="col-12">

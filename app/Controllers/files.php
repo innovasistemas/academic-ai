@@ -9,7 +9,6 @@ use App\Models\Files as FilesModel;
 class Files extends App
 {
     private object $objFile;
-    private array $arrayResponse = [];
 
     public function __construct()
     {

@@ -9,7 +9,6 @@ use App\Models\Logic;
 class Binary extends App
 {
     private object $objLogic;
-    private array $arrayResponse = [];
 
     public function __construct()
     {

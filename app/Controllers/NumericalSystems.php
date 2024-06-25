@@ -12,7 +12,6 @@ use App\Models\ReturnMoney;
 
 class NumericalSystems extends App
 {
-    private array $arrayResponse = [];
     private string $stringOutput = '';
     private string $tableMatrix = '';
 

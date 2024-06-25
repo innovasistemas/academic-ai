@@ -13,7 +13,8 @@ class App
     /**
      * URL base del sitio
      */
-    public string $baseURL = 'http://localhost/academic-ai/';
+    public string $baseURL = 'http://localhost:81/academic-ai/';
+    // public string $baseURL = 'http://localhost/academic-ai/';
     // public string $baseURL = 'https://academic-ai.000webhostapp.com/';
 
 
@@ -21,6 +22,7 @@ class App
      * URL ruta proyecto
      */
     public string $baseRoot = 'C:/xampp/htdocs/academic-ai';
+    // public string $baseRoot = '/var/www/html/academic-ai';
     // public string $baseRoot = '/storage/ssd4/741/21241741/public_html/';
 
 
@@ -43,9 +45,10 @@ class App
 
 
     /**
-     * Arreglo de datos para las interfaces de usuario
+     * Arreglos de datos para las interfaces de usuario
      */
-    public array $arrayData = [];
+    protected array $arrayData = [];
+    protected array $arrayResponse = [];
 
 
     /**
