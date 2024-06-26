@@ -4,10 +4,12 @@ namespace App\Controllers;
 require_once "../../vendor/autoload.php";
 
 use App\Config\App;
+use Exception;
 
 class Cryptography extends App
 {
     private array $arrayHash;
+    private string $key;
 
     public function __construct()
     {
@@ -19,6 +21,11 @@ class Cryptography extends App
 
         switch ($this->arrayData['button']) {
             case 'encrypt':
+                $this->key = 
+                    mb_convert_encoding(
+                        $this->arrayData['keyEncrypt'],
+                        "UTF-8"
+                    );
                 $this->arrayHash = 
                     mb_convert_encoding(
                         $this->encrypt($this->arrayData['plainText']),
@@ -35,6 +42,11 @@ class Cryptography extends App
                 ];
                 break;
             case 'decrypt':
+                $this->key = 
+                    mb_convert_encoding(
+                        $this->arrayData['keyDecrypt'],
+                        "UTF-8"
+                    );
                 $strOut = "
                     <strong>Texto descifrado</strong>: 
                     <span class='text-primary'>
@@ -52,27 +64,28 @@ class Cryptography extends App
 
     public function encrypt(string $str): array
     {
-        $k = 0;
+        $n = 0; 
+        $constKey = (int)$this->key;
         for ($i = 0; $i < strlen($str); $i++) {
-            for ($j = 1; $j < 6; $j++) {
+            for ($j = 1; $j <= $constKey; $j++) {
                 do {
-                    $rand = rand(33, 126);
+                    $rand = rand(32, 126);
                 } while ($rand == 60);
-                $this->arrayHash[$k] = chr($rand);
-                $k++;
+                $this->arrayHash[$n] = chr($rand);
+                $n++;
             }
         }
         
-        $j = 5;
+        $j = (int)$this->key;
         for ($i = 0; $i < strlen($str); $i++) {
             if (ord($str[$i]) == 126) {
-                $char = chr(33);
+                $char = chr(32);
             } else {
                 $char = chr(ord($str[$i]) + 1);
             }
-            // $this->arrayHash[(int)((2 * $j - 5) / 2)] = $char;
-            $this->arrayHash[(int)((2 * $j - 5) / 2)] = "<b>{$char}</b>";
-            $j += 5;
+            $this->arrayHash[(int)((2 * $j - $constKey) / 2)] = 
+                "<b>{$char}</b>";
+            $j += $constKey;
         }
         return $this->arrayHash;
     }
@@ -91,13 +104,17 @@ class Cryptography extends App
     public function decrypt(string $str): string
     {
         $auxText = "";
-        for ($i = 0; $i < strlen($str); $i += 5) {
-            $auxText .= $str[(int)((2 * $i + 5) / 2)];
+        $constKey = (int)$this->key;
+        for ($i = 0; $i < strlen($str); $i += $constKey) {
+            $pos = (int)((2 * $i + $constKey) / 2);
+            if ($pos >= 0 && $pos <= strlen($str) - 1) {
+                $auxText .= $str[$pos];
+            }
         }
 
         $plainText = "";
         for ($i = 0; $i < strlen($auxText); $i++) {
-            if (ord($auxText[$i]) == 33) {
+            if (ord($auxText[$i]) == 32) {
                 $char = chr(126);
             } else {
                 $char = chr(ord($auxText[$i]) - 1);

@@ -21,7 +21,12 @@
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <label for="txt-plain-text">Texto plano</label>
-                                        <input type="text" id="txt-plain-text" name="txt-plain-text" class="form-control" value="">    
+                                        <!-- <input type="text" id="txt-plain-text" name="txt-plain-text" class="form-control" value="">     -->
+                                        <textarea id="txt-plain-text" name="txt-plain-text" class="form-control" value=""></textarea>    
+                                    </div>
+                                    <div class="col-xs-2 col-md-4 col-sm-4 form-group">
+                                        <label for="txt-key-encrypt">Clave</label>
+                                        <input type="text" id="txt-key-encrypt" name="txt-key-encrypt" class="form-control" value="">    
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
@@ -34,7 +39,12 @@
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <label for="txt-coded-text">Texto cifrado</label>
-                                        <input type="text" id="txt-coded-text" name="txt-coded-text" class="form-control" value="">    
+                                        <!-- <input type="text" id="txt-coded-text" name="txt-coded-text" class="form-control" value="">     -->
+                                        <textarea id="txt-coded-text" name="txt-coded-text" class="form-control" value=""></textarea>    
+                                    </div>
+                                    <div class="col-xs-2 col-md-4 col-sm-4 form-group">
+                                        <label for="txt-key-decrypt">Clave</label>
+                                        <input type="text" id="txt-key-decrypt" name="txt-key-decrypt" class="form-control" value="">    
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
@@ -45,7 +55,5 @@
                             <hr>
                             <div id="div-result-cryptography"></div>
                         </div>
-                        
-
                     </div>
                 </div>
