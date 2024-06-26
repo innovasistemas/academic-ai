@@ -18,20 +18,24 @@
                 <div class="col-12 table-responsive">
                     <table class="table table-hover table-light">
                         <tr>
+                            <th>Temática</th>
+                            <td>Académico - investigación</td>
+                        </tr>
+                        <tr>
+                            <th>Áreas</th>
+                            <td>Informática - Matemáticas - Física</td>
+                        </tr>
+                        <tr>
                             <th>Tipo de software</th>
-                            <td>Académico / investigación</td>
-                        </tr>
-                        <tr>
-                            <th>Entorno</th>
-                            <td>Página web / aplicación web / web responsive</td>
-                        </tr>
-                        <tr>
-                            <th>Temáticas</th>
-                            <td>Ciencias: informática / matemáticas / física</td>
+                            <td>Página / aplicación web</td>
                         </tr>
                         <tr>
                             <th>Desarrollado en</th>
                             <td>PHP - Javascript - CSS Bootstrap</td>
+                        </tr>
+                        <tr>
+                            <th>Framework</th>
+                            <td>Academic-AI</td>
                         </tr>
                         <tr>
                             <th>Servidor web</th>
@@ -39,11 +43,15 @@
                         </tr>
                         <tr>
                             <th>Base de datos</th>
-                            <td>MariaDB</td>
+                            <td>MySQL / MariaDB</td>
+                        </tr>
+                        <tr>
+                            <th>Entorno desarrollo</th>
+                            <td>Windows - XAMPP</td>
                         </tr>
                         <tr>
                             <th>Host remoto</th>
-                            <td>000webhost</td>
+                            <td>Linux Ubuntu - 000webhost</td>
                         </tr>
                         <tr>
                             <th>Licencia</th>
