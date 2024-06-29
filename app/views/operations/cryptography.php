@@ -10,8 +10,9 @@
                                         <label for="lst-type-encryption">Tipo encriptación</label>
                                         <select name="lst-type-encryption" id="lst-type-encryption" class="form-select select">
                                             <option value="-">Seleccione...</option>
-                                            <option value="hash1">Sustitución sencilla</option>
-                                            <option value="trasposicion">Clave criptográfica</option>
+                                            <option value="sustitucion">Sustitución y desplazamiento simple</option>
+                                            <option value="vigenere">Cifrado de Vigenère</option>
+                                            <option value="trasposicion">Trasposición</option>
                                         </select>
                                     </div>
                                 </div>
