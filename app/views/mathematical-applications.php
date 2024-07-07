@@ -61,6 +61,9 @@
                     <li>
                         <a href="#!" class="link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía">Criptografía</a>
                     </li>
+                    <li>
+                        <a href="#!" class="link-tab" data-tab="6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones">Simulaciones</a>
+                    </li>
                 </ul>
             </div>
         
@@ -82,6 +85,9 @@
 
                 <!-- Criptografía -->
                 <?php include "operations/cryptography.php" ?>
+
+                <!-- Simulaciones -->
+                <?php include "operations/simulations.php" ?>
             </div>
         </div>
 
@@ -99,6 +105,7 @@
         <script src="../../public/assets/js/controllers/sets-controllers.js"></script>
         <script src="../../public/assets/js/controllers/matrix-controller.js"></script> 
         <script src="../../public/assets/js/controllers/cryptography-controller.js"></script> 
+        <script src="../../public/assets/js/controllers/simulation-controller.js"></script> 
 
         <script>
             let objArray = new Arrays();

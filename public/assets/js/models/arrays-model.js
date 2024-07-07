@@ -11,12 +11,14 @@ class Arrays
     }
 
 
-    findElement(array, element)
+    findElement(array, element, property = '')
     {
         let i = 0;
         let pos = -1;
+        let elemArray;
         while (i < array.length && pos == -1) {
-            if (array[i] === element) {
+            elemArray = property === '' ? array[i] : array[i][property];
+            if (elemArray === element) {
                 pos = i;
             } else {
                 i++;

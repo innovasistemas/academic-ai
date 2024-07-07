@@ -5,7 +5,8 @@ const arrayLinks = [
     '../Controllers/Algebra.php',
     '../Controllers/Files.php',
     '../Controllers/Questions.php',
-    '../Controllers/Cryptography.php'
+    '../Controllers/Cryptography.php',
+    '../Controllers/Simulations.php'
 ];
 
 let arraySlider = [

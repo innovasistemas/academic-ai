@@ -22,7 +22,6 @@
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <label for="txt-plain-text">Texto plano</label>
-                                        <!-- <input type="text" id="txt-plain-text" name="txt-plain-text" class="form-control" value="">     -->
                                         <textarea id="txt-plain-text" name="txt-plain-text" class="form-control" value=""></textarea>    
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
@@ -40,7 +39,6 @@
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <label for="txt-coded-text">Texto cifrado</label>
-                                        <!-- <input type="text" id="txt-coded-text" name="txt-coded-text" class="form-control" value="">     -->
                                         <textarea id="txt-coded-text" name="txt-coded-text" class="form-control" value=""></textarea>    
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
