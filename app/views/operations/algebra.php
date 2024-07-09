@@ -8,8 +8,8 @@
                                 <div class="col-12">   
                                     <ul>
                                         <li>Operaciones: suma de matrices, producto por un escalar, producto de matrices, matriz transpuesta</li>
-                                        <li>Áreas para matrices cuadradas: diagonales principal y secundaria, triangular superior, triángulo arriba</li>
-                                        <li>Determinantes de orden 1, 2 y 3</li>
+                                        <li>Áreas para matrices cuadradas: diagonales principal y secundaria, triangulares, triángulos</li>
+                                        <li>Determinantes</li>
                                         <li>Sistemas de ecuaciones</li>
                                     </ul>
                                 </div>
@@ -27,6 +27,12 @@
                                     <div class="col-xs-2 col-md-2 col-sm-4 form-group">
                                         <label for="" class="fw-bold">Matriz A</label>                                    
                                     </div>
+                                    <div class="col-xs-2 col-md-2 col-sm-4 form-group">
+                                        &nbsp;                                    
+                                    </div>
+                                    <div class="col-xs-2 col-md-2 col-sm-4 form-group">
+                                        <label for="" class="fw-bold">Matriz B</label>                                    
+                                    </div>
                                 </div> 
                                 <div class="row">
                                     <div class="col-xs-2 col-md-2 col-sm-4 form-group">
@@ -37,14 +43,6 @@
                                         <label for="txt-colsA">Columnas</label>
                                         <input type="number" id="txt-colsA" name="txt-colsA" class="form-control select" value="1" min="1" max="100">    
                                     </div>
-                                </div> 
-
-                                <div class="row">
-                                    <div class="col-xs-2 col-md-2 col-sm-4 form-group">
-                                        <label for="" class="fw-bold">Matriz B</label> 
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-xs-2 col-md-2 col-sm-4 form-group">
                                         <label for="txt-rowsB">Filas</label>
                                         <input type="number" id="txt-rowsB" name="txt-rowsB" class="form-control select" value="1" min="1" max="100">    
@@ -53,8 +51,11 @@
                                         <label for="txt-colsB">Columnas</label>
                                         <input type="number" id="txt-colsB" name="txt-colsB" class="form-control select" value="1" min="1" max="100">    
                                     </div>
-                                </div>
-                            
+
+                                </div> 
+                                <div class="row">
+                                </div> 
+
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 require_once "../../vendor/autoload.php";
 
 use App\Config\App;
-use App\Classes\Util;
+use App\Classes\Arrays;
 use Exception;
 
 class Cryptography extends App
@@ -12,7 +12,7 @@ class Cryptography extends App
     private array $arrayHash;
     private array $alphabet;
     private string $key;
-    private Util $util;
+    private Arrays $array;
 
     public function __construct()
     {
@@ -21,7 +21,7 @@ class Cryptography extends App
         $this->arrayHash = [];
         $this->alphabet = [];
         $this->key = "";
-        $this->util = new Util();
+        $this->array = new Arrays();
 
         $this->fetchArrayData();
 
@@ -223,8 +223,8 @@ class Cryptography extends App
         $j = 0;
         $l = count($this->alphabet);
         for ($i = 0; $i < strlen($str); $i++) {
-            $posText = $this->util->arraySearch($this->alphabet, $str[$i]);
-            $posKey = $this->util->arraySearch($this->alphabet, $key[$j]);
+            $posText = $this->array->arraySearch($this->alphabet, $str[$i]);
+            $posKey = $this->array->arraySearch($this->alphabet, $key[$j]);
             $pos = ($posText + $posKey) % $l;
             $arrHash[$i] = $this->alphabet[$pos];
             $j++;
@@ -242,8 +242,8 @@ class Cryptography extends App
         $j = 0;
         $l = count($this->alphabet);
         for ($i = 0; $i < strlen($str); $i++) {
-            $posText = $this->util->arraySearch($this->alphabet, $str[$i]);
-            $posKey = $this->util->arraySearch($this->alphabet, $key[$j]);
+            $posText = $this->array->arraySearch($this->alphabet, $str[$i]);
+            $posKey = $this->array->arraySearch($this->alphabet, $key[$j]);
             $pos = $posText - $posKey >= 0 ? 
                 ($posText - $posKey) % $l : 
                 ($posText - $posKey + $l) % $l;

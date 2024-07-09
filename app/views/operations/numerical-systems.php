@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-xs-4 col-md-4 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-convert-base" class="btn btn-info" value="Convertir">
+                                        <input type="button" id="btn-convert-base" class="btn btn-outline-info" value="Convertir">
                                         <input type="reset" id="btnReset" name="btnReset" class="btn btn-secondary" value="Restablecer">    
                                     </div>
                                 </div> 

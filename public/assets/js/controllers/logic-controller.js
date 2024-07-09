@@ -92,31 +92,34 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                     $changeTextCalc(objArray.unStack(arrayStackBrackets));
                 }
                 txtExpressionCalc.value = txtExpressionCalc.value.substring(0, txtExpressionCalc.value.length - 1);
-
             });
             break;
         case '×':
         case '=':
             element.addEventListener('click', () => {
-                let objJson = {
-                    expression: txtResultCalc.value, 
-                    symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
-                    button: 'equal'
-                }; 
-                let params = {
-                    headers: {"Content-Type": "application/json; charset=utf-8"},
-                    body: JSON.stringify(objJson),
-                    method: 'POST'
-                };
-                fetch(arrayLinks[0], params)
-                    .then(data => {return data.json()})
-                    .then(response => {
-                        txtResultCalc.value = response.resultExpression;
-                    })
-                    .catch(err => {
-                        txtResultCalc.value = "Hay problemas con la petición";
-                    });
-                });
+                if (txtExpressionCalc.value.length > 0) {
+                    let objJson = {
+                        n: 0, 
+                        expression: txtExpressionCalc.value, 
+                        symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
+                        button: 'equal'
+                    }; 
+                    let params = {
+                        headers: {"Content-Type": "application/json; charset=utf-8"},
+                        body: JSON.stringify(objJson),
+                        method: 'POST'
+                    };
+                    fetch(arrayLinks[0], params)
+                        .then(data => {return data.json()})
+                        .then(response => {
+                            txtResultCalc.value = response.resultExpression;
+                        })
+                        .catch(err => {
+                            txtResultCalc.value = "Hay problemas con la petición";
+                        });
+                }
+            });
+
             break;
         default:
             element.addEventListener('click', () => {

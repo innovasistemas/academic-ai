@@ -2,18 +2,21 @@
 
 namespace App\Models;
 
+use App\Classes\Arrays;
+
 class Logic
 {
-    private $n;
-    private $m;
-    private $arrayBinary;
-    private $arrayOperator;
-    private $arrayStack;
-    private $tableTrueTable;
-    private $tableOperator;
-    private $tableExpression;
+    private int $n;
+    private int $m;
+    private array $arrayBinary;
+    private array $arrayOperator;
+    private array $arrayStack;
+    private string $tableTrueTable;
+    private string $tableOperator;
+    private string $tableExpression;
     private $symbol; 
-    private $symbols; 
+    private array $symbols;
+    private Arrays $array;
 
 
     public function __construct() 
@@ -24,6 +27,7 @@ class Logic
         $this->tableTrueTable = "";
         $this->tableOperator = "";
         $this->tableExpression = "";
+        $this->array = new Arrays();
     }
 
 
@@ -51,9 +55,9 @@ class Logic
         $this->symbols['lc']['if2'] = '↔';
         $this->symbols['lc']['ascii'] = 65;
 
-        if (!empty($arrayData['n'])) {
-            $this->n = $arrayData['n'];
-            $this->m = pow(2, $this->n);
+        if (!empty($arrayData['n']) || $arrayData['n'] == '0') {
+            $this->n = (int)$arrayData['n'];
+            $this->m = 2 ** $this->n;
         }
 
         $this->createTrueTable();
@@ -61,37 +65,37 @@ class Logic
     }
 
 
-    public function getArrayBinary()
+    public function getArrayBinary(): array
     {
         return $this->arrayBinary;
     }
 
 
-    public function getTableTrueTable()
+    public function getTableTrueTable(): string
     {
-        return $this->tableTrueTable ;
+        return $this->tableTrueTable;
     }
 
 
-    public function getTableOperator()
+    public function getTableOperator(): string
     {
-        return $this->tableOperator ;
+        return $this->tableOperator;
     }
 
 
-    public function getTableExpression()
+    public function getTableExpression(): string
     {
-        return $this->tableExpression ;
+        return $this->tableExpression;
     }
 
     
-    public function getSymbols()
+    public function getSymbols(): array
     {
         return $this->symbols;
     }
     
 
-    private function createTrueTable()
+    private function createTrueTable(): void
     {
         $f = $this->m / 2;
         $bit = $this->symbols[$this->symbol]['off'];
@@ -119,11 +123,12 @@ class Logic
     }
 
 
-    private function generateTrueTable()
+    private function generateTrueTable(): void
     {
         $tableBinary = "
             <div class='table-responsive'>
-                <table class='table table-hover table-bordered border-primary text-center'>
+                <table class=
+                    'table table-hover table-bordered border-primary text-center'>
                     <thead>
                         <tr>
         ";
@@ -146,7 +151,7 @@ class Logic
     }
 
 
-    public function createTableOperator($operator)
+    public function createTableOperator(string $operator): void
     {
         for ($i = 0; $i < $this->m; $i++) {
             $bit1 = $this->charToBit($this->arrayBinary[$i][0]);
@@ -162,11 +167,12 @@ class Logic
     }
 
 
-    public function generateTableOperator($operator)
+    public function generateTableOperator(string $operator): void
     {
         $tableBinary = "
             <div class='table-responsive'>
-                <table class='table table-hover table-bordered border-primary text-center'>
+                <table class=
+                    'table table-hover table-bordered border-primary text-center'>
                     <thead>
                         <tr>
         ";
@@ -195,7 +201,7 @@ class Logic
                     $tableBinary .= "<td>{$this->arrayOperator[$i][$j]}</td>";
                 } else {
                     $tableBinary .= "
-                        <td class='bg-primary text-white' style-='background: #007bff;'>
+                        <td class='bg-primary text-white'>
                             {$this->arrayOperator[$i][$j]}
                         </td>
                     ";
@@ -208,7 +214,7 @@ class Logic
     }
 
 
-    private function charToBit($char)
+    private function charToBit(string $char): int
     {
         if ($char == 'v' || $char == '1') {
             return 1;
@@ -218,14 +224,15 @@ class Logic
     }
 
 
-    private function bitToChar($bit)
+    private function bitToChar(int $bit): string
     {
         return $bit > 0 ? 
-            ($this->symbol == 'lm' ? 'v' : '1') : ($this->symbol == 'lm' ? 'f' : '0');
+            ($this->symbol == 'lm' ? 'v' : '1') : 
+            ($this->symbol == 'lm' ? 'f' : '0');
     }
 
 
-    private function verifyRules($operator, $bit1, $bit2)
+    private function verifyRules(string $operator, int $bit1, int $bit2): int
     {
         switch ($operator) {
             case 'not':
@@ -251,7 +258,7 @@ class Logic
     }
 
 
-    private function denyBit($bit)
+    private function denyBit(int $bit): int
     {
         if ($bit == 0) {
             return 1;
@@ -261,13 +268,13 @@ class Logic
     }
 
 
-    private function addBits($bit1, $bit2)
+    private function addBits(int $bit1, int $bit2): int
     {
         return $bit1 + $bit2;
     }
 
 
-    private function addExclusiveBits($bit1, $bit2)
+    private function addExclusiveBits(int $bit1, int $bit2): int
     {
         if ($bit1 + $bit2 == 1) {
             return 1;
@@ -277,13 +284,13 @@ class Logic
     }
     
     
-    private function multiplyBits($bit1, $bit2)
+    private function multiplyBits(int $bit1, int $bit2): int
     {
         return $bit1 * $bit2;
     }
 
 
-    private function conditionalBits($bit1, $bit2)
+    private function conditionalBits(int $bit1, int $bit2): int
     {
         if ($bit1 == 1 && $bit2 == 0) {
             return 0;
@@ -293,12 +300,26 @@ class Logic
     }
 
 
-    private function biconditionalBits($bit1, $bit2)
+    private function biconditionalBits(int $bit1, int $bit2): int
     {
         if ($bit1 == $bit2) {
             return 1;
         } else {
             return 0;
         }
+    }
+
+
+    public function postfixExpression(string $expression, array $stack): string 
+    {
+        $str = $expression;
+        for ($i = 0; $i < strlen($str); $i++) {
+            // $stack =  $this->array->stack($stack, html_entity_decode($str[$i]));
+            $stack = $this->array->stack($stack, $str[$i]);
+                // chr(ord($str[$i]))
+
+        }
+        // print_r(implode(",", $stack));
+        return implode($stack);
     }
 }

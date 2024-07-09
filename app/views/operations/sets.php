@@ -1,7 +1,7 @@
                 <div class="container">
                     <div class="content-tab">
                         <h3 class="h3 text-success">Conjuntos</h3>
-                        <div class="container">
+                        <div class="container border border-success">
                             <form id="frm-sets">
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
@@ -19,8 +19,8 @@
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-add-element" class="btn btn-success fw-bold" value=" + " title="Agregar">
-                                        <input type="button" id="btn-remove-element" class="btn btn-danger fw-bold" value=" - " title="Quitar">
+                                        <input type="button" id="btn-add-element" class="btn btn-outline-success fw-bold" value=" + " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Agregar">
+                                        <input type="button" id="btn-remove-element" class="btn btn-outline-secondary fw-bold" value=" - " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Quitar">
                                     </div>
                                 </div>
 
@@ -48,6 +48,7 @@
                             </form>
                             <div id="div-sets" class="text-secondary" style="font-size: 1.2em;"></div>
                             <div id="div-operation" class="text-success" style="font-size: 1.2em;"></div>
+                            <br>
                         </div>
                     </div>
                 </div>

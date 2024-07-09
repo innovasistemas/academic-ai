@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-integer-operation" class="btn btn-warning" value="Calcular">
+                                        <input type="button" id="btn-integer-operation" class="btn btn-outline-warning" value="Calcular">
                                     </div>
                                 </div>
                             </form>

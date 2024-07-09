@@ -4,7 +4,7 @@ namespace App\Controllers;
 require_once "../../vendor/autoload.php";
 
 use App\Config\App;
-use App\Classes\Util;
+// use App\Classes\Util;
 use Exception;
 
 class Simulations extends App
@@ -14,7 +14,7 @@ class Simulations extends App
     private float $a;
     private int $time;
     private string $unit;
-    private Util $util;
+    // private Util $util;
     
     private const g = 9.8;
     private const c = 299792458;
@@ -23,7 +23,7 @@ class Simulations extends App
     {
         parent::__construct();
 
-        $this->util = new Util();
+        // $this->util = new Util();
 
         $this->fetchArrayData();
 
@@ -87,8 +87,8 @@ class Simulations extends App
         $table .= "<table class='table table-hover table-white table-bordered'>";
         $table .= "<tr>";
         $table .= "<theader>";
-        $table .= "<th>Tiempo (t)</th>";
-        $table .= "<th>Distancia recorrida (y)</th>";
+        $table .= "<th>Tiempo: t (s)</th>";
+        $table .= "<th>Distancia recorrida: y (m)</th>";
         $table .= "<theader>";
         $table .= "</tr>";
         $table .= "<tbody>";
@@ -114,8 +114,8 @@ class Simulations extends App
         $table .= "<table class='table table-hover table-white table-bordered'>";
         $table .= "<tr>";
         $table .= "<theader>";
-        $table .= "<th>Tiempo (t)</th>";
-        $table .= "<th>Distancia recorrida (x)</th>";
+        $table .= "<th>Tiempo: t (s)</th>";
+        $table .= "<th>Distancia recorrida: x (m)</th>";
         $table .= "<theader>";
         $table .= "</tr>";
         $table .= "<tbody>";
@@ -141,14 +141,14 @@ class Simulations extends App
         $table .= "<table class='table table-hover table-white table-bordered'>";
         $table .= "<tr>";
         $table .= "<theader>";
-        $table .= "<th>Tiempo (t)</th>";
-        $table .= "<th>Distancia recorrida (x)</th>";
-        $table .= "<th>Velocidad alcanzada (v)</th>";
+        $table .= "<th>Tiempo: t (s)</th>";
+        $table .= "<th>Distancia recorrida: x (m)</th>";
+        $table .= "<th>Velocidad alcanzada: v (ms<sup>-1</sup>)</th>";
         $table .= "<theader>";
         $table .= "</tr>";
         $table .= "<tbody>";
         for ($t = 0; $t <= $this->time; $t++) {
-            $x = $this->x0 + $this->v0 * $t + 1 / 2 * $this->a * $t * $t;
+            $x = $this->x0 + $this->v0 * $t + 1 / 2 * $this->a * $t ** 2;
             $v = $this->v0 + $this->a * $t;
             $table .= "<tr>";
             $table .= "<td>$t</td>";

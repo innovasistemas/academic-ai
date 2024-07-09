@@ -34,7 +34,7 @@
                                         </select>
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
-                                        <label for="nbr-time">Tiempo t (s)</label>
+                                        <label for="nbr-time">Tiempo total t (s)</label>
                                         <input type="number" id="nbr-time" name="nbr-time" class="form-control" value="0" min="0">    
                                     </div>
                                 </div>

@@ -57,7 +57,15 @@ class Binary extends App
 
     public function equal(): void
     {
-        $this->arrayResponse = ['resultExpression' => 0];
+        $stack = [];
+        $this->arrayResponse = [
+            'resultExpression' => 
+                html_entity_decode($this->objLogic->postfixExpression(
+                    $this->arrayData['expression'],
+                    $stack
+                ))
+        ];
+        // print_r($this->arrayResponse['resultExpression']);
     }
 
 

@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-encrypt" class="btn btn-primary" value="Encriptar">
+                                        <input type="button" id="btn-encrypt" class="btn btn-primary" value="Cifrar">
                                     </div>
                                 </div>
 
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-decrypt" class="btn btn-info" value="Desencriptar">
+                                        <input type="button" id="btn-decrypt" class="btn btn-info" value="Descifrar">
                                     </div>
                                 </div>
                             </form>

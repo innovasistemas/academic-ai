@@ -59,9 +59,9 @@ btnExecuteMatrix.addEventListener('click', () => {
             divResultMatrix.innerHTML = `
                 <hr>
                 <h3 class="h3 text-danger">Operaciones con matrices</h3>
-
                 <div class="row">
                     <div class="col-xs-3 col-md-6 col-sm-3">
+                        <h5>Matriz A</h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             A<sub>${txtRowsA.value}×${txtColsA.value}</sub> = [a<sub>ij</sub>]
                         </span>
@@ -70,6 +70,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                         </div>
                     </div>
                     <div class="col-xs-3 col-md-6 col-sm-3">
+                        <h5>Matriz B</h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             B<sub>${txtRowsB.value}×${txtColsB.value}</sub> = [b<sub>ij</sub>]
                         </span>
@@ -81,6 +82,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                 <br>
                 <div class="row">
                     <div class="col-xs-6 col-md-6 col-sm-6">
+                        <h5>Suma de matrices: A + B</h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             (A + B)<sub>${txtRowsA.value}×${txtColsA.value}</sub> = C<sub>ij</sub>
                         </span>
@@ -89,6 +91,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                         </div>
                     </div>
                     <div class="col-xs-6 col-md-6 col-sm-6">
+                        <h5>Producto escalar en matrices: cA</h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             cA<sub>${txtRowsA.value}×${txtColsA.value}</sub> = ${objJson.scalar}A<sub>ij</sub>
                         </span>
@@ -100,6 +103,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                 <br>
                 <div class="row">
                     <div class="col-xs-6 col-md-6 col-sm-6">
+                        <h5>Producto de matrices: A x B</h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             C<sub>${txtRowsA.value}×${txtColsB.value}</sub> 
                             = 
@@ -114,6 +118,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                         </div>
                     </div>
                     <div class="col-xs-6 col-md-6 col-sm-6">
+                        <h5>Matriz transpuesta: A<sup>T</sup></h5>
                         <span class="" style="font-size: 1.2em; font-family: Consolas;">
                             (A<sub>${txtRowsA.value}×${txtColsA.value}</sub>)<sup>T</sup> 
                             = 
@@ -132,11 +137,12 @@ btnExecuteMatrix.addEventListener('click', () => {
 
                 <div class="row">
                     <div class="col-xs-2 col-md-4 col-sm-4">
+                        <h5>Diagonales</h5>
                         <span class="" style="font-size: 1.2em;">
-                            Diagonal principal A<sub>${txtColsA.value}</sub> 
-                            = [a<sub>ii</sub>]
-                            <br>
-                            Diagonal secundaria A<sub>${txtColsA.value}</sub> 
+                            Ppal: A<sub>${txtColsA.value}</sub> 
+                            = [a<sub>ii</sub>] 
+                            | 
+                            Sec: A<sub>${txtColsA.value}</sub> 
                             = [a<sub>i, n-i-1</sub>]
                         </span>
                         <div class="table-responsive">
@@ -144,6 +150,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                         </div>
                     </div>
                     <div class="col-xs-4 col-md-4 col-sm-4">
+                        <h5>Triangulares</h5>
                         <span class="" style="font-size: 1.2em;">
                             Triangular Superior A<sub>${txtColsA.value}</sub> 
                             = 
@@ -153,6 +160,7 @@ btnExecuteMatrix.addEventListener('click', () => {
                         </div>
                     </div>
                     <div class="col-xs-4 col-md-4 col-sm-4">
+                        <h5>Triángulos</h5>
                         <span class="" style="font-size: 1.2em;">
                             Triángulo Superior A<sub>${txtColsA.value}</sub> 
                             = 

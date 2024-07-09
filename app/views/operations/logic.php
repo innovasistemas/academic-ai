@@ -5,7 +5,7 @@
                         <hr>
                         <h4 class="h4 text-primary">Lógica proposicional y de circuitos</h4>
                         <br>
-                        <div class="container">
+                        <div class="container border border-info">
                             <form id="frm-logic">
                                 <div class="row">
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-true-table" class="btn btn-primary" value="Tabla de verdad">
+                                        <input type="button" id="btn-true-table" class="btn btn-outline-primary" value="Tabla de verdad general">
                                     </div>
                                 </div>
 
@@ -38,19 +38,19 @@
                 
                                 <div class="row">
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <label for="lst-logic-operators">Conectivos</label>
+                                        <label for="lst-logic-operators">Conectivos/Compuertas</label>
                                         <select name="lst-logic-operators" id="lst-logic-operators" class="form-select select">
-                                            <option value="not">Negación</option>
-                                            <option value="and">Conjunción</option>
-                                            <option value="or">Disyunción</option>
-                                            <option value="xor">Disyunción exclusiva</option>
+                                            <option value="not">Negación/NOT</option>
+                                            <option value="and">Conjunción/AND</option>
+                                            <option value="or">Disyunción/OR</option>
+                                            <option value="xor">Disyunción exclusiva/XOR</option>
                                             <option value="if">Condicional</option>
-                                            <option value="if2">Bicondicional</option>
+                                            <option value="if2">Bicondicional/XNOR</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-logic-operators" class="btn btn-outline-primary" value="Tabla conectivo">
+                                        <input type="button" id="btn-logic-operators" class="btn btn-outline-primary" value="Tabla conectivo/compuerta">
                                     </div>
                                 </div>
                             </form>
@@ -64,10 +64,9 @@
                         </div>
                         
                         <hr>
-                        <hr>
 
                         <h4 class="h4 text-primary">Calculadora lógica</h4>
-                        <div class="container">
+                        <div class="container border border-info">
                             <form id="frm-calculator">
                                 <div class="row">
                                     <div class="col-12">
