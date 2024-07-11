@@ -10,6 +10,7 @@ class Logic
     private int $m;
     private array $arrayBinary;
     private array $arrayOperator;
+    private array $operators;
     private array $arrayStack;
     private string $tableTrueTable;
     private string $tableOperator;
@@ -23,6 +24,7 @@ class Logic
     {
         $this->arrayBinary = [];
         $this->arrayOperator = [];
+        $this->operators = [];
         $this->arrayStack = [];
         $this->tableTrueTable = "";
         $this->tableOperator = "";
@@ -54,6 +56,15 @@ class Logic
         $this->symbols['lc']['if'] = '→';
         $this->symbols['lc']['if2'] = '↔';
         $this->symbols['lc']['ascii'] = 65;
+
+        $this->operators[] = '-';
+        $this->operators[] = '*';
+        $this->operators[] = '+';
+        $this->operators[] = 'x';
+        $this->operators[] = '/';
+        $this->operators[] = '^';              
+        $this->operators[] = '(';
+        $this->operators[] = ')';
 
         if (!empty($arrayData['n']) || $arrayData['n'] == '0') {
             $this->n = (int)$arrayData['n'];
@@ -310,16 +321,20 @@ class Logic
     }
 
 
-    public function postfixExpression(string $expression, array $stack): string 
+    public function postfixExpression(string $expression, array &$stack): string 
     {
-        $str = $expression;
-        for ($i = 0; $i < strlen($str); $i++) {
-            // $stack =  $this->array->stack($stack, html_entity_decode($str[$i]));
-            $stack = $this->array->stack($stack, $str[$i]);
-                // chr(ord($str[$i]))
-
+        $strPostfix = "";
+        for ($i = 0; $i < strlen($expression); $i++) {
+            $pos = $this->array->arraySearch(
+                $this->operators, 
+                $expression[$i]
+            );
+            if ($pos > -1) {
+                $stack = $this->array->stack($stack, substr($expression, $i, 1));
+            } else {
+                $strPostfix .= substr($expression, $i, 1);
+            }
         }
-        // print_r(implode(",", $stack));
-        return implode($stack);
+        return $strPostfix;
     }
 }

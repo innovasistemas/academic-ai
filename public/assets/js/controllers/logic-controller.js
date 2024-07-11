@@ -9,13 +9,14 @@ let divLogicCalc = document.querySelector('#div-logic-calc');
 let lstSymbolPropositions = document.querySelector('#lst-symbol-propositions');
 let lstLogicOperators = document.querySelector('#lst-logic-operators');
 let txtNumberPropositions = document.querySelector('#txt-number-propositions');
-let optSymbolLM = document.querySelector('#opt-symbol-lm');
-let optSymbolLC = document.querySelector('#opt-symbol-lc');
 let btnTrueTable = document.querySelector('#btn-true-table');
 let btnLogicOperators = document.querySelector('#btn-logic-operators');
 
 // Componentes calculadora lógica
+let optSymbolLM = document.querySelector('#opt-symbol-lm');
+let optSymbolLC = document.querySelector('#opt-symbol-lc');
 let txtExpressionCalc = document.querySelector('#txt-expression-calc');
+let $expression = "";
 let txtResultCalc = document.querySelector('#txt-result-calc');
 let lblConstant = document.querySelector('#lbl-constant');
 let btnNot = document.querySelector('#btn-not');
@@ -77,10 +78,12 @@ txtNumberPropositions.addEventListener('change', () => {
 
 document.querySelectorAll('#table-calc input[type=button]').forEach ((element) => {
     let charPrev;
-    switch (element.value) {
+    // switch (element.value) {
+    switch (element.getAttribute('data-value')) {
         case 'ac':
             element.addEventListener('click', () => {
                 txtExpressionCalc.value = '';
+                $expression = '';
                 arrayStackBrackets = [];
             });
             break;
@@ -92,15 +95,18 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                     $changeTextCalc(objArray.unStack(arrayStackBrackets));
                 }
                 txtExpressionCalc.value = txtExpressionCalc.value.substring(0, txtExpressionCalc.value.length - 1);
+                $expression = $expression.substring(0, $expression.length - 1);
             });
             break;
         case '×':
+            break;
         case '=':
             element.addEventListener('click', () => {
                 if (txtExpressionCalc.value.length > 0) {
                     let objJson = {
                         n: 0, 
                         expression: txtExpressionCalc.value, 
+                        expression2: $expression, 
                         symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
                         button: 'equal'
                     }; 
@@ -128,17 +134,20 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                     if (element.value === '┐' || element.value === '−') {
                         if (objTypeButton[charPrev] === 'operator' || charPrev === '(') {
                             txtExpressionCalc.value += element.value;
+                            $expression += element.getAttribute('data-value');
                         }
                     } else if (element.value === '(') {
                         if (objTypeButton[charPrev] === 'operator' || charPrev === '(') {
                             $changeTextCalc(objArray.stack(arrayStackBrackets, element.value))
                             txtExpressionCalc.value += element.value;
+                            $expression += element.getAttribute('data-value');
                         } 
                     } else if (element.value === ')') {
                         if (arrayStackBrackets.length > 0) {
                             if (objTypeButton[charPrev] === 'variable' || charPrev === ')') {
                                 $changeTextCalc(objArray.unStack(arrayStackBrackets))
                                 txtExpressionCalc.value += element.value;
+                                $expression += element.getAttribute('data-value');
                             }
                         }
                     } else if (objTypeButton[element.value] !== objTypeButton[charPrev]) {
@@ -146,19 +155,23 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                             case ')':
                                 if (objTypeButton[element.value] !== 'variable') {
                                     txtExpressionCalc.value += element.value;
+                                    $expression += element.getAttribute('data-value');
                                 }
                                 break;
                             case '(':
                                 if (objTypeButton[element.value] !== 'operator') {
                                     txtExpressionCalc.value += element.value;
+                                    $expression += element.getAttribute('data-value');
                                 } 
                                 break;
                             default:
                                 txtExpressionCalc.value += element.value;
+                                $expression += element.getAttribute('data-value');
                         }
                     }
                 } else if (element.value === '┐' || element.value === '−' || element.value === '(' || objTypeButton[element.value] === 'variable') {
                     txtExpressionCalc.value = element.value;
+                    $expression += element.getAttribute('data-value');
                 }
             });
     }

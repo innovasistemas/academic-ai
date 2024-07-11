@@ -60,12 +60,12 @@ class Binary extends App
         $stack = [];
         $this->arrayResponse = [
             'resultExpression' => 
-                html_entity_decode($this->objLogic->postfixExpression(
-                    $this->arrayData['expression'],
+                $this->objLogic->postfixExpression(
+                    $this->arrayData['expression2'],
                     $stack
-                ))
+                )
         ];
-        // print_r($this->arrayResponse['resultExpression']);
+        print_r($stack);
     }
 
 
