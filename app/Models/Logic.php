@@ -109,23 +109,20 @@ class Logic
     private function createTrueTable(): void
     {
         $f = $this->m / 2;
-        $bit = $this->symbols[$this->symbol]['off'];
-        
+        $bit = $this->symbols[$this->symbol]['off'];        
         for ($i = 0; $i < $this->n; $i++) {
             $k = 1;
             for ($j = 0; $j < $this->m; $j++) {
                 $datum = $bit;
                 if ($k < $f) {
                     $k++;
-                } elseif ($f == 1) {
-                    $bit = $bit == $this->symbols[$this->symbol]['off'] ? 
-                        $this->symbols[$this->symbol]['on'] : 
-                        $this->symbols[$this->symbol]['off'];
                 } else {
-                    $k = 1;
                     $bit = $bit == $this->symbols[$this->symbol]['off'] ? 
                         $this->symbols[$this->symbol]['on'] : 
                         $this->symbols[$this->symbol]['off'];
+                    if ($f != 1) {
+                        $k = 1;
+                   } 
                 }
                 $this->arrayBinary[$j][$i] = $datum;
             }
@@ -188,7 +185,7 @@ class Logic
                         <tr>
         ";
         $j = 0;
-        for ($i = 0; $i <= $this->n; $i++){
+        for ($i = 0; $i <= $this->n; $i++) {
             if ($i != 1) {
                 $tableBinary .= "
                     <th>" . 
