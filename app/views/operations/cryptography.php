@@ -1,8 +1,8 @@
                 <div class="container">
                     <div class="content-tab">
-                        <h3 class="h3 text-dark">Criptografía</h3>
+                        <h3 class="h3 text-dark">Criptografía y codificación</h3>
                         <hr>
-                        <h4 class="h4 text-dark">Cifrado elemental</h4>
+                        <h4 class="h4 text-dark">Cifrado y codificación elemental</h4>
                         <div class="container">
                             <form id="frm-encrypt">
                                 <div class="row">
@@ -13,6 +13,7 @@
                                             <option value="sustitucion">Sustitución y desplazamiento simple</option>
                                             <option value="vigenere">Cifrado de Vigenère</option>
                                             <option value="trasposicion">Trasposición</option>
+                                            <option value="base64">Base64</option>
                                         </select>
                                     </div>
                                 </div>

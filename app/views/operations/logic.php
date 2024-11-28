@@ -1,7 +1,7 @@
                     
-                <div class="container">
+                <div id="app" class="container">
                     <div class="content-tab">
-                        <h3 class="h3 text-primary">Lógica</h3>
+                        <h3 class="h3 text-primary">{{titlePage}}</h3>
                         <hr>
                         <h4 class="h4 text-primary">Lógica proposicional y de circuitos</h4>
                         <br>
@@ -163,3 +163,13 @@
                         </div>
                     </div>
                 </div>
+
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titlePage: 'Lógica'
+            }
+        })
+    </script>

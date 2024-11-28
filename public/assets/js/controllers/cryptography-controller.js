@@ -13,25 +13,58 @@ let btnDecrypt = document.querySelector('#btn-decrypt');
 
 
 btnEncrypt.addEventListener('click', () => {
-    let objJson = {
-        plainText: txtPlainText.value, 
-        keyEncrypt: txtKeyEncrypt.value, 
-        operation: lstTypeEncription.value,
-        button: 'encrypt'
-    }; 
-    let params = {
-        headers: {"Content-Type": "application/json; charset=utf-8"},
-        body: JSON.stringify(objJson),
-        method: 'POST'
-    };
-    fetch(arrayLinks[5], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            divResultCryptography.innerHTML = response.resultExpression;
-        })
-        .catch(err => {
-            divResultCryptography.innerHTML = "Hay problemas con la petición";
-        });
+    if (lstTypeEncription.value == 'base64') {
+        let params = {
+            headers: {
+                'Content-Type': 'text/plain; charset=utf-8',
+                'Accept': 'text/plain; charset=utf-8',
+            },
+            mode: 'cors',
+            method: 'GET',
+        };
+
+        // Promesa para hacer la petición al servidor externo
+        fetch(`http://localhost:5259/base64encode?plainText=${txtPlainText.value}`, params)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Sin respuesta')
+                }
+                return response
+            })
+            .then(data => {
+                return data.clone().text();
+            })
+            .then((value) => {
+                divResultCryptography.innerHTML = `
+                    <strong>Codificación Base64: </strong>
+                    <br>
+                    ${value}
+                `;
+            })
+            .catch(err => {
+                divResultCryptography.innerHTML = "Hay problemas con la petición: " + err;
+            });
+    } else {
+        let objJson = {
+            plainText: txtPlainText.value, 
+            keyEncrypt: txtKeyEncrypt.value, 
+            operation: lstTypeEncription.value,
+            button: 'encrypt'
+        }; 
+        let params = {
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify(objJson),
+            method: 'POST'
+        };
+        fetch(arrayLinks[5], params)
+            .then(data => {return data.json()})
+            .then(response => {
+                divResultCryptography.innerHTML = response.resultExpression;
+            })
+            .catch(err => {
+                divResultCryptography.innerHTML = "Hay problemas con la petición";
+            });
+    }
 });
 
 
