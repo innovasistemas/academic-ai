@@ -7,13 +7,17 @@
                             <form id="frm-encrypt">
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
-                                        <label for="lst-type-encryption">Tipo encriptación</label>
+                                        <label for="lst-type-encryption">Tipo encriptación / codificación</label>
                                         <select name="lst-type-encryption" id="lst-type-encryption" class="form-select select">
                                             <option value="-">Seleccione...</option>
-                                            <option value="sustitucion">Sustitución y desplazamiento simple</option>
-                                            <option value="vigenere">Cifrado de Vigenère</option>
-                                            <option value="trasposicion">Trasposición</option>
-                                            <option value="base64">Base64</option>
+                                            <option value="separador1" disabled="disabled">Cifrado</option>
+                                            <option value="sustitucion">&nbsp;&nbsp;&nbsp; Sustitución y desplazamiento simple</option>
+                                            <option value="vigenere">&nbsp;&nbsp;&nbsp; Cifrado de Vigenère</option>
+                                            <!-- <option value="trasposicion">Trasposición</option> -->
+                                            <option value="separador2" disabled="disabled">Codificación</option>
+                                            <option value="invertir-texto">&nbsp;&nbsp;&nbsp; Invertir texto</option>
+                                            <option value="base64">&nbsp;&nbsp;&nbsp; Base64</option>
+                                            <option value="base-numerica">&nbsp;&nbsp;&nbsp; Codificación en base numérica</option>
                                         </select>
                                     </div>
                                 </div>

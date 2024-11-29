@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <th>Áreas</th>
-                            <td>Informática - Matemáticas - Física</td>
+                            <td>Informática - Matemáticas - Ciencias naturales - Ingeniería</td>
                         </tr>
                         <tr>
                             <th>Tipo de software</th>
@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <th>Desarrollado en</th>
-                            <td>PHP - Javascript - CSS Bootstrap</td>
+                            <td>PHP - Javascript - C# - CSS Bootstrap - HTML5</td>
                         </tr>
                         <tr>
                             <th>Framework</th>
@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <th>Servidor web</th>
-                            <td>Apache</td>
+                            <td>Apache - ASP.NET</td>
                         </tr>
                         <tr>
                             <th>Base de datos</th>
@@ -47,11 +47,15 @@
                         </tr>
                         <tr>
                             <th>Entorno desarrollo</th>
-                            <td>Windows - XAMPP</td>
+                            <td>Windows / Linux - XAMPP / LAMPP</td>
                         </tr>
                         <tr>
-                            <th>Host remoto</th>
-                            <td>Linux Ubuntu - 000webhost</td>
+                            <th>Host</th>
+                            <td>http://localhost:81/ - http://localhost:5259/</td>
+                        </tr>
+                        <tr>
+                            <th>Dominio web - webservices</th>
+                            <td>http://localhost:81/academic-ai - http://localhost:5259/</td>
                         </tr>
                         <tr>
                             <th>Licencia</th>

@@ -13,81 +13,109 @@ let btnDecrypt = document.querySelector('#btn-decrypt');
 
 
 btnEncrypt.addEventListener('click', () => {
-    if (lstTypeEncription.value == 'base64') {
-        let params = {
-            headers: {
-                'Content-Type': 'text/plain; charset=utf-8',
-                'Accept': 'text/plain; charset=utf-8',
-            },
-            mode: 'cors',
-            method: 'GET',
-        };
-
-        // Promesa para hacer la petición al servidor externo
-        fetch(`http://localhost:5259/base64encode?plainText=${txtPlainText.value}`, params)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Sin respuesta')
-                }
-                return response
-            })
-            .then(data => {
-                return data.clone().text();
-            })
-            .then((value) => {
-                divResultCryptography.innerHTML = `
-                    <strong>Codificación Base64: </strong>
-                    <br>
-                    ${value}
-                `;
-            })
-            .catch(err => {
-                divResultCryptography.innerHTML = "Hay problemas con la petición: " + err;
-            });
-    } else {
-        let objJson = {
-            plainText: txtPlainText.value, 
-            keyEncrypt: txtKeyEncrypt.value, 
-            operation: lstTypeEncription.value,
-            button: 'encrypt'
-        }; 
-        let params = {
-            headers: {"Content-Type": "application/json; charset=utf-8"},
-            body: JSON.stringify(objJson),
-            method: 'POST'
-        };
-        fetch(arrayLinks[5], params)
-            .then(data => {return data.json()})
-            .then(response => {
-                divResultCryptography.innerHTML = response.resultExpression;
-            })
-            .catch(err => {
-                divResultCryptography.innerHTML = "Hay problemas con la petición";
-            });
+    let url, outputHTML;
+    switch (lstTypeEncription.value) {
+        case "-":
+            break;
+        case "invertir-texto":
+            break;
+        case "base64":
+            url = `http://localhost:5259/base64encode?plainText=${txtPlainText.value}`;
+            outputHTML = "<strong>Codificación Base64: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
+            break;
+        case "base-numerica":
+            url = `http://localhost:5259/number-base-encode?text=${txtPlainText.value}&baseN=${txtKeyEncrypt.value}`;
+            outputHTML = "<strong>Codificación base numérica: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
+            break;
+        default:
+            let objJson = {
+                plainText: txtPlainText.value, 
+                keyEncrypt: txtKeyEncrypt.value, 
+                operation: lstTypeEncription.value,
+                button: 'encrypt'
+            }; 
+            url = arrayLinks[5];
+            requestWebServicePHP(url, objJson);
     }
 });
 
 
 btnDecrypt.addEventListener('click', () => {
-    let objJson = {
-        codedText: txtCodedText.value, 
-        keyDecrypt: txtKeyDecrypt.value,
-        operation: lstTypeEncription.value,
-        button: 'decrypt'
-    }; 
+    let url, outputHTML;
+    let swServiceC = true;
+    switch (lstTypeEncription.value) {
+        case "-":
+            break;
+        case "invertir-texto":
+            break;
+        case "base64":
+            url = `http://localhost:5259/base64decode?textBase64=${txtCodedText.value}`;
+            outputHTML = "<strong>Decodificación Base64: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
+            break;
+        case "base-numerica":
+            url = `http://localhost:5259/number-base-decode?text=${txtCodedText.value}&baseN=${txtKeyDecrypt.value}`;
+            outputHTML = "<strong>Codificación base numérica: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
+            break;
+        default:
+            let objJson = {
+                codedText: txtCodedText.value, 
+                keyDecrypt: txtKeyDecrypt.value,
+                operation: lstTypeEncription.value,
+                button: 'decrypt'
+            };
+            url = arrayLinks[5];
+            requestWebServicePHP(url, objJson);
+    }
+});
+
+
+function requestWebServicePHP(url, objJson)
+{
     let params = {
         headers: {"Content-Type": "application/json; charset=utf-8"},
         body: JSON.stringify(objJson),
         method: 'POST'
     };
-    fetch(arrayLinks[5], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            divResultCryptography.innerHTML = response.resultExpression;
+     
+    fetch(url, params)
+        .then(response => {return response.json()})
+        .then(data => {
+            divResultCryptography.innerHTML = data.resultExpression;
         })
         .catch(err => {
-            divResultCryptography.innerHTML = "Hay problemas con la petición";
+            divResultCryptography.innerHTML = "Hay problemas con la petición" + err;
         });
-});
+}
 
 
+function requestWebServiceNET(url, outputHTML)
+{
+    let params = {
+        headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Accept': 'text/plain; charset=utf-8',
+        },
+        mode: 'cors',
+        method: 'GET',
+    };
+    fetch(url, params)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Sin respuesta')
+            }
+            return response
+        })
+        .then(data => {
+            return data.clone().text();
+        })
+        .then((value) => {
+            divResultCryptography.innerHTML = `${outputHTML}${value}`;
+        })
+        .catch(err => {
+            divResultCryptography.innerHTML = "Hay problemas con la petición: " + err;
+        });
+}

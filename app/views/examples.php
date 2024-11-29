@@ -27,10 +27,11 @@
                             <ul>
                                 <li>PSeInt (PSeudocódico Intérprete)</li>
                                 <li>PHP</li>
-                                <li>Javascript</li>
                                 <li>Python</li>
+                                <li>C#</li>
                                 <li>C/C++</li>
                                 <li>Java</li>
+                                <li>Javascript</li>
                                 <li>Kotlin</li>
                             </ul>
                         </div>

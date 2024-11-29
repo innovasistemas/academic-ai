@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                         <br>
-                                        <input type="reset" id="btn-reset" class="btn btn-secondary value="Restablecer">
+                                        <input type="reset" id="btn-reset" class="btn btn-secondary" value="Restablecer">
                                     </div>
                                 </div>
                                     
