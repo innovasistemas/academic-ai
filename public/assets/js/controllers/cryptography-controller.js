@@ -18,6 +18,9 @@ btnEncrypt.addEventListener('click', () => {
         case "-":
             break;
         case "invertir-texto":
+            url = `http://localhost:5259/invertir-texto?plainText=${txtPlainText.value}`;
+            outputHTML = "<strong>Codificación inversión de cadena: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
             break;
         case "base64":
             url = `http://localhost:5259/base64encode?plainText=${txtPlainText.value}`;
@@ -49,6 +52,9 @@ btnDecrypt.addEventListener('click', () => {
         case "-":
             break;
         case "invertir-texto":
+            url = `http://localhost:5259/revertir-texto?codedText=${txtCodedText.value}`;
+            outputHTML = "<strong>Decodificación reversión de cadena: </strong><br>";
+            requestWebServiceNET(url, outputHTML);
             break;
         case "base64":
             url = `http://localhost:5259/base64decode?textBase64=${txtCodedText.value}`;
