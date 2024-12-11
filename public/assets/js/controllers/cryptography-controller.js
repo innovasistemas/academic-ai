@@ -53,6 +53,7 @@ btnDecrypt.addEventListener('click', () => {
             break;
         case "invertir-texto":
             url = `http://localhost:5259/revertir-texto?codedText=${txtCodedText.value}`;
+            // url = `https://localhost:7207/revertir-texto?codedText=${txtCodedText.value}`;
             outputHTML = "<strong>Decodificación reversión de cadena: </strong><br>";
             requestWebServiceNET(url, outputHTML);
             break;

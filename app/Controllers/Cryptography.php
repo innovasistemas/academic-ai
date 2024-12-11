@@ -27,7 +27,7 @@ class Cryptography extends App
 
 
         $j = 0;
-        for ($i = 32 ; $i <= 126; $i++) {
+        for ($i = 32; $i <= 126; $i++) {
             if ($i != 60) {
                 $this->alphabet[$j] = chr($i);
                 $j++;
