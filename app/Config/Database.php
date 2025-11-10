@@ -13,8 +13,8 @@ class Database
         'hostname' => "localhost",
         'username' => "root",
         'password' => "",
-        'port' => 3307,
-        'dbname' => "academic-ai-001"
+        'port' => 3306,
+        'dbname' => "academicai001"
     ];
 
     // protected array $configDB = [
