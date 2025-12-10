@@ -224,11 +224,13 @@ class Logic
 
     private function charToBit(string $char): int
     {
+        $bit = 0;
         if ($char == 'v' || $char == '1') {
-            return 1;
+            $bit = 1;
         } elseif ($char == 'f' || $char == '0') {
-            return 0;
-        }
+            $bit = 0;
+        } 
+        return $bit;
     }
 
 
@@ -268,17 +270,13 @@ class Logic
 
     private function denyBit(int $bit): int
     {
-        if ($bit == 0) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return 1 - $bit;
     }
 
 
     private function addBits(int $bit1, int $bit2): int
     {
-        return $bit1 + $bit2;
+        return $bit1 + $bit2 - ($bit1 * $bit2);
     }
 
 
