@@ -18,6 +18,8 @@ let optSymbolLC = document.querySelector('#opt-symbol-lc');
 let txtExpressionCalc = document.querySelector('#txt-expression-calc');
 let $expression = "";
 let txtResultCalc = document.querySelector('#txt-result-calc');
+let txtResultCalcPrefix = document.querySelector('#txt-result-prefix');
+let txtResultCalcPostfix = document.querySelector('#txt-result-postfix');
 let lblConstant = document.querySelector('#lbl-constant');
 let btnNot = document.querySelector('#btn-not');
 let btnAnd = document.querySelector('#btn-and');
@@ -83,6 +85,9 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
         case 'ac':
             element.addEventListener('click', () => {
                 txtExpressionCalc.value = '';
+                txtResultCalc.value = '';
+                txtResultCalcPrefix.value = '';
+                txtResultCalcPostfix.value = '';
                 $expression = '';
                 arrayStackBrackets = [];
             });
@@ -118,10 +123,10 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                     fetch(arrayLinks[0], params)
                         .then(data => {return data.json()})
                         .then(response => {
-                            txtResultCalc.value = response.resultExpression;
+                            txtResultCalcPostfix.value = response.resultExpression;
                         })
                         .catch(err => {
-                            txtResultCalc.value = "Hay problemas con la petición";
+                            txtResultCalcPostfix.value = "Hay problemas con la petición";
                         });
                 }
             });

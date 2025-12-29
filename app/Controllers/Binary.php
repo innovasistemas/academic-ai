@@ -63,9 +63,9 @@ class Binary extends App
                 $this->objLogic->postfixExpression(
                     $this->arrayData['expression2'],
                     $stack
-                )
+                ),
+            'rr' => $stack
         ];
-        print_r($stack);
     }
 
 

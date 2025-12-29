@@ -75,20 +75,61 @@
                                             <table id="table-calc" class="table table-bordered text-center">
                                                 <tr>
                                                     <td colspan="2">
-                                                        <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Exp.">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly="readonly" maxlength="100" placeholder="Expresión lógica">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">&nbsp;</div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label for="" id="lbl-p" class="form-check-label fw-bold">p</label>&nbsp;
+                                                                <label for="opt-var-p0" class="form-check-label">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-p0" name="opt-var-p" value="0" checked="checked">
+                                                                <label for="opt-var-p1" class="form-check-label">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-p1" name="opt-var-p" value="1">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="" id="lbl-q" class="form-check-label fw-bold">q</label>&nbsp;
+                                                                <label for="opt-var-q0" class="form-check-label">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-q0" name="opt-var-q" value="0" checked="checked">
+                                                                <label for="opt-var-q1" class="form-check-label">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-q1" name="opt-var-q" value="1">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="" id="lbl-r" class="form-check-label fw-bold">r</label>&nbsp;
+                                                                <label for="opt-var-r0" class="form-check-label">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-r0" name="opt-var-r" value="0" checked="checked">
+                                                                <label for="opt-var-r1" class="form-check-label">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-r1" name="opt-var-r" value="1">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="" id="lbl-s" class="form-check-label fw-bold">s</label>&nbsp;
+                                                                <label for="opt-var-s0" class="form-check-label">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-s0" name="opt-var-s" value="0" checked="checked">
+                                                                <label for="opt-var-s1" class="form-check-label">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-s1" name="opt-var-s" value="1">
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td colspan="2">
-                                                        <input type="search" id="txt-result-calc" name="txt-result-calc" class="form-control" readonly-="readonly" maxlength="100" placeholder="Res.">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input type="search" id="txt-result-calc" name="txt-result-calc" class="form-control" readonly="readonly" maxlength="100" placeholder="Resultado">
+                                                                <input type="search" id="txt-result-prefix" name="txt-result-prefix" class="form-control" readonly="readonly" maxlength="100" placeholder="Prefija">
+                                                                <input type="search" id="txt-result-postfix" name="txt-result-postfix" class="form-control" readonly="readonly" maxlength="100" placeholder="Postfija">
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
                                                         <input type="radio" class="form-check-input" id="opt-symbol-lm" name="opt-symbol" value="lm" checked="checked">
-                                                        <label for="opt-symbol-lm" class="form-check-label">Lóg. Prop.</label>
+                                                        <label for="opt-symbol-lm" class="form-check-label">Lóg. Proposicional</label>
                                                     </td>
                                                     <td colspan="2">
                                                         <input type="radio" class="form-check-input" id="opt-symbol-lc" name="opt-symbol" value="lc">
-                                                        <label for="opt-symbol-lc" class="form-check-label">Lóg. Circ.</label>
+                                                        <label for="opt-symbol-lc" class="form-check-label">Lóg. Circuitos</label>
                                                     </td>
                                                 </tr>
                                                 <tr>

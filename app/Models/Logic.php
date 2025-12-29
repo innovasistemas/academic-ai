@@ -63,8 +63,8 @@ class Logic
         $this->operators[] = 'x';
         $this->operators[] = '/';
         $this->operators[] = '^';              
-        $this->operators[] = '(';
-        $this->operators[] = ')';
+        // $this->operators[] = '(';
+        // $this->operators[] = ')';
 
         if (!empty($arrayData['n']) || $arrayData['n'] == '0') {
             $this->n = (int)$arrayData['n'];
@@ -268,28 +268,28 @@ class Logic
     }
 
 
+    // Compuerta not
     private function denyBit(int $bit): int
     {
         return 1 - $bit;
     }
 
 
+    // Compuerta or
     private function addBits(int $bit1, int $bit2): int
     {
         return $bit1 + $bit2 - ($bit1 * $bit2);
     }
 
 
+    // Compuerta xor
     private function addExclusiveBits(int $bit1, int $bit2): int
     {
-        if ($bit1 + $bit2 == 1) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return $bit1 != $bit2 ? 1 : 0;
     }
     
     
+    // Compuerta and
     private function multiplyBits(int $bit1, int $bit2): int
     {
         return $bit1 * $bit2;
@@ -306,13 +306,10 @@ class Logic
     }
 
 
+    // Compuerta xnor
     private function biconditionalBits(int $bit1, int $bit2): int
     {
-        if ($bit1 == $bit2) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return $bit1 == $bit2 ? 1 : 0;
     }
 
 
@@ -320,15 +317,35 @@ class Logic
     {
         $strPostfix = "";
         for ($i = 0; $i < strlen($expression); $i++) {
-            $pos = $this->array->arraySearch(
-                $this->operators, 
-                $expression[$i]
-            );
+            $pos = $this->array->arraySearch($this->operators, $expression[$i]);
             if ($pos > -1) {
-                $stack = $this->array->stack($stack, substr($expression, $i, 1));
+                if (count($stack) > 0) {
+                    if ($stack[count($stack) - 1] != '(') {
+                        $pos2 = $this->array->arraySearch(
+                            $this->operators, 
+                            $stack[count($stack) - 1]
+                        );
+                        if ($pos2 <= $pos) {
+                            $strPostfix .= $this->array->unStack($stack);
+                        }
+                    }
+                }
+                $this->array->stack($stack, $expression[$i]);
+            } elseif ($expression[$i] == '(') {
+                $this->array->stack($stack, $expression[$i]);
+            } elseif ($expression[$i] == ')') {
+                do {
+                    $char = $this->array->unStack($stack);
+                    if ($char != '(') {
+                        $strPostfix .= $char;
+                    } 
+                } while ($char != '('); 
             } else {
-                $strPostfix .= substr($expression, $i, 1);
+                $strPostfix .= $expression[$i];
             }
+        }
+        while (count($stack) > 0) {
+            $strPostfix .= $this->array->unStack($stack);
         }
         return $strPostfix;
     }

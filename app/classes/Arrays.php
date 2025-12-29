@@ -3,13 +3,14 @@ namespace App\Classes;
 
 class Arrays
 {
+    public const MAX = 1000;
 
     public function __construct()
     {
         
     }
 
-
+    // Buscar elemento
     public function arraySearch(array $arrayData, $datum): int
     {
         $pos = -1;
@@ -24,19 +25,16 @@ class Arrays
         return $pos;
     }
 
-
-    public function stack($array, $datum): array
+    // Apilar elemento
+    public function stack(&$array, $datum): void
     {
-        if (count($array) < 1000) {
+        if (count($array) < self::MAX) {
             $array[] = $datum;
-            return $array;
-        } else {
-            return ['desbordamiento'];
-        }
+        } 
     }
 
-
-    public function unStack($array): string
+    // Desapilar elemento
+    public function unStack(&$array): string
     {
         if (count($array) > 0) {
             return array_pop($array);
