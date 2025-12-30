@@ -13,9 +13,7 @@ class App
     /**
      * URL base del sitio
      */
-    public string $baseURL = 'http://localhost:80/academic-ai/';
-    // public string $baseURL = 'http://localhost/academic-ai/';
-    // public string $baseURL = 'https://academic-ai.000webhostapp.com/';
+    public string $baseURL = 'http://localhost/academic-ai/';
 
 
     /**
@@ -23,8 +21,6 @@ class App
      */
     public string $baseRoot = 'C:/laragon/www/academic-ai';
     // public string $baseRoot = 'C:/xampp/htdocs/academic-ai';
-    // public string $baseRoot = '/var/www/html/academic-ai';
-    // public string $baseRoot = '/storage/ssd4/741/21241741/public_html/';
 
 
     /**
@@ -82,6 +78,4 @@ class App
         $data = file_get_contents('php://input');
         $this->arrayData = json_decode($data, TRUE);
     }
-
-
 }

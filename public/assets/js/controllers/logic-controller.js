@@ -26,7 +26,7 @@ let btnAnd = document.querySelector('#btn-and');
 let btnOr = document.querySelector('#btn-or');
 let btnXor = document.querySelector('#btn-xor');
 let btnIf = document.querySelector('#btn-if');
-let btnIf2 = document.querySelector('#btn-if2');
+let btnXnor = document.querySelector('#btn-xnor');
 let btnAC = document.querySelector('#btn-ac');
 let btnW = document.querySelector('#btn-w');
 let btnX = document.querySelector('#btn-x');
@@ -80,7 +80,6 @@ txtNumberPropositions.addEventListener('change', () => {
 
 document.querySelectorAll('#table-calc input[type=button]').forEach ((element) => {
     let charPrev;
-    // switch (element.value) {
     switch (element.getAttribute('data-value')) {
         case 'ac':
             element.addEventListener('click', () => {
@@ -123,7 +122,7 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                     fetch(arrayLinks[0], params)
                         .then(data => {return data.json()})
                         .then(response => {
-                            txtResultCalcPostfix.value = response.resultExpression;
+                            txtResultCalcPostfix.value = response.resultExpressionPostfix;
                         })
                         .catch(err => {
                             txtResultCalcPostfix.value = "Hay problemas con la petición";
@@ -254,7 +253,7 @@ function $changeButtonsCalc(symbol)
             btnOr.value = response.symbols[symbol]['or'];
             btnXor.value = response.symbols[symbol]['xor'];
             btnIf.value = response.symbols[symbol]['if'];
-            btnIf2.value = response.symbols[symbol]['if2'];
+            btnXnor.value = response.symbols[symbol]['xnor'];
             
             let ascii = parseInt(response.symbols[symbol]['ascii']);
             let char = '';
@@ -265,13 +264,29 @@ function $changeButtonsCalc(symbol)
             if (optSymbolLM.checked) {
                 lblConstant.innerHTML = `${response.symbols[optSymbolLM.value]['on']}, 
                     ${response.symbols[optSymbolLM.value]['off']}`;
+                document.querySelectorAll('.v1').forEach ((element, index) => {
+                    element.innerHTML = 'v';
+                });
+                document.querySelectorAll('.f0').forEach ((element, index) => {
+                    element.innerHTML = 'f';
+                });
             } else {
                 lblConstant.innerHTML = `${response.symbols[optSymbolLC.value]['on']}, 
                     ${response.symbols[optSymbolLC.value]['off']}`;
+                document.querySelectorAll('.v1').forEach ((element, index) => {
+                    element.innerHTML = '1';
+                });
+                document.querySelectorAll('.f0').forEach ((element, index) => {
+                    element.innerHTML = '0';
+                });
             }
 
             document.querySelectorAll('#tr-vars input[type=button]').forEach ((element, index) => {
                 element.value = String.fromCharCode(ascii + index);
+            });
+            
+            document.querySelectorAll('.vars').forEach ((element, index) => {
+                element.innerHTML = String.fromCharCode(ascii + index);
             });
        
             for (let i = 0; i < txtExpressionCalc.value.length; i++) {

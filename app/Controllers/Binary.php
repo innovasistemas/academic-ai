@@ -59,7 +59,7 @@ class Binary extends App
     {
         $stack = [];
         $this->arrayResponse = [
-            'resultExpression' => 
+            'resultExpressionPostfix' => 
                 $this->objLogic->postfixExpression(
                     $this->arrayData['expression2'],
                     $stack

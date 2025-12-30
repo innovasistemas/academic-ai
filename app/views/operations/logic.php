@@ -9,7 +9,7 @@
                             <form id="frm-logic">
                                 <div class="row">
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <label for="lst-symbol-propositions">Notación / Lógica</label>
+                                        <label for="lst-symbol-propositions">Notación lógica</label>
                                         <select name="lst-symbol-propositions" id="lst-symbol-propositions" class="form-select select">
                                             <option value="lm">Proposicional</option>
                                             <option value="lc">Circuitos</option>
@@ -44,8 +44,10 @@
                                             <option value="and">Conjunción/AND</option>
                                             <option value="or">Disyunción/OR</option>
                                             <option value="xor">Disyunción exclusiva/XOR</option>
+                                            <option value="nand">Neg. conjunción/NAND</option>
+                                            <option value="nor">Neg. disyunción/NOR</option>
                                             <option value="if">Condicional</option>
-                                            <option value="if2">Bicondicional/XNOR</option>
+                                            <option value="xnor">Bicondicional/XNOR</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
@@ -63,7 +65,10 @@
                             </div>
                         </div>
                         
-                        <hr>
+                        <br>
+                        <hr class="separator">
+                        <hr class="separator">
+                        <br>
 
                         <h4 class="h4 text-primary">Calculadora lógica</h4>
                         <div class="container border border-info">
@@ -72,7 +77,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="table-responsive">
-                                            <table id="table-calc" class="table table-bordered text-center">
+                                            <table id="table-calc" class="table table-bordered- text-center">
                                                 <tr>
                                                     <td colspan="2">
                                                         <div class="row">
@@ -83,31 +88,31 @@
                                                         <div class="row">&nbsp;</div>
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label for="" id="lbl-p" class="form-check-label fw-bold">p</label>&nbsp;
-                                                                <label for="opt-var-p0" class="form-check-label">v</label>
+                                                                <label for="" id="lbl-p" class="form-check-label fw-bold vars">p</label>&nbsp;
+                                                                <label for="opt-var-p0" class="form-check-label v1">v</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-p0" name="opt-var-p" value="0" checked="checked">
-                                                                <label for="opt-var-p1" class="form-check-label">f</label>
+                                                                <label for="opt-var-p1" class="form-check-label f0">f</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-p1" name="opt-var-p" value="1">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-q" class="form-check-label fw-bold">q</label>&nbsp;
-                                                                <label for="opt-var-q0" class="form-check-label">v</label>
+                                                                <label for="" id="lbl-q" class="form-check-label fw-bold vars">q</label>&nbsp;
+                                                                <label for="opt-var-q0" class="form-check-label v1">v</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-q0" name="opt-var-q" value="0" checked="checked">
-                                                                <label for="opt-var-q1" class="form-check-label">f</label>
+                                                                <label for="opt-var-q1" class="form-check-label f0">f</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-q1" name="opt-var-q" value="1">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-r" class="form-check-label fw-bold">r</label>&nbsp;
-                                                                <label for="opt-var-r0" class="form-check-label">v</label>
+                                                                <label for="" id="lbl-r" class="form-check-label fw-bold vars">r</label>&nbsp;
+                                                                <label for="opt-var-r0" class="form-check-label v1">v</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-r0" name="opt-var-r" value="0" checked="checked">
-                                                                <label for="opt-var-r1" class="form-check-label">f</label>
+                                                                <label for="opt-var-r1" class="form-check-label f0">f</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-r1" name="opt-var-r" value="1">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-s" class="form-check-label fw-bold">s</label>&nbsp;
-                                                                <label for="opt-var-s0" class="form-check-label">v</label>
+                                                                <label for="" id="lbl-s" class="form-check-label fw-bold vars">s</label>&nbsp;
+                                                                <label for="opt-var-s0" class="form-check-label v1">v</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-s0" name="opt-var-s" value="0" checked="checked">
-                                                                <label for="opt-var-s1" class="form-check-label">f</label>
+                                                                <label for="opt-var-s1" class="form-check-label f0">f</label>
                                                                 <input type="radio" class="form-check-input" id="opt-var-s1" name="opt-var-s" value="1">
                                                             </div>
                                                         </div>
@@ -187,7 +192,7 @@
                                                         <input type="button" id="btn-if" class="btn-calc" value="→" data-value="/" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-if2" class="btn-calc" value="↔" data-value="^" data-type="operator">
+                                                        <input type="button" id="btn-xnor" class="btn-calc" value="↔" data-value="^" data-type="operator">
                                                     </td>
                                                     <td>
                                                         <input type="button" id="btn-b1" class="btn-calc" value="(" data-value="(" data-type="bracket1">

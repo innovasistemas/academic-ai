@@ -41,20 +41,24 @@ class Logic
         $this->symbols['lm']['off'] = 'f';
         $this->symbols['lm']['not'] = '┐';
         $this->symbols['lm']['and'] = '∧';
+        $this->symbols['lm']['nand'] = 'NAND';
         $this->symbols['lm']['or'] = '∨';
+        $this->symbols['lm']['nor'] = 'NOR';
         $this->symbols['lm']['xor'] = '⊕';
         $this->symbols['lm']['if'] = '→';
-        $this->symbols['lm']['if2'] = '↔';
+        $this->symbols['lm']['xnor'] = '↔';
         $this->symbols['lm']['ascii'] = 112;
                 
         $this->symbols['lc']['on'] = '1';
         $this->symbols['lc']['off'] = '0';
         $this->symbols['lc']['not'] = '−';
         $this->symbols['lc']['and'] = '×';
+        $this->symbols['lc']['nand'] = 'NAND';
         $this->symbols['lc']['or'] = '+';
+        $this->symbols['lc']['nor'] = 'NOR';
         $this->symbols['lc']['xor'] = '⊕';
         $this->symbols['lc']['if'] = '→';
-        $this->symbols['lc']['if2'] = '↔';
+        $this->symbols['lc']['xnor'] = '↔';
         $this->symbols['lc']['ascii'] = 65;
 
         $this->operators[] = '-';
@@ -63,8 +67,6 @@ class Logic
         $this->operators[] = 'x';
         $this->operators[] = '/';
         $this->operators[] = '^';              
-        // $this->operators[] = '(';
-        // $this->operators[] = ')';
 
         if (!empty($arrayData['n']) || $arrayData['n'] == '0') {
             $this->n = (int)$arrayData['n'];
@@ -251,17 +253,23 @@ class Logic
             case 'and':
                 $bit = $this->multiplyBits($bit1, $bit2);
                 break;
+            case 'nand':
+                $bit = 1 - $this->multiplyBits($bit1, $bit2);
+                break;
             case 'or':
                 $bit = $this->addBits($bit1, $bit2);
+                break;
+            case 'nor':
+                $bit = 1 - $this->addBits($bit1, $bit2);
                 break;
             case 'xor':
                 $bit = $this->addExclusiveBits($bit1, $bit2);
                 break;
+            case 'xnor':
+                $bit = $this->biconditionalBits($bit1, $bit2);
+                break;
             case 'if':
                 $bit = $this->conditionalBits($bit1, $bit2);
-                break;
-            case 'if2':
-                $bit = $this->biconditionalBits($bit1, $bit2);
                 break;
         }
         return $bit;
@@ -298,11 +306,7 @@ class Logic
 
     private function conditionalBits(int $bit1, int $bit2): int
     {
-        if ($bit1 == 1 && $bit2 == 0) {
-            return 0;
-        } else {
-            return 1;
-        }
+        return $bit1 == 1 && $bit2 == 0 ? 0 : 1;
     }
 
 
