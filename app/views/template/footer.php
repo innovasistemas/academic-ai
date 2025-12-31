@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     <div class="col-xs-2 col-md-4 col-sm-4">
-                        <small class="text-right">Copyright &copy; <?php echo date("Y") ?> - Innovasistemas</small>
+                        <small class="text-right">Copyleft &#x1F12F; <?php echo date("Y") ?> - Innovasistemas</small>
                     </div>
                 </div>
 

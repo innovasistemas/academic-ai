@@ -3,7 +3,7 @@ Options -Indexes
 
 
 # Error página no encontrada: error 404
-ErrorDocument 404 http://localhost:81/academic-ai/app/Views/errors/404.php
+ErrorDocument 404 http://localhost/academic-ai/app/Views/errors/404.php
 # ErrorDocument 404 http://localhost/academic-ai/app/Views/errors/404.php
 # ErrorDocument 404 https://academic-ai.000webhostapp.com/app/Views/errors/404.php
 

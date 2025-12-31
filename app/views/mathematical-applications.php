@@ -14,33 +14,6 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="h2">Aplicaciones en ciencias</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>
-                        Pruebe diferentes operaciones matemáticas en distintas ramas y sus aplicaciones
-                        a otros campos de la ciencia, tal como la informática, la ingeniería, la física y 
-                        otras áreas del conocimiento usando las distintas herarmientas que ofrece esta página. 
-                        Aquí encontrará:
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul>
-                        <li>Desarrollos informáticos</li>
-                        <li>Aplicaciones de ingeniería</li>
-                        <li>Cálculos matemáticos</li>
-                        <li>Problemas físicos</li>
-                        <li>Y mucho más</li>
-                    </ul>
-                </div>
-            </div>
-            
             <div class="link-tabs">
                 <ul class="menu-tab">
                     <li>

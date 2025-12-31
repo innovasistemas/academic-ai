@@ -1,6 +1,7 @@
                 <div class="container">
                     <div class="content-tab">
                         <h3 class="h3 text-success">Conjuntos</h3>
+                        <hr>
                         <div class="container border border-success">
                             <form id="frm-sets">
                                 <div class="row">

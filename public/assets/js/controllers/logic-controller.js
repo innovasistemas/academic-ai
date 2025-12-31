@@ -6,6 +6,7 @@ let frmFormData = document.querySelector('#frm-form-data');
 let divResult = document.querySelector('#div-result');
 let divResult2 = document.querySelector('#div-result2');
 let divLogicCalc = document.querySelector('#div-logic-calc');
+let imgGate = document.querySelector('#img-gate');
 let lstSymbolPropositions = document.querySelector('#lst-symbol-propositions');
 let lstLogicOperators = document.querySelector('#lst-logic-operators');
 let txtNumberPropositions = document.querySelector('#txt-number-propositions');
@@ -205,6 +206,7 @@ btnTrueTable.addEventListener('click', () => {
 
 
 btnLogicOperators.addEventListener('click', () => {
+    imgGate.src = `../../public/assets/images/gates/${lstLogicOperators.value}.png`;
     if (lstLogicOperators.value == 'not') {
         txtNumberPropositions.value = 1;
     } else {

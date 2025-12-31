@@ -15,12 +15,6 @@
 
         <div class="row container">
             <div class="col-12">
-                <p>
-                    Los siguientes documentos están disponibles para su descarga. Corresponden a las notas 
-                    de clase que tratan distintas temáticas: Programación, matemáticas e ingeniería de 
-                    software, entre otros.
-                </p>
-
                 <div class="row">
                     <div class="col-1">&nbsp;</div>
                     <div id="div-result-files" class="col-10 table-responsive"></div>

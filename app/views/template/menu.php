@@ -16,7 +16,7 @@
                         <a class="nav-link text-white" href="questions.php" title="Preguntas" data-bs-toggle="tooltip" data-bs-placement="bottom">Preguntas</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="documents.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
+                        <a class="nav-link text-white dropdown-toggle" href="academic.php" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
                             Académico
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -24,8 +24,14 @@
                             <li><a class="dropdown-item" href="examples.php" title="Ejemplos" data-bs-toggle="tooltip" data-bs-placement="bottom">Ejemplos</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="about.php" title="Acerca de" data-bs-toggle="tooltip" data-bs-placement="bottom">Acerca</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="help.php" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Ayuda">
+                            Ayuda
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="documentation.php" title="Documentación" data-bs-toggle="tooltip" data-bs-placement="bottom">Documentación</a></li>
+                            <li><a class="dropdown-item" href="about.php" title="Acerca de" data-bs-toggle="tooltip" data-bs-placement="bottom">Acerca de</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex">

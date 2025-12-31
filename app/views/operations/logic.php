@@ -4,7 +4,6 @@
                         <h3 class="h3 text-primary">{{titlePage}}</h3>
                         <hr>
                         <h4 class="h4 text-primary">Lógica proposicional y de circuitos</h4>
-                        <br>
                         <div class="container border border-info">
                             <form id="frm-logic">
                                 <div class="row">
@@ -30,15 +29,15 @@
                                     </div>
                                     <div class="col-xs-2 col-md-3 col-sm-4 form-group">
                                         <br>
-                                        <input type="button" id="btn-true-table" class="btn btn-outline-primary" value="Tabla de verdad general">
+                                        <input type="button" id="btn-true-table" class="btn btn-outline-primary" value="Tabla de verdad n variables">
                                     </div>
                                 </div>
 
                                 <hr>
                 
                                 <div class="row">
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <label for="lst-logic-operators">Conectivos/Compuertas</label>
+                                    <div class="col-3">
+                                        <label for="lst-logic-operators">Conectivos y compuertas</label>
                                         <select name="lst-logic-operators" id="lst-logic-operators" class="form-select select">
                                             <option value="not">Negación/NOT</option>
                                             <option value="and">Conjunción/AND</option>
@@ -50,9 +49,12 @@
                                             <option value="xnor">Bicondicional/XNOR</option>
                                         </select>
                                     </div>
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
+                                    <div class="col-3">
                                         <br>
-                                        <input type="button" id="btn-logic-operators" class="btn btn-outline-primary" value="Tabla conectivo/compuerta">
+                                        <input type="button" id="btn-logic-operators" class="btn btn-outline-primary" value="Tabla conectivo y compuerta">
+                                    </div>
+                                    <div class="col-3">
+                                        <img id="img-gate" src="../../public/assets/images/gates/none.png" alt="gate" width="200" height="90">
                                     </div>
                                 </div>
                             </form>

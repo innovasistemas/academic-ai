@@ -2,9 +2,9 @@
                     <div class="content-tab">
                         <h3 class="h3 text-danger">Álgebra lineal</h3>
                         <hr>
-                        <h4 class="h4 text-danger">Matrices</h4>
+                        <!-- <h4 class="h4 text-danger">Matrices</h4> -->
                         <div class="container">
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-12">   
                                     <ul>
                                         <li>Operaciones: suma de matrices, producto por un escalar, producto de matrices, matriz transpuesta</li>
@@ -13,7 +13,7 @@
                                         <li>Sistemas de ecuaciones</li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <form id="frm-matrix">
         
                                 <div class="row">

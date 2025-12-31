@@ -2,17 +2,17 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="hero">
+        <div id="app" class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
                     <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI" />
-                    Acerca de Academic AI
+                    {{titlePage}} 
                 </h1> 
                 <hr>
             </div>
         </div>
-
+        
         <div class="container">
             <div class="row">
                 <div class="col-12 table-responsive">
@@ -47,19 +47,19 @@
                         </tr>
                         <tr>
                             <th>Entorno desarrollo</th>
-                            <td>Windows / Linux - XAMPP / LAMPP</td>
+                            <td>Windows / Linux / Laragon</td>
                         </tr>
                         <tr>
                             <th>Host</th>
-                            <td>http://localhost:81/ - http://localhost:5259/</td>
+                            <td>http://localhost/ - http://localhost:5259/</td>
                         </tr>
                         <tr>
                             <th>Dominio web - webservices</th>
-                            <td>http://localhost:81/academic-ai - http://localhost:5259/</td>
+                            <td>http://localhost/academic-ai - http://localhost:5259/</td>
                         </tr>
                         <tr>
                             <th>Licencia</th>
-                            <td>MIT</td>
+                            <td><a href="https://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GPL (v3)</a></td>
                         </tr>
                         <tr>
                             <th>Versión</th>
@@ -79,3 +79,12 @@
         </div>
 
     <?php include "template/footer.php" ?>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titlePage: 'Acerca de'
+            }
+        })
+    </script>

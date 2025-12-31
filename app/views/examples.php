@@ -7,7 +7,7 @@
                 <hr>
                 <h1 class="h1">
                     <img src="../../public/assets/images/programming-icon.png" height="40" width="40" alt="Academic AI" />
-                    Ejemplos de programación
+                    Ejemplos
                 </h1> 
                 <hr>
             </div>
@@ -16,27 +16,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p>
-                        Los siguientes códigos están disponibles para su descarga. 
-                        Corresponden a los ejemplos desarrollados en clase y por gusto
-                        en distintos lenguajes de programación:
-                    </p>
-                    
-                    <div class="row">
-                        <div class="col-12">
-                            <ul>
-                                <li>PSeInt (PSeudocódico Intérprete)</li>
-                                <li>PHP</li>
-                                <li>Python</li>
-                                <li>C#</li>
-                                <li>C/C++</li>
-                                <li>Java</li>
-                                <li>Javascript</li>
-                                <li>Kotlin</li>
-                            </ul>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-1">&nbsp;</div>
                         <div id="div-result-files" class="col-10 table-responsive"></div>

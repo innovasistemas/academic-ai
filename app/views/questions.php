@@ -8,51 +8,13 @@
                 <h1 class="h1">
                     <img src="../../public/assets/images/question.png" height="40" width="40" alt="Academic AI" />
                     Preguntas 
-                    <small>(Responde y aprende)</small>
                 </h1>
                 <hr>
             </div>
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="h2">Bienvenido a la sección de preguntas</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>
-                        Responda, solucione pruebas cortas y deje que el sistema seleccione las preguntas por usted
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="h3">Comience</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>
-                        Aprenda resolviendo ejercicios en distintas áreas del
-                        conocimiento. Solo seleccione la temática de interés.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="h3">Contribuya</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>
-                        Comparta lo aprendido con la comunidad para 
-                        que otros aprendan de sus conocimientos.
-                    </p>
-                </div>
-            </div>
+            
 
             <!-- Tabs -->
             <div class="row">
