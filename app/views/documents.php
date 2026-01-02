@@ -34,7 +34,7 @@
                 data: {
                     titlePage: 'Documentos',
                     iconPage: '../../public/assets/images/pdf-icon.png',
-                    alternateText: 'Academic AI',
+                    alternateText: titlePage,
                     height: '40',
                     width: '40'
                 }

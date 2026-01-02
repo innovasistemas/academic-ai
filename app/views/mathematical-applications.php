@@ -75,7 +75,7 @@
                 data: {
                     titlePage: 'Aplicaciones',
                     iconPage: '../../public/assets/images/maths.png',
-                    alternateText: 'Academic AI',
+                    alternateText: titlePage,
                     height: '40',
                     width: '40'
                 }

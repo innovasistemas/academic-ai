@@ -85,8 +85,8 @@
             el: '#app',
             data: {
                 titlePage: 'Acerca de',
-                iconPage: '../../public/favicon.png',
-                alternateText: 'Academic AI',
+                iconPage: iconPage,
+                alternateText: titlePage,
                 height: '40',
                 width: '40'
             }

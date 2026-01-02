@@ -156,7 +156,7 @@
             data: {
                 titlePage: 'Documentación',
                 iconPage: '../../public/assets/images/documentation.png',
-                alternateText: 'Academic AI',
+                alternateText: titlePage,
                 height: '40',
                 width: '40'
             }

@@ -25,19 +25,29 @@
                             </li> 
                         </ul>
                     </div>
-                    <div class="col-xs-2 col-md-4 col-sm-4">
-                        <small class="text-right">Copyleft &#x1F12F; <?php echo date("Y") ?> - Innovasistemas</small>
+                    <div id="app-year" class="col-xs-2 col-md-4 col-sm-4">
+                        <small class="text-right">Copyleft &#x1F12F; {{year}} - Innovasistemas</small>
                     </div>
                 </div>
 
             </div>
         </footer>
 
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         
         <script src="../../public/assets/js/globals.js"></script>
+
+        <script>
+            let fullDate = new Date();
+            let year = fullDate.getFullYear();
+            var app = new Vue({
+                el: '#app-year',
+                data: {
+                    year: year,
+                }
+            })
+        </script>
 
     </body>
 </html>

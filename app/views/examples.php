@@ -33,7 +33,7 @@
                 data: {
                     titlePage: 'Ejemplos',
                     iconPage: '../../public/assets/images/programming-icon.png',
-                    alternateText: 'Academic AI',
+                    alternateText: titlePage,
                     height: '40',
                     width: '40'
                 }

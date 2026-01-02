@@ -179,7 +179,7 @@
                 data: {
                     titlePage: 'Preguntas',
                     iconPage: '../../public/assets/images/question.png',
-                    alternateText: 'Academic AI',
+                    alternateText: titlePage,
                     height: '40',
                     width: '40'
                 }

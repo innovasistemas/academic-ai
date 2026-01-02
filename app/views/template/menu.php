@@ -1,8 +1,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #2a5d84 !important;">
-        <div class="container-fluid">
+        <div id="app-menu" class="container-fluid">
             <a class="navbar-brand text-white" href="index.php" title="Academic AI" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI - Ciencia y tecnología" />
-                Academic AI
+                <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                {{titlePage}}
             </a>
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,3 +45,16 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        var app = new Vue({
+            el: '#app-menu',
+            data: {
+                titlePage: titlePage,
+                iconPage: iconPage,
+                alternateText: titlePage,
+                height: '40',
+                width: '40'
+            }
+        })
+    </script>

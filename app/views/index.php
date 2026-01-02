@@ -4,12 +4,12 @@
         
         <?php include "template/carousel.php" ?>
 
-            <div class="hero">
+            <div id="app" class="hero">
                 <div class="col-12">
                     <hr>
                     <h1 class="h1">
-                        <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI" />
-                        Bienvenido a Academic AI
+                        <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                        {{titlePage}}
                     </h1> 
                     <hr>
                 </div>
@@ -103,3 +103,16 @@
             <br>
 
     <?php include "template/footer.php" ?>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    titlePage: titlePage,
+                    iconPage: iconPage,
+                    alternateText: 'Academic AI',
+                    height: '40',
+                    width: '40'
+                }
+            })
+        </script>
