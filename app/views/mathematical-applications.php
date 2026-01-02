@@ -74,7 +74,7 @@
                 el: '#app',
                 data: {
                     titlePage: 'Aplicaciones',
-                    iconPage: '../../public/assets/images/maths.png',
+                    iconPage: `${routeAssets}/images/maths.png`,
                     alternateText: titlePage,
                     height: '40',
                     width: '40'

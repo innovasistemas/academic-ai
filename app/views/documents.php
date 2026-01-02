@@ -33,7 +33,7 @@
                 el: '#app',
                 data: {
                     titlePage: 'Documentos',
-                    iconPage: '../../public/assets/images/pdf-icon.png',
+                    iconPage: `${routeAssets}/images/pdf-icon.png`,
                     alternateText: titlePage,
                     height: '40',
                     width: '40'

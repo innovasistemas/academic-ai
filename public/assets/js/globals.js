@@ -1,21 +1,4 @@
-
-const arrayLinks = [
-    '../Controllers/Binary.php', 
-    '../Controllers/NumericalSystems.php',
-    '../Controllers/Algebra.php',
-    '../Controllers/Files.php',
-    '../Controllers/Questions.php',
-    '../Controllers/Cryptography.php',
-    '../Controllers/Simulations.php'
-];
-
-let arraySlider = [
-    '../public/assets/images/banner_header11.jpg',
-    '../public/assets/images/banner_header2.jpg',
-    '../public/assets/images/banner_header3.jpg'
-];
-
-
+// Cancelar evento submit
 document.addEventListener('submit', (event) => {
     event.preventDefault();
 });

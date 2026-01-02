@@ -32,15 +32,13 @@
                 el: '#app',
                 data: {
                     titlePage: 'Ejemplos',
-                    iconPage: '../../public/assets/images/programming-icon.png',
+                    iconPage: `${routeAssets}/images/programming-icon.png`,
                     alternateText: titlePage,
                     height: '40',
                     width: '40'
                 }
-            })
-        </script>        
-        
-        <script>
+            });
+       
             let divResultFiles = document.querySelector('#div-result-files');
             let objJson = {
                 button: 'list-program'

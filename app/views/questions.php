@@ -178,7 +178,7 @@
                 el: '#app',
                 data: {
                     titlePage: 'Preguntas',
-                    iconPage: '../../public/assets/images/question.png',
+                    iconPage: `${routeAssets}/images/question.png`,
                     alternateText: titlePage,
                     height: '40',
                     width: '40'

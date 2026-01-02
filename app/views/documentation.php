@@ -155,7 +155,7 @@
             el: '#app',
             data: {
                 titlePage: 'Documentación',
-                iconPage: '../../public/assets/images/documentation.png',
+                iconPage: `${routeAssets}/images/documentation.png`,
                 alternateText: titlePage,
                 height: '40',
                 width: '40'
