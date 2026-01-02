@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../public/favicon.png" height="40" width="40" alt="Academic AI" />
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
                     {{titlePage}} 
                 </h1> 
                 <hr>
@@ -84,7 +84,11 @@
         var app = new Vue({
             el: '#app',
             data: {
-                titlePage: 'Acerca de'
+                titlePage: 'Acerca de',
+                iconPage: '../../public/favicon.png',
+                alternateText: 'Academic AI',
+                height: '40',
+                width: '40'
             }
         })
     </script>

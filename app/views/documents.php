@@ -2,12 +2,12 @@
 
         <?php include "template/menu.php" ?>
         
-        <div class="hero">
+        <div id="app" class="hero">
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img src="../../public/assets/images/pdf-icon.png" height="40" width="40" alt="Academic AI" />
-                    Documentos
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                    {{titlePage}}
                 </h1> 
                 <hr>
             </div>
@@ -26,8 +26,20 @@
         <br>
         <br>
 
-
         <?php include "template/footer.php" ?>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    titlePage: 'Documentos',
+                    iconPage: '../../public/assets/images/pdf-icon.png',
+                    alternateText: 'Academic AI',
+                    height: '40',
+                    width: '40'
+                }
+            })
+        </script>
         
         <script>
             let ctd = 0;
