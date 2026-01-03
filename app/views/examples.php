@@ -60,7 +60,7 @@
                 });
 
             
-            function listExamples(response, dir = '', titleTable = 'Carpetas')
+            function listExamples(response, dir = '', titleTable = 'Lenguajes de programación')
             {
                 let arrayFiles = response.listFiles.split(',')
                 arrayFiles.pop();
@@ -91,7 +91,7 @@
                     if (objJson.element === '') {
                         table += `
                             <td>
-                                <a href="#!" onclick="listPrograms(\'${element}\')">
+                                <a href="#!" onclick="listPrograms(\'${element}\')" class="hover">
                                     <img src="${routeAssets}/images/${icon}" height="35" width="35" alt="${element}" />
                                     ${element}
                                 </a>
@@ -100,7 +100,7 @@
                     } else {
                         table += `
                             <td>
-                                <a href="${routeAssets}/examples/${dir}/${element}" target="_blank">
+                                <a href="${routeAssets}/examples/${dir}/${element}" target="_blank" class="hover">
                                     <img src="${routeAssets}/images/${icon}" height="35" width="35" alt="${element}" />
                                     ${element}
                                 </a>
@@ -129,9 +129,7 @@
                     .then(response => {
                         let titleTable = `
                             <a href="#!" onclick="listFolders()" class="text-primary" title="Regresar" style="font-size: 2.5em; text-decoration: none;">
-                                <span>
-                                    &#8592;
-                                </span> 
+                                &#8592;
                             </a>
                             Programas en ${dir}
                         `;
@@ -157,5 +155,3 @@
                     });
             }
         </script>
-        
-    
