@@ -34,7 +34,7 @@ class Files extends App
         
                 break;
             case 'list-program':
-                $this->listFiles("{$this->baseRoot}/public/assets/examples/");
+                $this->listFiles("{$this->baseRoot}/public/assets/examples/{$this->arrayData['element']}");
                 break;
         }
 
