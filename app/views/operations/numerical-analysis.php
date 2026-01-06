@@ -13,8 +13,8 @@
                                             <option value="par">Par/impar</option>
                                             <option value="factorial">Factorial</option>
                                             <option value="fibonacci">Fibonacci</option>
-                                            <option value="primo">Número primo</option>
-                                            <option value="perfecto">Número perfecto</option>
+                                            <option value="prime">Número primo</option>
+                                            <option value="perfect">Número perfecto</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
@@ -44,9 +44,9 @@
                                             <option value="e">e</option>
                                             <option value="angulo">Grados a radianes</option>
                                             <option value="angulorad">Radianes a grados</option>
-                                            <option value="seno">Seno</option>
-                                            <option value="coseno">Coseno</option>
-                                            <option value="tangente">Tangente</option>
+                                            <option value="sin">Seno</option>
+                                            <option value="cos">Coseno</option>
+                                            <option value="tan">Tangente</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">

@@ -20,7 +20,7 @@ class Numeric
     }
 
 
-    public function base10ToN($number, $base)
+    public function base10ToN($number, $base): string
     {
         $div = $number;
         $stringNumber = $number == 0 ? "0" : "";
@@ -34,7 +34,7 @@ class Numeric
     }
 
 
-    public function baseNTo10($stringNumber, $base)
+    public function baseNTo10($stringNumber, $base): int
     {
         $sum = 0;
         $n = strlen($stringNumber);
@@ -47,7 +47,7 @@ class Numeric
     }
 
 
-    public function conversionColumns($matrix)
+    public function conversionColumns($matrix): array
     {
         for ($i = 0; $i < 16; $i++) {
             $matrix[$i][4] = $i > 7 ? $this->base10ToN($i, 8) : (string) $i;
@@ -58,7 +58,7 @@ class Numeric
     }
 
 
-    public function generateConversionTable($matrix)
+    public function generateConversionTable($matrix): string
     {
         $tableBinary = "
             <div class='table-responsive'>
@@ -91,7 +91,22 @@ class Numeric
     }
 
 
-    public function factorial($n) 
+    public function abs(float $n): float
+    {
+        return $n >= 0 ? $n : -$n;
+    }
+
+    public function inv(float $n): string
+    {
+        return $n != 0 ? (string) (1 / $n) : "Error. División por 0";
+    }
+
+    public function sum(int $n): int
+    {
+        return $n * ($n + 1) / 2;
+    }
+
+    public function factorial(int $n): float
     {
         $f = 1;
         for ($i = 1; $i <= $n; $i++) {
@@ -100,23 +115,27 @@ class Numeric
         return $f;
     }
 
-
-    public function prime($n)
+    public function prime(int $n): int
     {
-        $i = 2;
-        $sw = TRUE;
-        while ($i <= $n / 2 && $sw) {
-            if ($n % $i == 0) {
-                $sw = FALSE;
+        $sw = true;
+        if ($n != 2) {
+            if ($n % 2 != 0) {
+                $i = 3;
+                while ($i <= $n ** 0.5 && $sw) {
+                    if ($n % $i == 0) {
+                        $sw = false;
+                    } else {
+                        $i += 2;
+                    }
+                }
             } else {
-                $i++;
+                $sw = false;
             }
         }
         return $sw;
     }
 
-
-    public function perfect($n)
+    public function perfect($n): int
     {
         $sum = 0;
         for ($i = 1; $i <= $n / 2; $i++) {
@@ -124,18 +143,17 @@ class Numeric
                 $sum += $i;
             }
         }
-        $sw = $sum == $n ? TRUE : FALSE;
+        $sw = $sum == $n ? true : false;
         return $sw;
     }
 
-
-    public function even($n)
+    public function even($n): bool
     {
         $k = 0;
-        $sw = FALSE;
+        $sw = false;
         while ($k <= $n && !$sw) {
             if (2 * $k == $n) {
-                $sw = TRUE;
+                $sw = true;
             } else {
                 $k++;
             }
@@ -143,8 +161,7 @@ class Numeric
         return $sw;
     }
 
-
-    public function fibonacci($n)
+    public function fibonacci($n): string
     {
         $fib1 = 1;
         $fib2 = 1;
@@ -159,18 +176,31 @@ class Numeric
         return substr($strFib, 0, strlen($strFib) - 2);
     }
 
+    public function truncDecimals(float $number, int $nd): float
+    {
+        $number2 = abs($number);
+        $diff = $number2 - (int) $number2;
+        $roundDecInt = $diff * 10 ** ($nd + 1);
+        $lastDigit = (int) $roundDecInt % 10;
+        $divRound = (int) $roundDecInt / 10;
+        if ($lastDigit > 4) {
+            $divRound++;
+        }
+        $divRoundDec = (int) $divRound / 10 ** $nd;
+        return $number >= 0 ? 
+            ((int) $number2 + $divRoundDec) : -((int) $number2 + $divRoundDec);
+    }
 
-    public function pi()
+    public function pi(): float
     {
         $sum = 0;
-        for ($n = 0; $n <= 800000; $n++) {
+        for ($n = 0; $n <= 3000000; $n++) {
             $sum += pow(-1, $n) / (2 * $n + 1);
         }
         return 4 * $sum;
     }
 
-
-    public function e()
+    public function e(): float
     {
         $sum = 0;
         for ($n = 0; $n <= 100; $n++) {
@@ -179,30 +209,27 @@ class Numeric
         return $sum;
     }
 
-
-    public function degreeToRadians($angle)
+    public function degreeToRadians($angle): float
     {
         return $angle * M_PI / 180;
     }
 
-
-    public function radiansToDegree($angle)
+    public function radiansToDegree($angle): float
     {
         return $angle * 180 / M_PI;
     }
 
-
-    public function sinus($x)
+    public function sinus(float $x): float
     {
         $sum = 0;
         for ($n = 0; $n <= 192; $n++) {
             $sum += pow(-1, $n) * pow($x, 2 * $n + 1) / $this->factorial(2 * $n + 1);
         }
+        // echo $x;
         return $sum;
     }
 
-
-    public function cosinus($x)
+    public function cosinus(float $x): float
     {
         $sum = 0;
         for ($n = 0; $n <= 193; $n++) {
@@ -211,15 +238,9 @@ class Numeric
         return $sum;
     }
 
-
-    public function tangent($x)
+    public function tangent(float $x): string
     {
         $cos = $this->cosinus($x);
-        if ($cos != 0) {
-            $tan = $this->sinus($x) / $cos;
-        } else {
-            $tan = "Error matemático";
-        }
-        return $tan;
+        return $cos != 0 ? (string) ($this->sinus($x) / $cos ): "Error matemático"; 
     }
 }

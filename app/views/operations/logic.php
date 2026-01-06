@@ -149,58 +149,58 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="button" id="btn-ac" class="text-danger btn-calc" value="ac" data-value="ac">
+                                                        <input type="button" id="btn-ac" class="btn btn-danger btn-calc" value="ac" data-value="ac">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-del" class="text-danger btn-calc" value="×" data-value="×">
+                                                        <input type="button" id="btn-del" class="btn btn-danger btn-calc" value="×" data-value="×">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-back" class="text-danger btn-calc" value="←" data-value="←">
+                                                        <input type="button" id="btn-back" class="btn btn-danger btn-calc" value="←" data-value="←">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-equal" class="text-success btn-calc" value="=" data-value="=">
+                                                        <input type="button" id="btn-equal" class="btn btn-success btn-calc" value="=" data-value="=">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-vars">
                                                     <td>
-                                                        <input type="button" id="btn-w" class="text-primary btn-calc" value="p" data-value="p" data-type="variable">
+                                                        <input type="button" id="btn-w" class="btn btn-info btn-calc" value="p" data-value="p" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-x" class="text-primary btn-calc" value="q" data-value="q" data-type="variable">
+                                                        <input type="button" id="btn-x" class="btn btn-info btn-calc" value="q" data-value="q" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-y" class="text-primary btn-calc" value="r" data-value="r" data-type="variable">
+                                                        <input type="button" id="btn-y" class="btn btn-info btn-calc" value="r" data-value="r" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-z" class="text-primary btn-calc" value="s" data-value="s" data-type="variable">
+                                                        <input type="button" id="btn-z" class="btn btn-info btn-calc" value="s" data-value="s" data-type="variable">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators1">
                                                     <td>
-                                                        <input type="button" id="btn-not" class="btn-calc" value="┐" data-value="-" data-type="operator">
+                                                        <input type="button" id="btn-not" class="btn btn-dark btn-calc" value="┐" data-value="-" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-and" class="btn-calc" value="∧" data-value="*" data-type="operator">
+                                                        <input type="button" id="btn-and" class="btn btn-dark btn-calc" value="∧" data-value="*" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-or" class="btn-calc" value="∨" data-value="+" data-type="operator">
+                                                        <input type="button" id="btn-or" class="btn btn-dark btn-calc" value="∨" data-value="+" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-xor" class="btn-calc" value="⊕" data-value="x" data-type="operator">
+                                                        <input type="button" id="btn-xor" class="btn btn-dark btn-calc" value="⊕" data-value="x" data-type="operator">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators2">
                                                     <td>
-                                                        <input type="button" id="btn-if" class="btn-calc" value="→" data-value="/" data-type="operator">
+                                                        <input type="button" id="btn-if" class="btn btn-dark btn-calc" value="→" data-value="/" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-xnor" class="btn-calc" value="↔" data-value="^" data-type="operator">
+                                                        <input type="button" id="btn-xnor" class="btn btn-dark btn-calc" value="↔" data-value="^" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b1" class="btn-calc" value="(" data-value="(" data-type="bracket1">
+                                                        <input type="button" id="btn-b1" class="btn btn-dark btn-calc" value="(" data-value="(" data-type="bracket1">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b2" class="btn-calc" value=")" data-value=")" data-type="bracket2">
+                                                        <input type="button" id="btn-b2" class="btn btn-dark btn-calc" value=")" data-value=")" data-type="bracket2">
                                                     </td>
                                                 </tr>
                                             </table>

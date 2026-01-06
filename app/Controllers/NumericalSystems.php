@@ -157,15 +157,37 @@ class NumericalSystems extends App
                     </span>
                 ";
                 break;
+            case 'sum':
+                if ($this->arrayData['number'] > 0) {
+                    $this->stringOutput = 
+                        (string) $objNumeric->sum((int) $this->arrayData['number']);
+                }
+                break;
             case 'factorial':
                 if ($this->arrayData['number'] >= 0) {
-                    $this->stringOutput = "
-                        <span class='text-info' style='font-size: 1.2em;'>
-                            {$this->arrayData['number']}! = 
-                            {$objNumeric->factorial($this->arrayData['number'])}
-                        </span>
-                    ";
+                    $this->stringOutput = 
+                        (string) $objNumeric->factorial((int) $this->arrayData['number']);
                 }
+                break;
+            case 'abs':
+                $this->stringOutput = 
+                  (string) $objNumeric->abs((float) $this->arrayData['number']);
+                break;
+            case 'inv':
+                $this->stringOutput = 
+                  (string) $objNumeric->inv((float) $this->arrayData['number']);
+                break;
+            case 'round':
+                $this->stringOutput = 
+                  (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 2);
+                break;
+            case 'ceil':
+                $this->stringOutput = 
+                  (string) ($objNumeric->truncDecimals((float) $this->arrayData['number'], 0) + 1);
+                break;
+            case 'floor':
+                $this->stringOutput = 
+                  (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 0);
                 break;
             case 'fibonacci':
                 if ($this->arrayData['number'] > 0) {
@@ -176,26 +198,18 @@ class NumericalSystems extends App
                     ";
                 }
                 break;
-            case 'primo':
+            case 'prime':
                 if ($this->arrayData['number'] > 1) {
-                    $isPrime = $objNumeric->prime($this->arrayData['number']) ? 
-                        "es primo" : "no es primo";
-                    $this->stringOutput = "
-                        <span class='text-info-' style='font-size: 1.2em;'>
-                            {$this->arrayData['number']} $isPrime
-                        </span>
-                    ";
+                    $this->stringOutput = 
+                        $objNumeric->prime((int) $this->arrayData['number']) ? 
+                            "Es primo" : "No es primo";
                 }
                 break;
-            case 'perfecto':
+            case 'perfect':
                 if ($this->arrayData['number'] > 0) {
-                    $isPerfect = $objNumeric->perfect($this->arrayData['number']) ? 
-                        "es perfecto" : "no es perfecto";
-                    $this->stringOutput = "
-                        <span class='text-info-' style='font-size: 1.2em;'>
-                            {$this->arrayData['number']} $isPerfect
-                        </span>
-                    ";
+                    $this->stringOutput = 
+                        $objNumeric->perfect((int) $this->arrayData['number']) ? 
+                            "Es perfecto" : "No es perfecto";
                 }
                 break;
         }
@@ -207,18 +221,10 @@ class NumericalSystems extends App
         $objNumeric = new Numeric(); 
         switch ($this->arrayData['operation']) {
             case 'pi':
-                $this->stringOutput = "
-                    <span class='text-info-' style='font-size: 1.2em;'>
-                        &pi; = {$objNumeric->pi()}
-                    </span>
-                ";
+                $this->stringOutput = (string) $objNumeric->pi();
                 break;
             case 'e':
-                $this->stringOutput = "
-                    <span class='text-info-' style='font-size: 1.2em;'>
-                        e = {$objNumeric->e()}
-                    </span>
-                ";
+                $this->stringOutput = (string) $objNumeric->e();
                 break;
             case 'angulo':
                 $this->stringOutput = "
@@ -239,32 +245,17 @@ class NumericalSystems extends App
                     </span>
                 ";
                 break;
-            case 'seno':
-                $this->stringOutput = "
-                    <span class='text-info-' style='font-size: 1.2em;'>
-                        sen({$this->arrayData['number']}) 
-                        = 
-                        {$objNumeric->sinus($this->arrayData['number'])}
-                    </span>
-                ";
+            case 'sin':
+                $this->stringOutput = 
+                    (string) $objNumeric->sinus((float) $this->arrayData['number']);
                 break;
-            case 'coseno':
-                $this->stringOutput = "
-                    <span class='text-info-' style='font-size: 1.2em;'>
-                        cos({$this->arrayData['number']}) 
-                        = 
-                        {$objNumeric->cosinus($this->arrayData['number'])}
-                    </span>
-                ";
+            case 'cos':
+                $this->stringOutput = 
+                    (string) $objNumeric->cosinus((float) $this->arrayData['number']);
                 break;
-            case 'tangente':
-                $this->stringOutput = "
-                    <span class='text-info-' style='font-size: 1.2em;'>
-                        tan({$this->arrayData['number']}) 
-                        = 
-                        {$objNumeric->tangent($this->arrayData['number'])}
-                    </span>
-                ";
+            case 'tan':
+                $this->stringOutput = 
+                    (string) $objNumeric->tangent((float) $this->arrayData['number']);
                 break;
         }
     }
