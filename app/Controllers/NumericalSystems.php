@@ -157,7 +157,7 @@ class NumericalSystems extends App
                     </span>
                 ";
                 break;
-            case 'sum':
+            case 'sumatory':
                 if ($this->arrayData['number'] > 0) {
                     $this->stringOutput = 
                         (string) $objNumeric->sum((int) $this->arrayData['number']);
@@ -171,23 +171,27 @@ class NumericalSystems extends App
                 break;
             case 'abs':
                 $this->stringOutput = 
-                  (string) $objNumeric->abs((float) $this->arrayData['number']);
+                    (string) $objNumeric->abs((float) $this->arrayData['number']);
                 break;
             case 'inv':
                 $this->stringOutput = 
-                  (string) $objNumeric->inv((float) $this->arrayData['number']);
+                    (string) $objNumeric->inv((float) $this->arrayData['number']);
                 break;
             case 'round':
                 $this->stringOutput = 
-                  (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 2);
+                    (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 2);
+                break;
+            case 'random':
+                $this->stringOutput = 
+                    (string) $objNumeric->pseudoRandom(time(), 7 ** 5, 0, 2 ** 31 -1);
                 break;
             case 'ceil':
                 $this->stringOutput = 
-                  (string) ($objNumeric->truncDecimals((float) $this->arrayData['number'], 0) + 1);
+                    (string) ($objNumeric->truncDecimals((float) $this->arrayData['number'], 0) + 1);
                 break;
             case 'floor':
                 $this->stringOutput = 
-                  (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 0);
+                    (string) $objNumeric->truncDecimals((float) $this->arrayData['number'], 0);
                 break;
             case 'fibonacci':
                 if ($this->arrayData['number'] > 0) {
@@ -203,6 +207,12 @@ class NumericalSystems extends App
                     $this->stringOutput = 
                         $objNumeric->prime((int) $this->arrayData['number']) ? 
                             "Es primo" : "No es primo";
+                }
+                break;
+            case 'fibo':
+                if ($this->arrayData['number'] > 1) {
+                    $this->stringOutput = 
+                        $objNumeric->fibonacci((int) $this->arrayData['number']);
                 }
                 break;
             case 'perfect':
@@ -256,6 +266,19 @@ class NumericalSystems extends App
             case 'tan':
                 $this->stringOutput = 
                     (string) $objNumeric->tangent((float) $this->arrayData['number']);
+                break;
+            
+            case 'csc':
+                $this->stringOutput = 
+                    (string) $objNumeric->cosecant((float) $this->arrayData['number']);
+                break;
+            case 'sec':
+                $this->stringOutput = 
+                    (string) $objNumeric->secant((float) $this->arrayData['number']);
+                break;
+            case 'cot':
+                $this->stringOutput = 
+                    (string) $objNumeric->cotangent((float) $this->arrayData['number']);
                 break;
         }
     }

@@ -1,23 +1,34 @@
 // Componentes calculadora numérica
-let txtExpCalcNum = document.querySelector('#txt-expression-calc-numeric')
-let txtResCalcNum = document.querySelector('#txt-result-calc-numeric')
+let txtExpCalcNum = document.querySelector('#txt-expression-calc-numeric');
+let txtExpSupplementary = document.querySelector('#txt-expression-supplementary');
+let txtResCalcNum = document.querySelector('#txt-result-calc-numeric');
 let btnSin = document.querySelector('#btn-sin');
 let btnCos = document.querySelector('#btn-cos');
 let btnTan = document.querySelector('#btn-tan');
+let btnCsc = document.querySelector('#btn-csc');
+let btnSec = document.querySelector('#btn-sec');
+let btnCot = document.querySelector('#btn-cot');
 let btnPi = document.querySelector('#btn-pi');
 let btnE = document.querySelector('#btn-e');
 let btnFact = document.querySelector('#btn-factorial');
 let btnAbs = document.querySelector('#btn-abs');
 let btnInv = document.querySelector('#btn-inv');
 let btnPrime = document.querySelector('#btn-prime');
-let btnSum = document.querySelector('#btn-sum');
+let btnFibo = document.querySelector('#btn-fibo');
+let btnSumatory = document.querySelector('#btn-sumatory');
+let btnRand = document.querySelector('#btn-rand');
 let btnRound = document.querySelector('#btn-round');
 let btnPerfect = document.querySelector('#btn-perfect');
 let btnCeil = document.querySelector('#btn-ceil');
 let btnFloor = document.querySelector('#btn-floor');
+let btnPercentage = document.querySelector('#btn-percentage');
 
 let $expResult = '';
 
+btnPercentage.addEventListener('click', () => {
+    let objNum = new Numerics();
+    txtResCalcNum.value = objNum.percentage(txtExpCalcNum.value, txtExpSupplementary.value);
+});
 
 btnSin.addEventListener('click', () => {
     calculateOperation(btnSin.dataset.value, 'trigonometry-operation');
@@ -29,6 +40,18 @@ btnCos.addEventListener('click', () => {
 
 btnTan.addEventListener('click', () => {
     calculateOperation(btnTan.dataset.value, 'trigonometry-operation');
+});
+
+btnCsc.addEventListener('click', () => {
+    calculateOperation(btnCsc.dataset.value, 'trigonometry-operation');
+});
+
+btnSec.addEventListener('click', () => {
+    calculateOperation(btnSec.dataset.value, 'trigonometry-operation');
+});
+
+btnCot.addEventListener('click', () => {
+    calculateOperation(btnCot.dataset.value, 'trigonometry-operation');
 });
 
 btnPi.addEventListener('click', () => {
@@ -55,16 +78,24 @@ btnPrime.addEventListener('click', () => {
     calculateOperation(btnPrime.dataset.value, 'integer-operation');
 });
 
-btnSum.addEventListener('click', () => {
-    calculateOperation(btnSum.dataset.value, 'integer-operation');
+btnPerfect.addEventListener('click', () => {
+    calculateOperation(btnPerfect.dataset.value, 'integer-operation');
+});
+
+btnFibo.addEventListener('click', () => {
+    calculateOperation(btnFibo.dataset.value, 'integer-operation');
+});
+
+btnSumatory.addEventListener('click', () => {
+    calculateOperation(btnSumatory.dataset.value, 'integer-operation');
+});
+
+btnRand.addEventListener('click', () => {
+    calculateOperation(btnRand.dataset.value, 'integer-operation');
 });
 
 btnRound.addEventListener('click', () => {
     calculateOperation(btnRound.dataset.value, 'integer-operation');
-});
-
-btnPerfect.addEventListener('click', () => {
-    calculateOperation(btnPerfect.dataset.value, 'integer-operation');
 });
 
 btnCeil.addEventListener('click', () => {
@@ -83,6 +114,7 @@ document.querySelectorAll('#table-calc-numeric input[type=button]').forEach ((el
             element.addEventListener('click', () => {
                 txtExpCalcNum.value = '';
                 txtResCalcNum.value = '';
+                txtExpSupplementary.value = '';
                 // txtResultCalcPrefix.value = '';
                 // txtResultCalcPostfix.value = '';
                 $expResult = '';

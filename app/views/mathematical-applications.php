@@ -25,9 +25,9 @@
                     <li>
                         <a href="#!" class="link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos">Conjuntos</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#!" class="link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Análisis numérico">Análisis numérico</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="#!" class="link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
                     </li>

@@ -23,4 +23,10 @@ class Numerics
         } 
         return strNumber;
     }
+
+
+    percentage(value, perc)
+    {
+        return value * perc / 100;
+    }
 }

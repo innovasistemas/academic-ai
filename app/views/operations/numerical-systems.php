@@ -88,10 +88,6 @@
                             </form>
                         </div>
 
-
-
-
-
                         <br>
                         <hr class="separator">
                         <hr class="separator">
@@ -110,6 +106,7 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <input type="search" id="txt-expression-calc-numeric" name="txt-expression-calc-numeric" class="form-control" readonly-="readonly" maxlength="100" placeholder="Expresión aritmética">
+                                                                <input type="search" id="txt-expression-supplementary" name="txt-expression-supplementary" class="form-control" readonly-="readonly" maxlength="100" placeholder="Expresión complementaria">
                                                             </div>
                                                         </div>
                                                         <div class="row">&nbsp;</div>
@@ -174,13 +171,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="button" id="btn-inv" class="btn-calc" value="1/x" data-value="inv" data-type="function">
+                                                        <input type="button" id="btn-equal-3" class="btn- btn-info- btn-calc" value="d-r" data-value="d-r" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-prime" class="btn- btn- btn-calc" value="prime" data-value="prime" data-type="function">
+                                                        <input type="button" id="btn-prime-" class="btn- btn- btn-calc" value="  " data-value="prime-" data-type="function-">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-perfect" class="btn- btn- btn-calc" value="perf" data-value="perfect" data-type="function">
+                                                        <input type="button" id="btn-shift-calc" class="btn btn-warning btn-calc" value="shift" data-value="shift">
                                                     </td>
                                                     <td>
                                                         <input type="button" id="btn-back-calc" class="btn btn-danger btn-calc" value="←" data-value="←">
@@ -194,16 +191,16 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
+                                                        <input type="button" id="btn-C-" class="btn- btn-light- btn-calc" value="  " data-value="C-" data-type="variable-">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-D-" class="btn- btn-light- btn-calc" value="  " data-value="D-" data-type="variable-">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-E-" class="btn- btn-light- btn-calc" value="  " data-value="E-" data-type="variable-">
+                                                    </td>
+                                                    <td>
                                                         <input type="button" id="btn-pi" class="btn btn-info btn-calc" value="&pi;" data-value="pi" data-type="function">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-sin" class="btn btn-info btn-calc" value="sin" data-value="sin" data-type="function">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-cos" class="btn btn-info btn-calc" value="cos" data-value="cos" data-type="function">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-tan" class="btn btn-info btn-calc" value="tan" data-value="tan" data-type="function">
                                                     </td>
                                                     <td>
                                                         <input type="button" id="btn-back-" class="btn btn-info btn-calc" value="ln" data-value="←">
@@ -214,10 +211,30 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="button" id="btn-A" class="btn btn-light btn-calc" value="A" data-value="A" data-type="variable">
+                                                        <input type="button" id="btn-sin" class="btn btn-info btn-calc" value="sin" data-value="sin" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-sum" class="btn btn-info btn-calc" value="&sum;" data-value="sum" data-type="function">
+                                                        <input type="button" id="btn-cos" class="btn btn-info btn-calc" value="cos" data-value="cos" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-tan" class="btn btn-info btn-calc" value="tan" data-value="tan" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-csc" class="btn btn-info btn-calc" value="csc" data-value="csc" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-sec" class="btn btn-info btn-calc" value="sec" data-value="sec" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-cot" class="btn btn-info btn-calc" value="cot" data-value="cot" data-type="function">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="button" id="btn-sumatory" class="btn btn-info btn-calc" value="&sum;" data-value="sumatory" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-productory" class="btn btn-info btn-calc" value="&prod;" data-value="productory" data-type="function">
                                                     </td>
                                                     <td>
                                                         <input type="button" id="btn-factorial" class="btn btn-info btn-calc" value="n!" data-value="factorial" data-type="function">
@@ -226,16 +243,13 @@
                                                         <input type="button" id="btn-e" class="btn btn-info btn-calc" value="e" data-value="e" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-back-" class="btn btn-info btn-calc" value="rand" data-value="←" data-type="function">
+                                                        <input type="button" id="btn-rand" class="btn btn-info btn-calc" value="rand" data-value="random" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-equal-3" class="btn btn-info btn-calc" value="d-r" data-value="d-r" data-type="function">
+                                                        <input type="button" id="btn-equal-3-" class="btn btn-info btn-calc" value="&int;" data-value="integral" data-type="function-">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-vars-">
-                                                    <td>
-                                                        <input type="button" id="btn-B" class="btn btn-light btn-calc" value="B" data-value="B" data-type="variable">
-                                                    </td>
                                                     <td>
                                                         <input type="button" id="btn-sum" class="btn btn-dark btn-calc" value="+" data-value="+" data-type="operator">
                                                     </td>
@@ -251,85 +265,108 @@
                                                     <td>
                                                         <input type="button" id="btn-pow" class="btn btn-dark btn-calc" value="^" data-value="^" data-type="operator">
                                                     </td>
-                                                </tr>
-                                                <tr id="tr-vars-">
-                                                    <td>
-                                                        <input type="button" id="btn-C" class="btn btn-light btn-calc" value="C" data-value="C" data-type="variable">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-round" class="btn-calc" value="round" data-value="round" data-type="function">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-7" class="btn btn-light btn-calc" value="7" data-value="7" data-type="variable">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-8" class="btn btn-light btn-calc" value="8" data-value="8" data-type="variable">
-                                                    </td>
-                                                    <td>
-                                                        <input type="button" id="btn-8" class="btn btn-light btn-calc" value="9" data-value="9" data-type="variable">
-                                                    </td>
                                                     <td>
                                                         <input type="button" id="btn-mod" class="btn btn-dark btn-calc" value="mod" data-value="%" data-type="operator">
                                                     </td>
                                                 </tr>
-                                                <tr id="tr-operators1-">
+                                                <tr id="tr-vars-">
                                                     <td>
-                                                        <input type="button" id="btn-D" class="btn btn-light btn-calc" value="D" data-value="D" data-type="variable">
+                                                        <input type="button" id="btn-inv" class="btn btn-info btn-calc" value="1/x" data-value="inv" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-ceil" class="btn-calc" value="&lceil;x&rceil;" data-value="ceil" data-type="function">
+                                                        <input type="button" id="btn-round" class="btn btn-info btn-calc" value="round" data-value="round" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-4" class="btn btn-light btn-calc" value="4" data-value="4" data-type="variable">
+                                                        <input type="button" id="btn-7" class="btn btn-outline-info btn-calc" value="7" data-value="7" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-5" class="btn btn-light btn-calc" value="5" data-value="5" data-type="variable">
+                                                        <input type="button" id="btn-8" class="btn btn-outline-info btn-calc" value="8" data-value="8" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-6" class="btn btn-light btn-calc" value="6" data-value="6" data-type="variable">
+                                                        <input type="button" id="btn-8" class="btn btn-outline-info btn-calc" value="9" data-value="9" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-per" class="btn-calc" value="%" data-value="%" data-type="operator">
+                                                        <input type="button" id="btn-percentage" class="btn btn-info btn-calc" value="%" data-value="%" data-type="function">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators1-">
                                                     <td>
-                                                        <input type="button" id="btn-E" class="btn btn-light btn-calc" value="E" data-value="E" data-type="variable">
+                                                        <input type="button" id="btn-prime" class="btn btn-info btn-calc" value="prime" data-value="prime" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-floor" class="btn-calc" value="&lfloor;x&rfloor;" data-value="floor" data-type="function">
+                                                        <input type="button" id="btn-ceil" class="btn btn-info btn-calc" value="&lceil;x&rceil;" data-value="ceil" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-1" class="btn btn-light btn-calc" value="1" data-value="1" data-type="variable">
+                                                        <input type="button" id="btn-4" class="btn btn-outline-info btn-calc" value="4" data-value="4" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-2" class="btn btn-light btn-calc" value="2" data-value="2" data-type="variable">
+                                                        <input type="button" id="btn-5" class="btn btn-outline-info btn-calc" value="5" data-value="5" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-3" class="btn btn-light btn-calc" value="3" data-value="3" data-type="variable">
+                                                        <input type="button" id="btn-6" class="btn btn-outline-info btn-calc" value="6" data-value="6" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-dot" class="btn-calc" value="." data-value="." data-type="dot">
+                                                        <input type="button" id="btn-if-" class="btn btn-dark btn-calc" value="&plusmn;" data-value="&plusmn;" data-type="operator">
+                                                    </td>
+                                                </tr>
+                                                <tr id="tr-operators1-">
+                                                    <td>
+                                                        <input type="button" id="btn-perfect" class="btn btn-info btn-calc" value="perf" data-value="perfect" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-floor" class="btn btn-info btn-calc" value="&lfloor;x&rfloor;" data-value="floor" data-type="function">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-1" class="btn btn-outline-info btn-calc" value="1" data-value="1" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-2" class="btn btn-outline-info btn-calc" value="2" data-value="2" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-3" class="btn btn-outline-info btn-calc" value="3" data-value="3" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-dot" class="btn btn-outline-info btn-calc" value="." data-value="." data-type="dot">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators2-">
                                                     <td>
-                                                        <input type="button" id="btn-F" class="btn btn-light btn-calc" value="F" data-value="F" data-type="variable">
+                                                        <input type="button" id="btn-fibo" class="btn btn-info btn-calc" value="fibo" data-value="fibo" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-abs" class="btn-calc" value="|x|" data-value="abs" data-type="function">
+                                                        <input type="button" id="btn-abs" class="btn btn-info btn-calc" value="|x|" data-value="abs" data-type="function">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-if-" class="btn-calc" value="&plusmn;" data-value="&plusmn;" data-type="operator">
+                                                        <input type="button" id="btn-mod-" class="btn- btn-dark- btn-calc" value="  " data-value="%-" data-type="operator-">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-0" class="btn btn-light btn-calc" value="0" data-value="0" data-type="variable">
+                                                        <input type="button" id="btn-0" class="btn btn-outline-info btn-calc" value="0" data-value="0" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-br1" class="btn-calc" value="(" data-value="(" data-type="bracket">
+                                                        <input type="button" id="btn-br1" class="btn btn-secondary btn-calc" value="(" data-value="(" data-type="bracket">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-br2" class="btn-calc" value=")" data-value=")" data-type="bracket">
+                                                        <input type="button" id="btn-br2" class="btn btn-secondary btn-calc" value=")" data-value=")" data-type="bracket">
+                                                    </td>
+                                                </tr>
+                                                <tr id="tr-operators2-">
+                                                    <td>
+                                                        <input type="button" id="btn-A" class="btn btn-outline-info btn-calc" value="A" data-value="A" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-B" class="btn btn-outline-info btn-calc" value="B" data-value="B" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-C" class="btn btn-outline-info btn-calc" value="C" data-value="C" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-D" class="btn btn-outline-info btn-calc" value="D" data-value="D" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-E" class="btn btn-outline-info btn-calc" value="E" data-value="E" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-F" class="btn btn-outline-info btn-calc" value="F" data-value="F" data-type="variable">
                                                     </td>
                                                 </tr>
                                             </table>
@@ -338,15 +375,6 @@
                                 </div>
                             </form>
                         </div>
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
 

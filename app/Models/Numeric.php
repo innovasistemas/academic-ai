@@ -5,6 +5,8 @@ namespace App\Models;
 class Numeric
 {
     private array $digitHex;
+    private array $X;
+    private array $U;
 
 
     public function __construct()
@@ -17,6 +19,9 @@ class Numeric
             'E' => '14',
             'F' => '15'
         ];
+
+        $X = [];
+        $U = [];
     }
 
 
@@ -77,10 +82,8 @@ class Numeric
         for ($i = 0; $i < 16; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j < 7; $j++) {
-                // $background = $j == 5 ? "#17a2b8" : "";
                 $style = $j == 5 ? "background: #17a2b8; color: #FFF;" : "";
                 $tableBinary .= "<td style='$style'>{$matrix[$i][$j]}</td>";
-                // $tableBinary .= "<td style='background: $background;'>{$matrix[$i][$j]}</td>";
             }
             $tableBinary .= "</tr>";
         }
@@ -104,6 +107,24 @@ class Numeric
     public function sum(int $n): int
     {
         return $n * ($n + 1) / 2;
+    }
+
+    public function sumatory(array $x, int $n): float
+    {
+        $s = 0;
+        for ($i = 0; $i < $n; $i++) {
+            $s += $x[$i];
+        }
+        return $s;
+    }
+
+    public function prod(array $x, int $n): float
+    {
+        $p = 1;
+        for ($i = 0; $i < $n; $i++) {
+            $p *= $x[$i];
+        }
+        return $p;
     }
 
     public function factorial(int $n): float
@@ -191,6 +212,15 @@ class Numeric
             ((int) $number2 + $divRoundDec) : -((int) $number2 + $divRoundDec);
     }
 
+    public function pseudoRandom(float $x0, int $a, int $b, int $m) 
+    {
+        $seed = $x0;
+        $seed = ($a * $seed + $b) % $m;
+        $this->X[] = $seed;
+        $this->U[] = $this->X[count($this->X) - 1] / $m;
+        return $this->U[count($this->U) - 1];
+    }
+
     public function pi(): float
     {
         $sum = 0;
@@ -223,9 +253,9 @@ class Numeric
     {
         $sum = 0;
         for ($n = 0; $n <= 192; $n++) {
-            $sum += pow(-1, $n) * pow($x, 2 * $n + 1) / $this->factorial(2 * $n + 1);
+            $sum += 
+                pow(-1, $n) * pow($x, 2 * $n + 1) / $this->factorial(2 * $n + 1);
         }
-        // echo $x;
         return $sum;
     }
 
@@ -241,6 +271,26 @@ class Numeric
     public function tangent(float $x): string
     {
         $cos = $this->cosinus($x);
-        return $cos != 0 ? (string) ($this->sinus($x) / $cos ): "Error matemático"; 
+        return $cos != 0 ? 
+            (string) ($this->sinus($x) / $cos ): "Error matemático"; 
+    }
+
+    public function cosecant(float $x): string
+    {
+        $sin = $this->sinus($x);
+        return $sin != 0 ? (string) (1 / $sin ): "Error matemático"; 
+    }
+
+    public function secant(float $x): string
+    {
+        $cos = $this->cosinus($x);
+        return $cos != 0 ? (string) (1 / $cos ): "Error matemático"; 
+    }
+
+    public function cotangent(float $x): string
+    {
+        $sin = $this->sinus($x);
+        return $sin != 0 ? 
+            (string) ($this->cosinus($x) / $sin ): "Error matemático";  
     }
 }
