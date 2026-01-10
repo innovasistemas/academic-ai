@@ -25,8 +25,11 @@ class Binary extends App
             case 'true-table':
                 $this->trueTable();
                 break;
-            case 'equal':
-                $this->equal();
+            case 'postfix':
+                $this->postfix();
+                break;
+            case 'evaluate':
+                $this->evaluate();
                 break;
             case 'calc-symbol':
                 $this->calcSymbol();
@@ -34,7 +37,6 @@ class Binary extends App
         }
         $this->response($this->arrayResponse);
     }
-
 
     public function operators(): void
     {
@@ -46,7 +48,6 @@ class Binary extends App
         ];
     }
     
-
     public function trueTable(): void
     {
         $this->arrayResponse = [
@@ -54,20 +55,31 @@ class Binary extends App
         ];
     }
 
-
-    public function equal(): void
+    public function postfix(): void
     {
-        $stack = [];
         $this->arrayResponse = [
             'resultExpressionPostfix' => 
                 $this->objLogic->postfixExpression(
                     $this->arrayData['expression2'],
-                    $stack
-                ),
-            'rr' => $stack
+                )
         ];
     }
 
+    public function evaluate(): void
+    {
+        if ($this->arrayData['symbol'] == 'lm') {
+            $symbolTrue = 'v'; 
+            $symbolFalse = 'f'; 
+        } else {
+            $symbolTrue = '1';  
+            $symbolFalse = '0'; 
+        }
+        $resultFinal = 
+            $this->objLogic->postfixResult($this->arrayData['expression']);
+        $this->arrayResponse = [
+            'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse
+        ];
+    }
 
     public function calcSymbol(): void
     {

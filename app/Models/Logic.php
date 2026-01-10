@@ -11,7 +11,6 @@ class Logic
     private array $arrayBinary;
     private array $arrayOperator;
     private array $operators;
-    private array $arrayStack;
     private string $tableTrueTable;
     private string $tableOperator;
     private string $tableExpression;
@@ -25,7 +24,6 @@ class Logic
         $this->arrayBinary = [];
         $this->arrayOperator = [];
         $this->operators = [];
-        $this->arrayStack = [];
         $this->tableTrueTable = "";
         $this->tableOperator = "";
         $this->tableExpression = "";
@@ -282,33 +280,28 @@ class Logic
         return 1 - $bit;
     }
 
-
     // Compuerta or
     private function addBits(int $bit1, int $bit2): int
     {
-        return $bit1 + $bit2 - ($bit1 * $bit2);
+        return $bit1 + $bit2 - $bit1 * $bit2;
     }
-
 
     // Compuerta xor
     private function addExclusiveBits(int $bit1, int $bit2): int
     {
         return $bit1 != $bit2 ? 1 : 0;
     }
-    
-    
+        
     // Compuerta and
     private function multiplyBits(int $bit1, int $bit2): int
     {
         return $bit1 * $bit2;
     }
 
-
     private function conditionalBits(int $bit1, int $bit2): int
     {
         return $bit1 == 1 && $bit2 == 0 ? 0 : 1;
     }
-
 
     // Compuerta xnor
     private function biconditionalBits(int $bit1, int $bit2): int
@@ -316,10 +309,11 @@ class Logic
         return $bit1 == $bit2 ? 1 : 0;
     }
 
-
-    public function postfixExpression(string $expression, array &$stack): string 
+    // Expresión infija a postfija
+    public function postfixExpression(string $expression): string 
     {
         $strPostfix = "";
+        $stack = [];
         for ($i = 0; $i < strlen($expression); $i++) {
             $pos = $this->array->arraySearch($this->operators, $expression[$i]);
             if ($pos > -1) {
@@ -352,5 +346,42 @@ class Logic
             $strPostfix .= $this->array->unStack($stack);
         }
         return $strPostfix;
+    }
+
+    public function postfixResult(string $expression): int
+    {
+        $stack = [];
+        for ($i = 0; $i < strlen($expression); $i++) {
+            $pos = $this->array->arraySearch($this->operators, $expression[$i]);
+            if ($pos == -1) {
+                $this->array->stack($stack, $expression[$i]);
+            } else {
+                $b = (int) $this->array->unStack($stack);
+                if ($this->operators[$pos] == '-') {
+                    $result = $this->denyBit($b);
+                } else {
+                    $a = (int) $this->array->unStack($stack);
+                    switch ($expression[$i]) {
+                        case '*':
+                            $result = $this->multiplyBits($a, $b);
+                            break;
+                        case '+':
+                            $result = $this->addBits($a, $b);
+                            break;
+                        case 'x':
+                            $result = $this->addExclusiveBits($a, $b);
+                            break;
+                        case '/':
+                            $result = $this->conditionalBits($a, $b);
+                            break;
+                        case '^':
+                            $result = $this->biconditionalBits($a, $b);
+                            break;
+                    }
+                }
+                $this->array->stack($stack, $result);
+            }
+        }
+        return $stack[0];
     }
 }

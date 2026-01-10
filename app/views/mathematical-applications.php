@@ -15,27 +15,24 @@
 
         <div class="container">
             <div class="link-tabs">
-                <ul class="menu-tab">
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sistemas numéricos">Sistemas numéricos</a>
+                <ul class="list-inline menu-tab">
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sistemas numéricos">Sistemas numéricos</a>
                     </li>
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lógica y circuitos">Lógica y circuitos</a>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lógica y circuitos">Lógica y circuitos</a>
                     </li>
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos">Conjuntos</a>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos">Conjuntos</a>
                     </li>
-                    <!-- <li>
-                        <a href="#!" class="link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Análisis numérico">Análisis numérico</a>
-                    </li> -->
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
                     </li>
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía">Criptografía</a>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía">Criptografía</a>
                     </li>
-                    <li>
-                        <a href="#!" class="link-tab" data-tab="6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones">Simulaciones</a>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones">Simulaciones</a>
                     </li>
                 </ul>
             </div>
@@ -49,9 +46,6 @@
                 
                 <!-- Conjuntos -->
                 <?php include "operations/sets.php" ?>
-                
-                <!-- Análisis numérico -->
-                <?php include "operations/numerical-analysis.php" ?>
                 
                 <!-- Álgebra lineal -->
                 <?php include "operations/algebra.php" ?>
@@ -86,7 +80,6 @@
         <script src="../../public/assets/js/models/numerics-model.js"></script>
         <script src="../../public/assets/js/models/sets-model.js"></script>
         
-        <script src="../../public/assets/js/controllers/numerics-controller.js"></script>
         <script src="../../public/assets/js/controllers/calc-controller.js"></script>
         <script src="../../public/assets/js/controllers/logic-controller.js"></script>
         <script src="../../public/assets/js/controllers/sets-controllers.js"></script>
@@ -117,14 +110,15 @@
                 $classTab.forEach ((element, index) => {
                     if (index === parseInt(tab)) {
                         element.style.display = 'block';
-                        $tagsA[index].style.color = '#0d6efd';
+                        $tagsA[index].classList.add('text-white');
+                        $tagsA[index].classList.add('active');
                     } else {
                         element.style.display = 'none';
-                        $tagsA[index].style.color = '#444';
+                        $tagsA[index].classList.remove('text-white');
+                        $tagsA[index].classList.remove('active');
                     }
                 });
             }
 
             // ************************************
         </script>
-

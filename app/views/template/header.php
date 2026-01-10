@@ -29,7 +29,7 @@
                 }
             });
 
-            var app = new Vue({
+            app = new Vue({
                 el: '#app-favicon',
                 data: {
                     iconPage: iconPage,
@@ -37,7 +37,7 @@
                     height: '40',
                     width: '40'
                 }
-            })
+            });
         </script>
     </head>
 

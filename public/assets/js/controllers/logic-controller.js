@@ -16,8 +16,15 @@ let btnLogicOperators = document.querySelector('#btn-logic-operators');
 // Componentes calculadora lógica
 let optSymbolLM = document.querySelector('#opt-symbol-lm');
 let optSymbolLC = document.querySelector('#opt-symbol-lc');
+let optP1 = document.querySelector('#opt-var-p1');
+let optP0 = document.querySelector('#opt-var-p0');
+let optQ1 = document.querySelector('#opt-var-q1');
+let optQ0 = document.querySelector('#opt-var-q0');
+let optR1 = document.querySelector('#opt-var-r1');
+let optR0 = document.querySelector('#opt-var-r0');
+let optS1 = document.querySelector('#opt-var-s1');
+let optS0 = document.querySelector('#opt-var-s0');
 let txtExpressionCalc = document.querySelector('#txt-expression-calc');
-let $expression = "";
 let txtResultCalc = document.querySelector('#txt-result-calc');
 let txtResultCalcPrefix = document.querySelector('#txt-result-prefix');
 let txtResultCalcPostfix = document.querySelector('#txt-result-postfix');
@@ -33,6 +40,8 @@ let btnW = document.querySelector('#btn-w');
 let btnX = document.querySelector('#btn-x');
 let btnY = document.querySelector('#btn-y');
 let btnZ = document.querySelector('#btn-z');
+
+let $expression = "";
 
 const objTypeButton = {
     p: 'variable',
@@ -52,32 +61,27 @@ const objTypeButton = {
     '−': 'operator',
     '×': 'operator',
     '+': 'operator',
-    '(': 'bracket1',
-    ')': 'bracket2',
+    '(': 'bracket',
+    ')': 'bracket',
 };
 let arrayStackBrackets = [];
-
 
 optSymbolLM.addEventListener('change', () => {
     $changeButtonsCalc(optSymbolLM.value);
 });
 
-
 optSymbolLC.addEventListener('change', () => {
     $changeButtonsCalc(optSymbolLC.value);
 });
-
 
 // txtExpressionCalc.addEventListener('change', () => {
 //     $changeTextCalc();
 // });
 
-
 txtNumberPropositions.addEventListener('change', () => {
     $validateElementEmpty(txtNumberPropositions);
     txtNumberPropositions.value = objNumeric.trunc(txtNumberPropositions.value); 
 });
-
 
 document.querySelectorAll('#table-calc input[type=button]').forEach ((element) => {
     let charPrev;
@@ -113,7 +117,7 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         expression: txtExpressionCalc.value, 
                         expression2: $expression, 
                         symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
-                        button: 'equal'
+                        button: 'postfix'
                     }; 
                     let params = {
                         headers: {"Content-Type": "application/json; charset=utf-8"},
@@ -124,13 +128,13 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         .then(data => {return data.json()})
                         .then(response => {
                             txtResultCalcPostfix.value = response.resultExpressionPostfix;
+                            evaluateExpression(replaceValues());
                         })
                         .catch(err => {
                             txtResultCalcPostfix.value = "Hay problemas con la petición";
                         });
                 }
             });
-
             break;
         default:
             element.addEventListener('click', () => {
@@ -182,7 +186,6 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
     }
 });
 
-
 btnTrueTable.addEventListener('click', () => {
     let objJson = {
         n: txtNumberPropositions.value, 
@@ -203,7 +206,6 @@ btnTrueTable.addEventListener('click', () => {
             divResult.innerHTML = "Hay problemas con la petición";
         });
 });
-
 
 btnLogicOperators.addEventListener('click', () => {
     imgGate.src = `../../public/assets/images/gates/${lstLogicOperators.value}.png`;
@@ -234,6 +236,42 @@ btnLogicOperators.addEventListener('click', () => {
         });
 });
 
+function replaceValues()
+{
+    let p = optP1.checked ? optP1.value : optP0.value;
+    let q = optQ1.checked ? optQ1.value : optQ0.value;
+    let r = optR1.checked ? optR1.value : optR0.value;
+    let s = optS1.checked ? optS1.value : optS0.value;
+    let expression = txtResultCalcPostfix.value;
+    expression = expression.replaceAll('p', p);
+    expression = expression.replaceAll('q', q); 
+    expression = expression.replaceAll('r', r); 
+    expression = expression.replaceAll('s', s); 
+    return expression;
+}
+
+function evaluateExpression(expValues)
+{
+    let objJson = {
+        n: 0,
+        expression: expValues, 
+        symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
+        button: 'evaluate'
+    }; 
+    let params = {
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        body: JSON.stringify(objJson),
+        method: 'POST'
+    };
+    fetch(arrayLinks[0], params)
+        .then(data => {return data.json()})
+        .then(response => {
+            txtResultCalc.value = response.resultFinal;
+        })
+        .catch(err => {
+            txtResultCalc.value = `Hay problemas con la petición ${err}`;
+        });
+}
 
 function $changeButtonsCalc(symbol)
 {
@@ -319,7 +357,6 @@ function $changeButtonsCalc(symbol)
             divResult.innerHTML = "Hay problemas con la petición";
         });
 }
-
 
 function $changeTextCalc(stateStack = '')
 {

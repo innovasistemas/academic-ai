@@ -57,18 +57,11 @@ ul.active-option li a:hover {
 }
 
 .menu-tab li {
-    display: inline-block;
-    padding: 0.5em;
-    border: 1px solid;
-    border-style: outset;
+    border-radius: 15px;
 }
 
-.menu-tab a {
-    text-decoration: none;
-}
-
-.menu-tab a:hover {
-    text-decoration: underline;
+.menu-tab li a {
+    border-radius: 15px;
 }
 
 .tabs {

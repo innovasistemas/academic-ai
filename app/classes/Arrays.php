@@ -26,7 +26,7 @@ class Arrays
     }
 
     // Apilar elemento
-    public function stack(&$array, $datum): void
+    public function stack(array &$array, $datum): void
     {
         if (count($array) < self::MAX) {
             $array[] = $datum;
@@ -34,7 +34,7 @@ class Arrays
     }
 
     // Desapilar elemento
-    public function unStack(&$array): string
+    public function unStack(array &$array)
     {
         if (count($array) > 0) {
             return array_pop($array);

@@ -77,54 +77,71 @@
                             <br>
                             <form id="frm-calculator">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col">
                                         <div class="table-responsive">
                                             <table id="table-calc" class="table table-bordered- text-center">
                                                 <tr>
                                                     <td colspan="2">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly="readonly" maxlength="100" placeholder="Expresión lógica">
+                                                                <input type="search" id="txt-expression-calc" name="txt-expression-calc" class="form-control" readonly="readonly" maxlength="100" placeholder="Exp. lógica">
                                                             </div>
                                                         </div>
                                                         <div class="row">&nbsp;</div>
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label for="" id="lbl-p" class="form-check-label fw-bold vars">p</label>&nbsp;
-                                                                <label for="opt-var-p0" class="form-check-label v1">v</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-p0" name="opt-var-p" value="0" checked="checked">
-                                                                <label for="opt-var-p1" class="form-check-label f0">f</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-p1" name="opt-var-p" value="1">
+                                                                <label for="" id="lbl-p" class="form-check-label fw-bold h5 vars">p</label>&nbsp;
+                                                                <label for="opt-var-p1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-p1" name="opt-var-p" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-p0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-p0" name="opt-var-p" value="0">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-q" class="form-check-label fw-bold vars">q</label>&nbsp;
-                                                                <label for="opt-var-q0" class="form-check-label v1">v</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-q0" name="opt-var-q" value="0" checked="checked">
-                                                                <label for="opt-var-q1" class="form-check-label f0">f</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-q1" name="opt-var-q" value="1">
+                                                                <label for="" id="lbl-q" class="form-check-label fw-bold h5 vars">q</label>&nbsp;
+                                                                <label for="opt-var-q1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-q1" name="opt-var-q" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-q0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-q0" name="opt-var-q" value="0">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-r" class="form-check-label fw-bold vars">r</label>&nbsp;
-                                                                <label for="opt-var-r0" class="form-check-label v1">v</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-r0" name="opt-var-r" value="0" checked="checked">
-                                                                <label for="opt-var-r1" class="form-check-label f0">f</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-r1" name="opt-var-r" value="1">
+                                                                <label for="" id="lbl-r" class="form-check-label fw-bold h5 vars">r</label>&nbsp;
+                                                                <label for="opt-var-r1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-r1" name="opt-var-r" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-r0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-r0" name="opt-var-r" value="0">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="" id="lbl-s" class="form-check-label fw-bold vars">s</label>&nbsp;
-                                                                <label for="opt-var-s0" class="form-check-label v1">v</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-s0" name="opt-var-s" value="0" checked="checked">
-                                                                <label for="opt-var-s1" class="form-check-label f0">f</label>
-                                                                <input type="radio" class="form-check-input" id="opt-var-s1" name="opt-var-s" value="1">
+                                                                <label for="" id="lbl-s" class="form-check-label fw-bold h5 vars">s</label>&nbsp;
+                                                                <label for="opt-var-s1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-s1" name="opt-var-s" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-s0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-s0" name="opt-var-s" value="0">
                                                             </div>
                                                         </div>
+                                                        <!-- <div class="row">&nbsp;</div> -->
+                                                        <!-- <div class="row">
+                                                            <div class="col">
+                                                                <button id="btn-replace" class="btn btn-outline-primary btn-sm">Sustituir valores</button>
+                                                            </div>
+                                                        </div> -->
                                                     </td>
                                                     <td colspan="2">
                                                         <div class="row">
                                                             <div class="col">
                                                                 <input type="search" id="txt-result-calc" name="txt-result-calc" class="form-control" readonly="readonly" maxlength="100" placeholder="Resultado">
-                                                                <input type="search" id="txt-result-prefix" name="txt-result-prefix" class="form-control" readonly="readonly" maxlength="100" placeholder="Prefija">
-                                                                <input type="search" id="txt-result-postfix" name="txt-result-postfix" class="form-control" readonly="readonly" maxlength="100" placeholder="Postfija">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">&nbsp;</div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input type="search" id="txt-result-prefix" name="txt-result-prefix" class="form-control" readonly="readonly" maxlength="100" placeholder="Exp. prefija">
+                                                            </div>
+                                                            <div class="col">
+                                                                <input type="search" id="txt-result-postfix" name="txt-result-postfix" class="form-control" readonly="readonly" maxlength="100" placeholder="Exp. postfija">
                                                             </div>
                                                         </div>
                                                     </td>
@@ -197,10 +214,10 @@
                                                         <input type="button" id="btn-xnor" class="btn btn-dark btn-calc" value="↔" data-value="^" data-type="operator">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b1" class="btn btn-dark btn-calc" value="(" data-value="(" data-type="bracket1">
+                                                        <input type="button" id="btn-b1" class="btn btn-secondary btn-calc" value="(" data-value="(" data-type="bracket">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b2" class="btn btn-dark btn-calc" value=")" data-value=")" data-type="bracket2">
+                                                        <input type="button" id="btn-b2" class="btn btn-secondary btn-calc" value=")" data-value=")" data-type="bracket">
                                                     </td>
                                                 </tr>
                                             </table>
