@@ -54,9 +54,14 @@ class Binary extends App
 
     public function equal(): void
     {
-        $postFix = $this->objLogic->postfixExpression(
+        $postfix = $this->objLogic->postfixExpression(
             $this->arrayData['expression2']
         );
+        $postfixValues = $postfix;
+        foreach ($this->arrayData['vars'] as $key => $value) {
+            $postfixValues = str_replace($key, $value, $postfixValues);
+        }
+        $resultFinal = $this->objLogic->postfixResult($postfixValues); 
         if ($this->arrayData['symbol'] == 'lm') {
             $symbolTrue = 'v'; 
             $symbolFalse = 'f'; 
@@ -64,18 +69,8 @@ class Binary extends App
             $symbolTrue = '1';  
             $symbolFalse = '0'; 
         }
-        $postFixValues = $postFix;
-        $postFixValues = 
-            str_replace('p', $this->arrayData['vars']['p'], $postFixValues);
-        $postFixValues = 
-            str_replace('q', $this->arrayData['vars']['q'], $postFixValues);
-        $postFixValues = 
-            str_replace('r', $this->arrayData['vars']['r'], $postFixValues);
-        $postFixValues = 
-            str_replace('s', $this->arrayData['vars']['s'], $postFixValues);
-        $resultFinal = $this->objLogic->postfixResult($postFixValues); 
         $this->arrayResponse = [
-            'resultExpressionPostfix' => $postFix,
+            'resultExpressionPostfix' => $postfix,
             'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse
         ];
     }
