@@ -117,7 +117,13 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         expression: txtExpressionCalc.value, 
                         expression2: $expression, 
                         symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
-                        button: 'postfix'
+                        button: 'equal',
+                        vars: {
+                            p : optP1.checked ? optP1.value : optP0.value,
+                            q : optQ1.checked ? optQ1.value : optQ0.value,
+                            r : optR1.checked ? optR1.value : optR0.value,
+                            s : optS1.checked ? optS1.value : optS0.value,
+                        }
                     }; 
                     let params = {
                         headers: {"Content-Type": "application/json; charset=utf-8"},
@@ -128,10 +134,10 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         .then(data => {return data.json()})
                         .then(response => {
                             txtResultCalcPostfix.value = response.resultExpressionPostfix;
-                            evaluateExpression(replaceValues());
+                            txtResultCalc.value = response.resultFinal;
                         })
                         .catch(err => {
-                            txtResultCalcPostfix.value = "Hay problemas con la petición";
+                            txtResultCalc.value = `Hay problemas con la petición ${err}`;
                         });
                 }
             });
@@ -236,42 +242,6 @@ btnLogicOperators.addEventListener('click', () => {
         });
 });
 
-function replaceValues()
-{
-    let p = optP1.checked ? optP1.value : optP0.value;
-    let q = optQ1.checked ? optQ1.value : optQ0.value;
-    let r = optR1.checked ? optR1.value : optR0.value;
-    let s = optS1.checked ? optS1.value : optS0.value;
-    let expression = txtResultCalcPostfix.value;
-    expression = expression.replaceAll('p', p);
-    expression = expression.replaceAll('q', q); 
-    expression = expression.replaceAll('r', r); 
-    expression = expression.replaceAll('s', s); 
-    return expression;
-}
-
-function evaluateExpression(expValues)
-{
-    let objJson = {
-        n: 0,
-        expression: expValues, 
-        symbol: optSymbolLM.checked ? optSymbolLM.value : optSymbolLC.value,
-        button: 'evaluate'
-    }; 
-    let params = {
-        headers: {"Content-Type": "application/json; charset=utf-8"},
-        body: JSON.stringify(objJson),
-        method: 'POST'
-    };
-    fetch(arrayLinks[0], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            txtResultCalc.value = response.resultFinal;
-        })
-        .catch(err => {
-            txtResultCalc.value = `Hay problemas con la petición ${err}`;
-        });
-}
 
 function $changeButtonsCalc(symbol)
 {

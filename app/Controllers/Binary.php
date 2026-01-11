@@ -25,11 +25,8 @@ class Binary extends App
             case 'true-table':
                 $this->trueTable();
                 break;
-            case 'postfix':
-                $this->postfix();
-                break;
-            case 'evaluate':
-                $this->evaluate();
+            case 'equal':
+                $this->equal();
                 break;
             case 'calc-symbol':
                 $this->calcSymbol();
@@ -55,18 +52,11 @@ class Binary extends App
         ];
     }
 
-    public function postfix(): void
+    public function equal(): void
     {
-        $this->arrayResponse = [
-            'resultExpressionPostfix' => 
-                $this->objLogic->postfixExpression(
-                    $this->arrayData['expression2'],
-                )
-        ];
-    }
-
-    public function evaluate(): void
-    {
+        $postFix = $this->objLogic->postfixExpression(
+            $this->arrayData['expression2']
+        );
         if ($this->arrayData['symbol'] == 'lm') {
             $symbolTrue = 'v'; 
             $symbolFalse = 'f'; 
@@ -74,9 +64,18 @@ class Binary extends App
             $symbolTrue = '1';  
             $symbolFalse = '0'; 
         }
-        $resultFinal = 
-            $this->objLogic->postfixResult($this->arrayData['expression']);
+        $postFixValues = $postFix;
+        $postFixValues = 
+            str_replace('p', $this->arrayData['vars']['p'], $postFixValues);
+        $postFixValues = 
+            str_replace('q', $this->arrayData['vars']['q'], $postFixValues);
+        $postFixValues = 
+            str_replace('r', $this->arrayData['vars']['r'], $postFixValues);
+        $postFixValues = 
+            str_replace('s', $this->arrayData['vars']['s'], $postFixValues);
+        $resultFinal = $this->objLogic->postfixResult($postFixValues); 
         $this->arrayResponse = [
+            'resultExpressionPostfix' => $postFix,
             'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse
         ];
     }
