@@ -40,7 +40,6 @@ class Binary extends App
         $this->objLogic->createTableOperator($this->arrayData['operator']);
         $this->objLogic->generateTableOperator($this->arrayData['operator']);
         $this->arrayResponse = [
-            'table' => $this->objLogic->getTableTrueTable(),
             'tableOperator' => $this->objLogic->getTableOperator(),
         ];
     }
@@ -51,16 +50,18 @@ class Binary extends App
             'table' => $this->objLogic->getTableTrueTable(),
         ];
     }
+   
 
     public function equal(): void
     {
+        
         $postfix = $this->objLogic->postfixExpression(
             $this->arrayData['expression2']
         );
+
         $postfixValues = $postfix;
-        foreach ($this->arrayData['vars'] as $key => $value) {
-            $postfixValues = str_replace($key, $value, $postfixValues);
-        }
+        $postfixValues = 
+            $this->objLogic->replaceValues($this->arrayData, $postfixValues);
         $resultFinal = $this->objLogic->postfixResult($postfixValues); 
         if ($this->arrayData['symbol'] == 'lm') {
             $symbolTrue = 'v'; 
@@ -69,9 +70,17 @@ class Binary extends App
             $symbolTrue = '1';  
             $symbolFalse = '0'; 
         }
+
+        $this->objLogic->setN(3);// (int)$arrayData['n'];
+        $this->objLogic->setM(2 ** $this->objLogic->getN());
+
+        $this->objLogic->createTrueTable();
+        $this->objLogic->generateTrueTable($this->arrayData['expression'], $postfix);
+        
         $this->arrayResponse = [
             'resultExpressionPostfix' => $postfix,
-            'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse
+            'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse,
+            'table' => $this->objLogic->getTableTrueTable(),
         ];
     }
 

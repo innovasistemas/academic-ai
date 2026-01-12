@@ -75,38 +75,53 @@ class Logic
         $this->generateTrueTable();
     }
 
+    public function getM(): int
+    {
+        return $this->m;
+    }
+    
+    public function getN(): int
+    {
+        return $this->n;
+    }
 
     public function getArrayBinary(): array
     {
         return $this->arrayBinary;
     }
 
-
     public function getTableTrueTable(): string
     {
         return $this->tableTrueTable;
     }
-
 
     public function getTableOperator(): string
     {
         return $this->tableOperator;
     }
 
-
     public function getTableExpression(): string
     {
         return $this->tableExpression;
     }
-
-    
+ 
     public function getSymbols(): array
     {
         return $this->symbols;
     }
-    
 
-    private function createTrueTable(): void
+    public function setM(int $value): void
+    {
+        $this->m = $value;
+    }
+    
+    public function setN(int $value): void
+    {
+        $this->n = $value;
+    }
+
+    
+    public function createTrueTable(): void
     {
         $f = $this->m / 2;
         $bit = $this->symbols[$this->symbol]['off'];        
@@ -131,8 +146,11 @@ class Logic
     }
 
 
-    private function generateTrueTable(): void
+    public function generateTrueTable($formula = "Fórmula", $postfix = ""): void
     {
+        $vars = [];
+        $postfixValues = $postfix;
+        
         $tableBinary = "
             <div class='table-responsive'>
                 <table class=
@@ -140,18 +158,41 @@ class Logic
                     <thead>
                         <tr>
         ";
-        for ($i = 0; $i < $this->n; $i++){
+        for ($i = 0; $i < $this->n; $i++) {
             $tableBinary .= 
                 "<th>" . 
                     chr($this->symbols[$this->symbol]['ascii'] + $i) . 
                 "</th>";
         }
-        $tableBinary .= "</tr></thead><tbody>";
+        $tableBinary .= "<th>$formula</th>";
+        $tableBinary .= "</tr>";
+        $tableBinary .= "</thead>";
+        $tableBinary .= "<tbody>";
+
         for ($i = 0; $i < $this->m; $i++) {
             $tableBinary .= "<tr>";
             for ($j = 0; $j < $this->n; $j++) {
                 $tableBinary .= "<td>{$this->arrayBinary[$i][$j]}</td>";
+
+                if ($this->arrayBinary[$i][$j] == 'v') {
+                    $bit =  '1'; 
+                } elseif ($this->arrayBinary[$i][$j] == 'f') {
+                    $bit = '0'; 
+                } else {
+                    $bit = $this->arrayBinary[$i][$j];
+                }
+                
+                $vars[$i]['vars'][chr($this->symbols[$this->symbol]['ascii'] + $j)] = 
+                    $bit;
             }
+
+            if ($postfixValues != "") {
+                $postfixValues = $this->replaceValues($vars[$i], $postfix);
+                $result = (string)$this->postfixResult($postfixValues);
+            } else {
+                $result = "-";
+            }
+            $tableBinary .= "<td>$result</td>";        
             $tableBinary .= "</tr>";
         }
         $tableBinary .= "</tbody></table></div>";
@@ -217,14 +258,15 @@ class Logic
             }
             $tableBinary .= "</tr>";
         }
-        $tableBinary .= "</tbody></table></div>";
+        $tableBinary .= "</tbody>";
+        $tableBinary .= "</table>";
+        $tableBinary .= "</div>";
         $this->tableOperator = $tableBinary;
     }
 
 
     private function charToBit(string $char): int
     {
-        $bit = 0;
         if ($char == 'v' || $char == '1') {
             $bit = 1;
         } elseif ($char == 'f' || $char == '0') {
@@ -273,6 +315,8 @@ class Logic
         return $bit;
     }
 
+    
+    // Conectivos y compuertas 
 
     // Compuerta not
     private function denyBit(int $bit): int
@@ -308,6 +352,9 @@ class Logic
     {
         return $bit1 == $bit2 ? 1 : 0;
     }
+
+
+    // Evaluación de expresiones lógicas
 
     // Expresión infija a postfija
     public function postfixExpression(string $expression): string 
@@ -348,6 +395,7 @@ class Logic
         return $strPostfix;
     }
 
+    // Evaluar expresión postfija
     public function postfixResult(string $expression): int
     {
         $stack = [];
@@ -383,5 +431,13 @@ class Logic
             }
         }
         return $stack[0];
+    }
+
+    public function replaceValues(array $vars, string $postfixValues): string
+    {
+        foreach ($vars['vars'] as $key => $value) {
+            $postfixValues = str_replace($key, $value, $postfixValues);
+        }
+        return $postfixValues;
     }
 }

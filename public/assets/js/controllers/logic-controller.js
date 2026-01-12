@@ -135,6 +135,7 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         .then(response => {
                             txtResultCalcPostfix.value = response.resultExpressionPostfix;
                             txtResultCalc.value = response.resultFinal;
+                            divResult.innerHTML = response.table;
                         })
                         .catch(err => {
                             txtResultCalc.value = `Hay problemas con la petición ${err}`;
@@ -234,7 +235,6 @@ btnLogicOperators.addEventListener('click', () => {
     fetch(arrayLinks[0], params)
         .then(data => {return data.json()})
         .then(response => {
-            divResult.innerHTML = response.table;
             divResult2.innerHTML = response.tableOperator;
         })
         .catch(err => {
