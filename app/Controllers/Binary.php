@@ -51,7 +51,6 @@ class Binary extends App
         ];
     }
    
-
     public function equal(): void
     {
         
@@ -71,7 +70,7 @@ class Binary extends App
             $symbolFalse = '0'; 
         }
 
-        $this->objLogic->setN(3);// (int)$arrayData['n'];
+        $this->objLogic->setN($this->objLogic->countVars($postfix));
         $this->objLogic->setM(2 ** $this->objLogic->getN());
 
         $this->objLogic->createTrueTable();

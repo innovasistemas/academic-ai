@@ -440,4 +440,17 @@ class Logic
         }
         return $postfixValues;
     }
+
+    public function countVars(string $expression): int
+    {
+        $stack = [];
+        for ($i = 0; $i < strlen($expression); $i++) {
+            if ($this->array->arraySearch($this->operators, $expression[$i]) == -1) {
+                if ($this->array->arraySearch($stack, $expression[$i]) == -1) {
+                    $this->array->stack($stack, $expression[$i]);
+                }
+            }
+        }
+        return count($stack);
+    }
 }

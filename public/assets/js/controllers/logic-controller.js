@@ -266,10 +266,6 @@ function $changeButtonsCalc(symbol)
             btnXnor.value = response.symbols[symbol]['xnor'];
             
             let ascii = parseInt(response.symbols[symbol]['ascii']);
-            let char = '';
-            let newExpression = '';
-            let pos;
-            let diffAscii;
 
             if (optSymbolLM.checked) {
                 lblConstant.innerHTML = `${response.symbols[optSymbolLM.value]['on']}, 
@@ -298,34 +294,44 @@ function $changeButtonsCalc(symbol)
             document.querySelectorAll('.vars').forEach ((element, index) => {
                 element.innerHTML = String.fromCharCode(ascii + index);
             });
-       
-            for (let i = 0; i < txtExpressionCalc.value.length; i++) {
-                char = txtExpressionCalc.value.substring(i, i + 1);
-                if (char === '(' || char === ')') {
-                    newExpression += char;
-                } else if (optSymbolLM.checked) {
-                    pos = objArray.findElement(Object.values(response.symbols[optSymbolLC.value]), char);
-                    if (pos >= 0) {
-                        newExpression += Object.values(response.symbols[optSymbolLM.value])[pos];
-                    } else {
-                        diffAscii = char.charCodeAt() - 65;
-                        newExpression += String.fromCharCode(ascii + diffAscii);
-                    }
-                } else {
-                    pos = objArray.findElement(Object.values(response.symbols[optSymbolLM.value]), char);
-                    if (pos >= 0) {
-                        newExpression += Object.values(response.symbols[optSymbolLC.value])[pos];
-                    } else {
-                        diffAscii = char.charCodeAt() - 112;
-                        newExpression += String.fromCharCode(ascii + diffAscii);
-                    }
-                }
-            }
-            txtExpressionCalc.value = newExpression;
+
+            $updateExpressions(txtExpressionCalc, response, ascii);
+            $updateExpressions(txtResultCalcPostfix, response, ascii);
         })
         .catch(err => {
-            divResult.innerHTML = "Hay problemas con la petición";
+            divResult.innerHTML = `Hay problemas con la petición ${err}`;
         });
+}
+
+function $updateExpressions(element, response, ascii)
+{
+    let char = '';
+    let newExpression = '';
+    let pos;
+    let diffAscii;
+    for (let i = 0; i < element.value.length; i++) {
+        char = element.value.substring(i, i + 1);
+        if (char === '(' || char === ')') {
+            newExpression += char;
+        } else if (optSymbolLM.checked) {
+            pos = objArray.findElement(Object.values(response.symbols[optSymbolLC.value]), char);
+            if (pos >= 0) {
+                newExpression += Object.values(response.symbols[optSymbolLM.value])[pos];
+            } else {
+                diffAscii = char.charCodeAt() - 65;
+                newExpression += String.fromCharCode(ascii + diffAscii);
+            }
+        } else {
+            pos = objArray.findElement(Object.values(response.symbols[optSymbolLM.value]), char);
+            if (pos >= 0) {
+                newExpression += Object.values(response.symbols[optSymbolLC.value])[pos];
+            } else {
+                diffAscii = char.charCodeAt() - 112;
+                newExpression += String.fromCharCode(ascii + diffAscii);
+            }
+        }
+    }
+    element.value = newExpression;
 }
 
 function $changeTextCalc(stateStack = '')
