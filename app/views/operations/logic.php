@@ -3,42 +3,22 @@
                     <div class="content-tab">
                         <h3 class="h3 text-primary">{{subTitlePage}}</h3>
                         <hr>
-                        <h4 class="h4 text-primary">Lógica proposicional y de circuitos</h4>
+                        <h4 class="h4 text-primary">Conectivos y compuertas lógicas</h4>
                         <div class="container border border-info">
                             <form id="frm-logic">
+                                <hr>
                                 <div class="row">
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
+                                    <div class="col form-group">
                                         <label for="lst-symbol-propositions">Notación lógica</label>
-                                        <select name="lst-symbol-propositions" id="lst-symbol-propositions" class="form-select select">
+                                        <select name="lst-symbol-propositions" id="lst-symbol-propositions" class="form-select form-select-sm select">
                                             <option value="lm">Proposicional</option>
                                             <option value="lc">Circuitos</option>
                                         </select>
                                     </div>
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <br>
-                                        <input type="reset" id="btn-reset" class="btn btn-secondary" value="Restablecer">
-                                    </div>
-                                </div>
-                                    
-                                <hr>
-                                
-                                <div class="row">
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <label for="txt-number-propositions">Número variables</label>
-                                        <input type="number" id="txt-number-propositions" name="txt-number-propositions" class="form-control select" value="1" min="1" max="8">
-                                    </div>
-                                    <div class="col-xs-2 col-md-3 col-sm-4 form-group">
-                                        <br>
-                                        <input type="button" id="btn-true-table" class="btn btn-outline-primary" value="Tabla de verdad n variables">
-                                    </div>
-                                </div>
-
-                                <hr>
-                
-                                <div class="row">
-                                    <div class="col-3">
+                                    <div class="col">
                                         <label for="lst-logic-operators">Conectivos y compuertas</label>
-                                        <select name="lst-logic-operators" id="lst-logic-operators" class="form-select select">
+                                        <select name="lst-logic-operators" id="lst-logic-operators" class="form-select form-select-sm select">
+                                            <option value="-">Seleccione...</option>
                                             <option value="not">Negación/NOT</option>
                                             <option value="and">Conjunción/AND</option>
                                             <option value="or">Disyunción/OR</option>
@@ -49,12 +29,12 @@
                                             <option value="xnor">Bicondicional/XNOR</option>
                                         </select>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col">
                                         <br>
-                                        <input type="button" id="btn-logic-operators" class="btn btn-outline-primary" value="Tabla conectivo y compuerta">
+                                        <input type="button" id="btn-logic-operators" class="btn btn-sm btn-outline-primary" value="Tabla conectivo y compuerta">
                                     </div>
-                                    <div class="col-3">
-                                        <img id="img-gate" src="../../public/assets/images/gates/none.png" alt="gate" width="200" height="90">
+                                    <div class="col">
+                                        <img id="img-gate" src="../../public/assets/images/gates/none.png" alt="gate" width="280" height="120">
                                     </div>
                                 </div>
                             </form>
@@ -62,19 +42,17 @@
                             <br>
 
                             <div class="row">
-                                <div id="div-result" class="col-6"></div>
-                                <div id="div-result2" class="col-6"></div>
+                                <div id="div-result2" class="col"></div>
                             </div>
                         </div>
                         
-                        <br>
                         <hr class="separator">
                         <hr class="separator">
-                        <br>
 
                         <h4 class="h4 text-primary">Calculadora lógica</h4>
                         <div class="container border border-info">
-                            <br>
+                            <hr>
+                            <!-- <br> -->
                             <form id="frm-calculator">
                                 <div class="row">
                                     <div class="col">
@@ -122,12 +100,40 @@
                                                                 <input type="radio" class="form-check-input" id="opt-var-s0" name="opt-var-s" value="0">
                                                             </div>
                                                         </div>
-                                                        <!-- <div class="row">&nbsp;</div> -->
-                                                        <!-- <div class="row">
+                                                        <div class="row">
                                                             <div class="col">
-                                                                <button id="btn-replace" class="btn btn-outline-primary btn-sm">Sustituir valores</button>
+                                                                <label for="" id="lbl-t" class="form-check-label fw-bold h5 vars">t</label>&nbsp;
+                                                                <label for="opt-var-t1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-t1" name="opt-var-t" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-t0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-t0" name="opt-var-t" value="0">
                                                             </div>
-                                                        </div> -->
+                                                            <div class="col">
+                                                                <label for="" id="lbl-u" class="form-check-label fw-bold h5 vars">u</label>&nbsp;
+                                                                <label for="opt-var-u1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-u1" name="opt-var-u" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-u0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-u0" name="opt-var-u" value="0">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="" id="lbl-v" class="form-check-label fw-bold h5 vars">v</label>&nbsp;
+                                                                <label for="opt-var-v1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-v1" name="opt-var-v" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-v0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-v0" name="opt-var-v" value="0">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="" id="lbl-w" class="form-check-label fw-bold h5 vars">w</label>&nbsp;
+                                                                <label for="opt-var-w1" class="form-check-label v1">v</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-w1" name="opt-var-w" value="1" checked="checked">
+                                                                &nbsp;
+                                                                <label for="opt-var-w0" class="form-check-label f0">f</label>
+                                                                <input type="radio" class="form-check-input" id="opt-var-w0" name="opt-var-w" value="0">
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td colspan="2">
                                                         <div class="row">
@@ -147,77 +153,94 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <th colspan="2">
+                                                        <label for="">Notación lógica</label>
+                                                    </th>
+                                                    <td colspan="1">
                                                         <input type="radio" class="form-check-input" id="opt-symbol-lm" name="opt-symbol" value="lm" checked="checked">
                                                         <label for="opt-symbol-lm" class="form-check-label">Lóg. Proposicional</label>
                                                     </td>
-                                                    <td colspan="2">
+                                                    <td colspan="1">
                                                         <input type="radio" class="form-check-input" id="opt-symbol-lc" name="opt-symbol" value="lc">
                                                         <label for="opt-symbol-lc" class="form-check-label">Lóg. Circuitos</label>
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <th colspan="2">
+                                                        Constantes lógicas
+                                                    </th>
                                                     <td colspan="2">
-                                                        Constantes
-                                                    </td>
-                                                    <td colspan="2">
-                                                        <label for="" id="lbl-constant" class="text-primary">v, f</label>
+                                                        <label for="" id="lbl-constant" class="text-primary fw-bold">v - f</label>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="button" id="btn-ac" class="btn btn-danger btn-calc" value="ac" data-value="ac">
+                                                        <input type="button" id="btn-ac" class="btn btn-danger btn-calc" value="ac" data-value="ac" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Limpiar todo">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-del" class="btn btn-danger btn-calc" value="×" data-value="×">
+                                                        <input type="button" id="btn-back" class="btn btn-danger btn-calc" value="←" data-value="←" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Retroceso">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-back" class="btn btn-danger btn-calc" value="←" data-value="←">
+                                                        <input type="button" id="btn-shift" class="btn btn-warning btn-calc" value="shift" data-value="shift" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cambio">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-equal" class="btn btn-success btn-calc" value="=" data-value="=">
+                                                        <input type="button" id="btn-equal" class="btn btn-success btn-calc" value="=" data-value="="data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ejecutar">
                                                     </td>
                                                 </tr>
-                                                <tr id="tr-vars">
+                                                <tr class="tr-vars">
                                                     <td>
-                                                        <input type="button" id="btn-w" class="btn btn-info btn-calc" value="p" data-value="p" data-type="variable">
+                                                        <input type="button" id="btn-a" class="btn btn-info btn-calc" value="p" data-value="p" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-x" class="btn btn-info btn-calc" value="q" data-value="q" data-type="variable">
+                                                        <input type="button" id="btn-b" class="btn btn-info btn-calc" value="q" data-value="q" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-y" class="btn btn-info btn-calc" value="r" data-value="r" data-type="variable">
+                                                        <input type="button" id="btn-c" class="btn btn-info btn-calc" value="r" data-value="r" data-type="variable">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-z" class="btn btn-info btn-calc" value="s" data-value="s" data-type="variable">
+                                                        <input type="button" id="btn-d" class="btn btn-info btn-calc" value="s" data-value="s" data-type="variable">
+                                                    </td>
+                                                </tr>
+                                                <tr class="tr-vars">
+                                                    <td>
+                                                        <input type="button" id="btn-e" class="btn btn-info btn-calc" value="t" data-value="t" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-f" class="btn btn-info btn-calc" value="u" data-value="u" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-g" class="btn btn-info btn-calc" value="v" data-value="v" data-type="variable">
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" id="btn-h" class="btn btn-info btn-calc" value="w" data-value="w" data-type="variable">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators1">
                                                     <td>
-                                                        <input type="button" id="btn-not" class="btn btn-dark btn-calc" value="┐" data-value="-" data-type="operator">
+                                                        <input type="button" id="btn-not" class="btn btn-dark btn-calc" value="┐" data-value="-" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Negación/NOT">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-and" class="btn btn-dark btn-calc" value="∧" data-value="*" data-type="operator">
+                                                        <input type="button" id="btn-and" class="btn btn-dark btn-calc" value="∧" data-value="*" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjunción/AND">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-or" class="btn btn-dark btn-calc" value="∨" data-value="+" data-type="operator">
+                                                        <input type="button" id="btn-or" class="btn btn-dark btn-calc" value="∨" data-value="+" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Disyunción/OR">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-xor" class="btn btn-dark btn-calc" value="⊕" data-value="x" data-type="operator">
+                                                        <input type="button" id="btn-xor" class="btn btn-dark btn-calc" value="⊕" data-value="x" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Disyunción exclusiva/XOR">
                                                     </td>
                                                 </tr>
                                                 <tr id="tr-operators2">
                                                     <td>
-                                                        <input type="button" id="btn-if" class="btn btn-dark btn-calc" value="→" data-value="/" data-type="operator">
+                                                        <input type="button" id="btn-if" class="btn btn-dark btn-calc" value="→" data-value="/" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Condicional">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-xnor" class="btn btn-dark btn-calc" value="↔" data-value="^" data-type="operator">
+                                                        <input type="button" id="btn-xnor" class="btn btn-dark btn-calc" value="↔" data-value="^" data-type="operator" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Bicondicional/XNOR">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b1" class="btn btn-secondary btn-calc" value="(" data-value="(" data-type="bracket">
+                                                        <input type="button" id="btn-b1" class="btn btn-secondary btn-calc" value="(" data-value="(" data-type="bracket"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Paréntesis izquierdo">
                                                     </td>
                                                     <td>
-                                                        <input type="button" id="btn-b2" class="btn btn-secondary btn-calc" value=")" data-value=")" data-type="bracket">
+                                                        <input type="button" id="btn-b2" class="btn btn-secondary btn-calc" value=")" data-value=")" data-type="bracket" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Paréntesis derecho">
                                                     </td>
                                                 </tr>
                                             </table>
@@ -225,6 +248,33 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <hr class="separator">
+                            <hr class="separator">
+
+                            <form action="">
+                                <div class="row">
+                                    <!-- <div class="col form-group">
+                                        <br>
+                                        <input type="reset" id="btn-reset" class="btn btn-secondary" value="Restablecer">
+                                    </div> -->
+                                    <div class="col form-group">
+                                        <label for="txt-number-propositions">Número variables</label>
+                                        <input type="number" id="txt-number-propositions" name="txt-number-propositions" class="form-control form-control-sm select" value="1" min="1" max="8">
+                                    </div>
+                                    <div class="col form-group">
+                                        <br>
+                                        <input type="button" id="btn-true-table" class="btn btn-sm btn-outline-primary" value="Tabla de verdad n variables">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <hr>
+
+                            <div class="row">
+                                <div id="div-result" class="col"></div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -234,7 +284,7 @@
         var app = new Vue({
             el: '#app2',
             data: {
-                subTitlePage: 'Lógica y circuitos'
+                subTitlePage: 'Lógica proposicional y de circuitos'
             }
         })
     </script>

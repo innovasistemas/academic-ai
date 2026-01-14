@@ -231,9 +231,9 @@ document.querySelectorAll('#table-calc-numeric input[type=button]').forEach ((el
 function calculateOperation(operation, button)
 {
     let objJson = {
+        button,
         number: txtExpCalcNum.value, 
-        operation: operation,
-        button: button
+        operation: operation
     }; 
     let params = {
         headers: {"Content-Type": "application/json; charset=utf-8"},

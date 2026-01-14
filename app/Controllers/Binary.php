@@ -71,7 +71,8 @@ class Binary extends App
         }
 
         $this->objLogic->setN($this->objLogic->countVars($postfix));
-        $this->objLogic->setM(2 ** $this->objLogic->getN());
+        $n = $this->objLogic->getN();
+        $this->objLogic->setM(2 ** $n);
 
         $this->objLogic->createTrueTable();
         $this->objLogic->generateTrueTable($this->arrayData['expression'], $postfix);
@@ -79,6 +80,7 @@ class Binary extends App
         $this->arrayResponse = [
             'resultExpressionPostfix' => $postfix,
             'resultFinal' => $resultFinal == 1 ? $symbolTrue : $symbolFalse,
+            'numVars' => $n,
             'table' => $this->objLogic->getTableTrueTable(),
         ];
     }

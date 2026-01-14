@@ -24,6 +24,14 @@ let optR1 = document.querySelector('#opt-var-r1');
 let optR0 = document.querySelector('#opt-var-r0');
 let optS1 = document.querySelector('#opt-var-s1');
 let optS0 = document.querySelector('#opt-var-s0');
+let optT1 = document.querySelector('#opt-var-t1');
+let optT0 = document.querySelector('#opt-var-t0');
+let optU1 = document.querySelector('#opt-var-u1');
+let optU0 = document.querySelector('#opt-var-u0');
+let optV1 = document.querySelector('#opt-var-v1');
+let optV0 = document.querySelector('#opt-var-v0');
+let optW1 = document.querySelector('#opt-var-w1');
+let optW0 = document.querySelector('#opt-var-w0');
 let txtExpressionCalc = document.querySelector('#txt-expression-calc');
 let txtResultCalc = document.querySelector('#txt-result-calc');
 let txtResultCalcPrefix = document.querySelector('#txt-result-prefix');
@@ -36,22 +44,31 @@ let btnXor = document.querySelector('#btn-xor');
 let btnIf = document.querySelector('#btn-if');
 let btnXnor = document.querySelector('#btn-xnor');
 let btnAC = document.querySelector('#btn-ac');
-let btnW = document.querySelector('#btn-w');
-let btnX = document.querySelector('#btn-x');
-let btnY = document.querySelector('#btn-y');
-let btnZ = document.querySelector('#btn-z');
+// let btnW = document.querySelector('#btn-w');
+// let btnX = document.querySelector('#btn-x');
+// let btnY = document.querySelector('#btn-y');
+// let btnZ = document.querySelector('#btn-z');
 
 let $expression = "";
+const $numVars = 8;
 
 const objTypeButton = {
     p: 'variable',
     q: 'variable',
     r: 'variable',
     s: 'variable',
+    t: 'variable',
+    u: 'variable',
+    v: 'variable',
+    w: 'variable',
     A: 'variable',
     B: 'variable',
     C: 'variable',
     D: 'variable',
+    E: 'variable',
+    F: 'variable',
+    G: 'variable',
+    H: 'variable',
     '┐': 'operator',
     '∧': 'operator',
     '∨': 'operator',
@@ -88,12 +105,7 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
     switch (element.getAttribute('data-value')) {
         case 'ac':
             element.addEventListener('click', () => {
-                txtExpressionCalc.value = '';
-                txtResultCalc.value = '';
-                txtResultCalcPrefix.value = '';
-                txtResultCalcPostfix.value = '';
-                $expression = '';
-                arrayStackBrackets = [];
+                allClear();
             });
             break;
         case '←':
@@ -123,6 +135,10 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                             q : optQ1.checked ? optQ1.value : optQ0.value,
                             r : optR1.checked ? optR1.value : optR0.value,
                             s : optS1.checked ? optS1.value : optS0.value,
+                            t : optT1.checked ? optT1.value : optT0.value,
+                            u : optU1.checked ? optU1.value : optU0.value,
+                            v : optV1.checked ? optV1.value : optV0.value,
+                            w : optW1.checked ? optW1.value : optW0.value,
                         }
                     }; 
                     let params = {
@@ -135,11 +151,14 @@ document.querySelectorAll('#table-calc input[type=button]').forEach ((element) =
                         .then(response => {
                             txtResultCalcPostfix.value = response.resultExpressionPostfix;
                             txtResultCalc.value = response.resultFinal;
+                            txtNumberPropositions.value = response.numVars;
                             divResult.innerHTML = response.table;
                         })
                         .catch(err => {
                             txtResultCalc.value = `Hay problemas con la petición ${err}`;
                         });
+                } else {
+                    allClear();
                 }
             });
             break;
@@ -215,32 +234,45 @@ btnTrueTable.addEventListener('click', () => {
 });
 
 btnLogicOperators.addEventListener('click', () => {
-    imgGate.src = `../../public/assets/images/gates/${lstLogicOperators.value}.png`;
-    if (lstLogicOperators.value == 'not') {
-        txtNumberPropositions.value = 1;
+    if (lstLogicOperators.value != '-' ) {
+        imgGate.src = `../../public/assets/images/gates/${lstLogicOperators.value}.png`;
+        let objJson = {
+            n: lstLogicOperators.value == 'not' ? 1 : 2, 
+            symbol: lstSymbolPropositions.value,
+            operator: lstLogicOperators.value,
+            button: 'operators'
+        }; 
+        let params = {
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify(objJson),
+            method: 'POST'
+        };
+        fetch(arrayLinks[0], params)
+            .then(data => {return data.json()})
+            .then(response => {
+                divResult2.innerHTML = response.tableOperator;
+            })
+            .catch(err => {
+                divResult2.innerHTML = "Hay problemas con la petición";
+            });
     } else {
-        txtNumberPropositions.value = 2;
+        imgGate.src = `../../public/assets/images/gates/none.png`;
+        divResult2.innerHTML = '';
     }
-    let objJson = {
-        n: txtNumberPropositions.value, 
-        symbol: lstSymbolPropositions.value,
-        operator: lstLogicOperators.value,
-        button: 'operators'
-    }; 
-    let params = {
-        headers: {"Content-Type": "application/json; charset=utf-8"},
-        body: JSON.stringify(objJson),
-        method: 'POST'
-    };
-    fetch(arrayLinks[0], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            divResult2.innerHTML = response.tableOperator;
-        })
-        .catch(err => {
-            divResult2.innerHTML = "Hay problemas con la petición";
-        });
 });
+
+
+function allClear()
+{
+    txtExpressionCalc.value = '';
+    txtResultCalc.value = '';
+    txtResultCalcPrefix.value = '';
+    txtResultCalcPostfix.value = '';
+    txtNumberPropositions.value = '1';
+    divResult.innerHTML = '';
+    $expression = '';
+    arrayStackBrackets = [];
+}
 
 
 function $changeButtonsCalc(symbol)
@@ -264,11 +296,11 @@ function $changeButtonsCalc(symbol)
             btnXor.value = response.symbols[symbol]['xor'];
             btnIf.value = response.symbols[symbol]['if'];
             btnXnor.value = response.symbols[symbol]['xnor'];
-            
+
             let ascii = parseInt(response.symbols[symbol]['ascii']);
 
             if (optSymbolLM.checked) {
-                lblConstant.innerHTML = `${response.symbols[optSymbolLM.value]['on']}, 
+                lblConstant.innerHTML = `${response.symbols[optSymbolLM.value]['on']} - 
                     ${response.symbols[optSymbolLM.value]['off']}`;
                 document.querySelectorAll('.v1').forEach ((element, index) => {
                     element.innerHTML = 'v';
@@ -277,7 +309,7 @@ function $changeButtonsCalc(symbol)
                     element.innerHTML = 'f';
                 });
             } else {
-                lblConstant.innerHTML = `${response.symbols[optSymbolLC.value]['on']}, 
+                lblConstant.innerHTML = `${response.symbols[optSymbolLC.value]['on']} - 
                     ${response.symbols[optSymbolLC.value]['off']}`;
                 document.querySelectorAll('.v1').forEach ((element, index) => {
                     element.innerHTML = '1';
@@ -287,7 +319,7 @@ function $changeButtonsCalc(symbol)
                 });
             }
 
-            document.querySelectorAll('#tr-vars input[type=button]').forEach ((element, index) => {
+            document.querySelectorAll('.tr-vars input[type=button]').forEach ((element, index) => {
                 element.value = String.fromCharCode(ascii + index);
             });
             
@@ -296,7 +328,6 @@ function $changeButtonsCalc(symbol)
             });
 
             $updateExpressions(txtExpressionCalc, response, ascii);
-            $updateExpressions(txtResultCalcPostfix, response, ascii);
         })
         .catch(err => {
             divResult.innerHTML = `Hay problemas con la petición ${err}`;
@@ -305,33 +336,52 @@ function $changeButtonsCalc(symbol)
 
 function $updateExpressions(element, response, ascii)
 {
-    let char = '';
-    let newExpression = '';
-    let pos;
-    let diffAscii;
-    for (let i = 0; i < element.value.length; i++) {
-        char = element.value.substring(i, i + 1);
-        if (char === '(' || char === ')') {
-            newExpression += char;
-        } else if (optSymbolLM.checked) {
-            pos = objArray.findElement(Object.values(response.symbols[optSymbolLC.value]), char);
-            if (pos >= 0) {
-                newExpression += Object.values(response.symbols[optSymbolLM.value])[pos];
+    if (element.value.length > 0) {
+        let char = '';
+        let newExpression = '';
+        let pos;
+        let diffAscii;
+        let postfix = txtResultCalcPostfix.value;
+        for (let i = 0; i < element.value.length; i++) {
+            char = element.value.substring(i, i + 1);
+            if (char === '(' || char === ')') {
+                newExpression += char;
+            } else if (optSymbolLM.checked) {
+                pos = objArray.findElement(Object.values(response.symbols[optSymbolLC.value]), char);
+                if (pos >= 0) {
+                    newExpression += Object.values(response.symbols[optSymbolLM.value])[pos];
+                } else {
+                    diffAscii = char.charCodeAt() - 65;
+                    newExpression += String.fromCharCode(ascii + diffAscii);
+                }
             } else {
-                diffAscii = char.charCodeAt() - 65;
-                newExpression += String.fromCharCode(ascii + diffAscii);
-            }
-        } else {
-            pos = objArray.findElement(Object.values(response.symbols[optSymbolLM.value]), char);
-            if (pos >= 0) {
-                newExpression += Object.values(response.symbols[optSymbolLC.value])[pos];
-            } else {
-                diffAscii = char.charCodeAt() - 112;
-                newExpression += String.fromCharCode(ascii + diffAscii);
+                pos = objArray.findElement(Object.values(response.symbols[optSymbolLM.value]), char);
+                if (pos >= 0) {
+                    newExpression += Object.values(response.symbols[optSymbolLC.value])[pos];
+                } else {
+                    diffAscii = char.charCodeAt() - 112;
+                    newExpression += String.fromCharCode(ascii + diffAscii);
+                }
             }
         }
+        if (optSymbolLM.checked) {
+            postfix = $updatePostfix(postfix, ascii, -47);
+            txtResultCalc.value = txtResultCalc.value == '1' ? 'v' : 'f';
+        } else {
+            postfix = $updatePostfix(postfix, ascii, 47);
+            txtResultCalc.value = txtResultCalc.value == 'v' ? '1' : '0';
+        }
+        txtResultCalcPostfix.value = postfix
+        element.value = newExpression;
     }
-    element.value = newExpression;
+}
+
+function $updatePostfix(expression, ascii, diff)
+{
+    for (let j = ascii; j < ascii + $numVars; j++) {
+        expression = expression.replaceAll(String.fromCharCode(j + diff), String.fromCharCode(j));
+    }
+    return expression;
 }
 
 function $changeTextCalc(stateStack = '')

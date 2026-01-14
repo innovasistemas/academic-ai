@@ -80,6 +80,7 @@
         <script src="../../public/assets/js/models/numerics-model.js"></script>
         <script src="../../public/assets/js/models/sets-model.js"></script>
         
+        <script src="../../public/assets/js/controllers/numerics-controller.js"></script>
         <script src="../../public/assets/js/controllers/calc-controller.js"></script>
         <script src="../../public/assets/js/controllers/logic-controller.js"></script>
         <script src="../../public/assets/js/controllers/sets-controllers.js"></script>

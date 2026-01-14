@@ -29,15 +29,15 @@ txtNumberBase.addEventListener('click', () => {
 });
 
 
-txtNumberInteger.addEventListener('change', () => {
-    $validateElementEmpty(txtNumberInteger);
-    txtNumberInteger.value = objNumeric.trunc(txtNumberInteger.value); 
-});
+// txtNumberInteger.addEventListener('change', () => {
+//     $validateElementEmpty(txtNumberInteger);
+//     txtNumberInteger.value = objNumeric.trunc(txtNumberInteger.value); 
+// });
 
 
-txtNumberReal.addEventListener('change', () => {
-    $validateElementEmpty(txtNumberReal);
-});
+// txtNumberReal.addEventListener('change', () => {
+//     $validateElementEmpty(txtNumberReal);
+// });
 
 
 txtNumberBase.addEventListener('change', () => {
@@ -45,48 +45,48 @@ txtNumberBase.addEventListener('change', () => {
 });
 
 
-btnIntegerOperation.addEventListener('click', () => {
-    let objJson = {
-        number: txtNumberInteger.value, 
-        operation: lstIntegerOperation.value,
-        button: 'integer-operation'
-    }; 
-    let params = {
-        headers: {"Content-Type": "application/json; charset=utf-8"},
-        body: JSON.stringify(objJson),
-        method: 'POST'
-    };
-    fetch(arrayLinks[1], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            divResultIntegers.innerHTML = response.stringOutput;
-        })
-        .catch(err => {
-            divResultNumerics.innerHTML = "Hay problemas con la petición";
-        });
-});
+// btnIntegerOperation.addEventListener('click', () => {
+//     let objJson = {
+//         number: txtNumberInteger.value, 
+//         operation: lstIntegerOperation.value,
+//         button: 'integer-operation'
+//     }; 
+//     let params = {
+//         headers: {"Content-Type": "application/json; charset=utf-8"},
+//         body: JSON.stringify(objJson),
+//         method: 'POST'
+//     };
+//     fetch(arrayLinks[1], params)
+//         .then(data => {return data.json()})
+//         .then(response => {
+//             divResultIntegers.innerHTML = response.stringOutput;
+//         })
+//         .catch(err => {
+//             divResultNumerics.innerHTML = "Hay problemas con la petición";
+//         });
+// });
 
 
-btnTrigonometryOperation.addEventListener('click', () => {
-    let objJson = {
-        number: txtNumberReal.value, 
-        operation: lstTrigonometryOperation.value,
-        button: 'trigonometry-operation'
-    }; 
-    let params = {
-        headers: {"Content-Type": "application/json; charset=utf-8"},
-        body: JSON.stringify(objJson),
-        method: 'POST'
-    };
-    fetch(arrayLinks[1], params)
-        .then(data => {return data.json()})
-        .then(response => {
-            divResultTrigonometry.innerHTML = response.stringOutput;
-        })
-        .catch(err => {
-            divResultNumerics.innerHTML = "Hay problemas con la petición";
-        });
-});
+// btnTrigonometryOperation.addEventListener('click', () => {
+//     let objJson = {
+//         number: txtNumberReal.value, 
+//         operation: lstTrigonometryOperation.value,
+//         button: 'trigonometry-operation'
+//     }; 
+//     let params = {
+//         headers: {"Content-Type": "application/json; charset=utf-8"},
+//         body: JSON.stringify(objJson),
+//         method: 'POST'
+//     };
+//     fetch(arrayLinks[1], params)
+//         .then(data => {return data.json()})
+//         .then(response => {
+//             divResultTrigonometry.innerHTML = response.stringOutput;
+//         })
+//         .catch(err => {
+//             divResultNumerics.innerHTML = "Hay problemas con la petición";
+//         });
+// });
 
 
 btnConvertBase.addEventListener('click', () => {
