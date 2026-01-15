@@ -57,7 +57,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="table-responsive">
-                                            <table id="table-calc" class="table table-bordered- text-center">
+                                            <table id="table-calc" class="table table-borderless text-center">
                                                 <tr>
                                                     <td colspan="2">
                                                         <div class="row">

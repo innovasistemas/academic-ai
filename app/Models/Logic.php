@@ -149,12 +149,11 @@ class Logic
     public function generateTrueTable($formula = "Fórmula", $postfix = ""): void
     {
         $vars = [];
-        $postfixValues = $postfix;
         
         $tableBinary = "
             <div class='table-responsive'>
                 <table class=
-                    'table table-hover table-bordered border-primary text-center'>
+                    'table table-dark table-hover table-bordered border-primary text-center caption-top'>
                     <thead>
                         <tr>
         ";
@@ -169,7 +168,10 @@ class Logic
         $tableBinary .= "</thead>";
         $tableBinary .= "<tbody>";
 
+        $c0 = 0;
+        $c1 = 0;
         for ($i = 0; $i < $this->m; $i++) {
+            $postfixValues = $postfix;
             $tableBinary .= "<tr>";
             for ($j = 0; $j < $this->n; $j++) {
                 $tableBinary .= "<td>{$this->arrayBinary[$i][$j]}</td>";
@@ -187,15 +189,31 @@ class Logic
             }
 
             if ($postfixValues != "") {
-                $postfixValues = $this->replaceValues($vars[$i], $postfix);
-                $result = (string)$this->postfixResult($postfixValues);
+                $postfixValues = $this->replaceValues($vars[$i], $postfixValues);
+                $result = $this->postfixResult($postfixValues);
+                $resultChar = $this->bitToChar($result);
+                if ($result == 0) {
+                    $c0++;
+                } else {
+                    $c1++;
+                }
             } else {
-                $result = "-";
+                $resultChar = "-";
             }
-            $tableBinary .= "<td>$result</td>";        
+            $tableBinary .= "<th class='table-primary'>$resultChar</th>";        
             $tableBinary .= "</tr>";
         }
-        $tableBinary .= "</tbody></table></div>";
+        if ($c1 == $this->m) {
+            $conclusion = "Conclusión: <strong>Tautología</strong>";
+        } elseif ($c0 == $this->m) {
+            $conclusion = "Conclusión: <strong>Contradicción</strong>";
+        } else {
+            $conclusion = "Conclusión: <strong>Incertidumbre</strong>";
+        }
+        $tableBinary .= "</tbody>";
+        $tableBinary .= "<caption class='text-center text-primary'>$conclusion</caption>";
+        $tableBinary .= "</table>";
+        $tableBinary .= "</div>";
         $this->tableTrueTable = $tableBinary;
     }
 
