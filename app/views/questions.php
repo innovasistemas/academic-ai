@@ -44,8 +44,16 @@
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <input type="hidden" name="txt-user-id" id="txt-user-id" value="">
-                                        <label for="txt-user">Usuario (documento)</label>
+                                        <label for="txt-user">
+                                            Usuario (o 
+                                            <a href="#!" id="link-register" data-bs-toggle="modal" data-bs-target="#modal-user">
+                                                <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Registrarse">regístrese aquí</span>
+                                            </a> 
+                                            ) 
+
+                                        </label>
                                         <input type="search" name="txt-user" id="txt-user" class="form-control select" maxlength="20">
+                                        <?php include "modals/modal-user.php" ?>
                                     </div>
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
                                         <br>
@@ -151,23 +159,8 @@
             <div class="col-3">&nbsp;</div>
             <div class="col-3">
                 <!-- Modal begin -->
-                <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirmTitle" aria-hidden="true">>
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Información del sistema</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p id="p-modal-body"></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" id="btn-modal-save" disabled="">Guardar</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include "modals/modal-confirm.php" ?> 
+                
             </div>
         </div>
 

@@ -34,6 +34,9 @@
                     <li class="list-inline-item">
                         <a href="#!" class="list-group-item link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones">Simulaciones</a>
                     </li>
+                    <li class="list-inline-item">
+                        <a href="#!" class="list-group-item link-tab" data-tab="6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Analítica">Analítica</a>
+                    </li>
                 </ul>
             </div>
         
@@ -55,6 +58,9 @@
 
                 <!-- Simulaciones -->
                 <?php include "operations/simulations.php" ?>
+                
+                <!-- Analítica -->
+                <?php include "operations/analytics.php" ?>
             </div>
         </div>
 
@@ -79,6 +85,7 @@
         <script src="../../public/assets/js/models/arrays-model.js"></script>
         <script src="../../public/assets/js/models/numerics-model.js"></script>
         <script src="../../public/assets/js/models/sets-model.js"></script>
+        <script src="../../public/assets/js/models/cryptografy-model.js"></script>
         
         <script src="../../public/assets/js/controllers/numerics-controller.js"></script>
         <script src="../../public/assets/js/controllers/calc-controller.js"></script>
@@ -92,7 +99,7 @@
             let objArray = new Arrays();
             let objNumeric = new Numerics();
             let objSet = new Sets();
-
+            let objCrypto = new Crypto();
 
             /**
              * Scripts para las pestañas (tab)

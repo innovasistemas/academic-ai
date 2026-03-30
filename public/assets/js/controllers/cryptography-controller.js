@@ -32,6 +32,23 @@ btnEncrypt.addEventListener('click', () => {
             outputHTML = "<strong>Codificación base numérica: </strong><br>";
             requestWebServiceNET(url, outputHTML);
             break;
+        case "anagrama":
+            if (!objCrypto.anagram(txtPlainText.value, txtCodedText.value)) {
+                outputHTML = `<strong>${txtPlainText.value}</strong> y <strong>${txtCodedText.value}</strong> son anagramas`;
+            } else {
+                outputHTML = `<strong>${txtPlainText.value}</strong> y <strong>${txtCodedText.value}</strong> no son anagramas`;
+            }
+            divResultCryptography.innerHTML = outputHTML;
+            break;
+        case "palindromo":
+            objCrypto.setText(txtPlainText.value);
+            if (objCrypto.palindrome()) {
+                outputHTML = `<strong>${objCrypto.getText()}</strong> es palíndromo`;
+            } else {
+                outputHTML = `<strong>${objCrypto.getText()}</strong> no es palíndromo`;
+            }
+            divResultCryptography.innerHTML = outputHTML;
+            break;
         default:
             let objJson = {
                 plainText: txtPlainText.value, 

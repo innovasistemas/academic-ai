@@ -1,9 +1,10 @@
                 <div class="container">
                     <div class="content-tab">
-                        <h3 class="h3 text-dark">Criptografía y codificación</h3>
+                        <h3 class="h3 text-dark">Analítica</h3>
                         <hr>
-                        <h4 class="h4 text-dark">Cifrado y codificación elemental</h4>
+                        <h4 class="h4 text-dark">Análisis de datos elemental</h4>
                         <div class="container">
+                            <!--
                             <form id="frm-encrypt">
                                 <div class="row">
                                     <div class="col-xs-2 col-md-4 col-sm-4 form-group">
@@ -12,12 +13,9 @@
                                             <option value="-">Seleccione...</option>
                                             <option value="separador1" disabled="disabled">Cifrado</option>
                                             <option value="sustitucion">&nbsp;&nbsp;&nbsp; Sustitución y desplazamiento simple</option>
-                                            <option value="invertir-texto">&nbsp;&nbsp;&nbsp; Invertir texto</option>
-                                            <option value="anagrama">&nbsp;&nbsp;&nbsp; Anagrama</option>
-                                            <option value="palindromo">&nbsp;&nbsp;&nbsp; Palíndromo</option>
                                             <option value="vigenere">&nbsp;&nbsp;&nbsp; Cifrado de Vigenère</option>
-                                            <!-- <option value="trasposicion">Trasposición</option> -->
                                             <option value="separador2" disabled="disabled">Codificación</option>
+                                            <option value="invertir-texto">&nbsp;&nbsp;&nbsp; Invertir texto</option>
                                             <option value="base64">&nbsp;&nbsp;&nbsp; Base64</option>
                                             <option value="base-numerica">&nbsp;&nbsp;&nbsp; Codificación en base numérica</option>
                                         </select>
@@ -58,8 +56,9 @@
                                     </div>
                                 </div>
                             </form>
+                            -->
                             <hr>
-                            <div id="div-result-cryptography"></div>
+                            <div id="div-result-analytics"></div>
                         </div>
                     </div>
                 </div>
