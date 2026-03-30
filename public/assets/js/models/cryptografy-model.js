@@ -56,8 +56,7 @@ class Crypto
     // Métodos para determinar palíndromos
     palindrome()
     {
-        let phrase = this.text;
-        phrase = phrase.toLowerCase();
+        let phrase = this.#text.toLowerCase();
         phrase = this.deleteSpaces(phrase);
         if (this.compareCharacters(phrase)) {
             return true;
