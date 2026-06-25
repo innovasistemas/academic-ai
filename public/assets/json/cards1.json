@@ -1,0 +1,32 @@
+[    
+    {
+        "img": "img1.png",
+        "title": "Aikido",
+        "text": "arte marcial japonesa que se basa en combatir para enfrentarse a uno o varios adversarios, los cuales pueden ir desarmados o armados. Se trata de unir las energías físicas y mentales y que el individuo se armonice con el resto del universo para conseguir un desarrollo integral" ,
+        "state": 0
+    },
+    {
+        "img": "img2.png",
+        "title": "Atletismo",
+        "text": "deporte de competencias individuales y por equipos, que abarca un gran número de pruebas que pueden tener lugar en pista cubierta o al aire libre. Las principales disciplinas del atletismo se dividen de la siguiente manera: carreras, marcha, lanzamientos y saltos" ,
+        "state": 0
+    },
+    {
+        "img": "img3.png",
+        "title": "Balocento Femenino",
+        "text": "deporte de equipo que se puede desarrollar tanto en pista cubierta como en descubierta, en el que dos conjuntos de cinco jugadores cada uno, intentan anotar puntos" ,
+        "state": 0
+    },
+    {
+        "img": "img4.png",
+        "title": "Balocento Masculino",
+        "text": "deporte de equipo que se puede desarrollar tanto en pista cubierta como en descubierta, en el que dos conjuntos de cinco jugadores cada uno, intentan anotar puntos" ,
+        "state": 0
+    },
+    {
+        "img": "img5.png",
+        "title": "Levantamiento de Pesas",
+        "text": "requiere de un gran entrenamiento de los músculos del cuerpo para adquirir la fuerza necesaria para los levantamientos, además de desarrollar destreza y actitud mental" ,
+        "state": 0
+    }
+]

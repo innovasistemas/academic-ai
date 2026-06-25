@@ -17,6 +17,16 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="academic.php" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
+                            Juegos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="memory.php" title="Concéntrese" data-bs-toggle="tooltip" data-bs-placement="bottom">Concéntrese</a></li>
+                            <li><a class="dropdown-item" href="triqui.php" title="Triqui" data-bs-toggle="tooltip" data-bs-placement="bottom">Triqui</a></li>
+                            <li><a class="dropdown-item" href="flag.php" title="Dibuja tu bandera" data-bs-toggle="tooltip" data-bs-placement="bottom">Dibuja tu bandera</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="academic.php" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
                             Académico
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

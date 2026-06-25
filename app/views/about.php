@@ -13,7 +13,7 @@
             </div>
         </div>
         
-        <div class="container">
+        <div id="app-container" class="container">
             <div class="row">
                 <div class="col-12 table-responsive">
                     <table class="table table-hover table-light">
@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <th>Desarrollado por</th>
-                            <td class="text-info">Jaime Montoya</td>
+                            <td class="text-info">{{author}}</td>
                         </tr>
                     </table>
                 </div>
@@ -89,6 +89,13 @@
                 alternateText: titlePage,
                 height: '40',
                 width: '40'
+            }
+        });
+
+        app = new Vue({
+            el: '#app-container',
+            data: {
+                author: author
             }
         })
     </script>

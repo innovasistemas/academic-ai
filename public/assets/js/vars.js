@@ -24,3 +24,6 @@ let titlePage = 'Academic AI';
 // Dates
 let fullDate = new Date();
 let year = fullDate.getFullYear();
+
+// General
+let author = 'Jaime E. Montoya M.';

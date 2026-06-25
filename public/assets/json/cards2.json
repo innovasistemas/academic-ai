@@ -1,0 +1,62 @@
+[    
+    {
+        "img": "img1.png",
+        "title": "Aikido",
+        "text": "arte marcial japonesa que se basa en combatir para enfrentarse a uno o varios adversarios, los cuales pueden ir desarmados o armados. Se trata de unir las energías físicas y mentales y que el individuo se armonice con el resto del universo para conseguir un desarrollo integral" ,
+        "state": 0
+    },
+    {
+        "img": "img2.png",
+        "title": "Atletismo",
+        "text": "deporte de competencias individuales y por equipos, que abarca un gran número de pruebas que pueden tener lugar en pista cubierta o al aire libre. Las principales disciplinas del atletismo se dividen de la siguiente manera: carreras, marcha, lanzamientos y saltos" ,
+        "state": 0
+    },
+    {
+        "img": "img3.png",
+        "title": "Balocento Femenino",
+        "text": "deporte de equipo que se puede desarrollar tanto en pista cubierta como en descubierta, en el que dos conjuntos de cinco jugadores cada uno, intentan anotar puntos" ,
+        "state": 0
+    },
+    {
+        "img": "img4.png",
+        "title": "Balocento Masculino",
+        "text": "deporte de equipo que se puede desarrollar tanto en pista cubierta como en descubierta, en el que dos conjuntos de cinco jugadores cada uno, intentan anotar puntos" ,
+        "state": 0
+    },
+    {
+        "img": "img5.png",
+        "title": "Levantamiento de Pesas",
+        "text": "requiere de un gran entrenamiento de los músculos del cuerpo para adquirir la fuerza necesaria para los levantamientos, además de desarrollar destreza y actitud mental" ,
+        "state": 0
+    },
+    {
+        "img": "img6.png",
+        "title": "Rugby Terrestre",
+        "text": "deporte de contacto que se juega entre dos equipos. El objetivo de los jugadores es llevar el balón hasta la zona de anotación contraria para anotar un try y recibir puntos" ,
+        "state": 0
+    },
+    {
+        "img": "img7.png",
+        "title": "Rugby Subacuático",
+        "text": "deporte que se juega realmente en tres dimensiones, ya que se juega dentro de un medio acuático, por lo general en piscinas. Esta disciplina, de relativa reciente creación, fue inventada en Alemania por un grupo de asociaciones de buzos con el objetivo de realizar entrenamientos físicos" ,
+        "state": 0
+    },
+    {
+        "img": "img8.png",
+        "title": "Sóftbol",
+        "text": "deporte de equipo en el que una pelota es lanzada por un jugador defensivo llamado pitcher o lanzador y golpeada por un jugador ofensivo llamado bateador" ,
+        "state": 0
+    },
+    {
+        "img": "img9.png",
+        "title": "Street Workout",
+        "text": "deporte que se basa en la realización de ejercicios utilizando el propio peso del cuerpo" ,
+        "state": 0
+    },
+    {
+        "img": "img10.png",
+        "title": "Triatlón",
+        "text": "es una prueba multideportiva que combina tres disciplinas: natación, ciclismo y carrera" ,
+        "state": 0
+    }
+]
