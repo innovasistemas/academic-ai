@@ -6,19 +6,22 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
                     {{titlePage}}
                 </h1> 
                 <hr>
             </div>
         </div>
 
-        <div class="row container">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-1">&nbsp;</div>
-                    <div id="div-result-files" class="col-10 table-responsive"></div>
-                    <div class="col-1">&nbsp;</div>
+        <div class="container">
+            <div class="row">
+                <div id="div-result-files" class="col table-responsive"></div>
+            </div>
+            <div class="row">
+                <div id="div-iframe-file" class="col embed-responsive embed-responsive-16by9">
+                    <p class="text-center">
+                        <iframe class="embed-responsive-item" name="ifr-file" id="ifr-file" src="about:blank" width="1000" height="800"></iframe>
+                    </p>
                 </div>
             </div>
         </div>
@@ -55,10 +58,9 @@
             fetch(arrayLinks[3], params)
                 .then(data => {return data.json()})
                 .then(response => {
-                    // Pendiente implementar
-                    // window.location = `temp/${response.view}`;
                     let arrayFiles = response.listFiles.split(',')
                     arrayFiles.pop();
+                    document.querySelector('#ifr-file').src = 'about:blank';
                     let table = `<table class="table table-hover table-white table-bordered">`;
                     table += `<thead>`;
                     table += `<tr><th colspan="5">Documentos</th></tr><tr>`;
@@ -72,7 +74,7 @@
                         } 
                         table += `
                             <td>
-                                <a href="../../public/assets/docs/${element}" target="_blank">
+                                <a href="../../public/assets/docs/${element}" target="ifr-file" title="Ver documento: ${element}">
                                     <img src="../../public/assets/images/pdf-icon.png" height="25" width="15" alt="${element}" />
                                     ${element}
                                 </a>

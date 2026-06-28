@@ -59,22 +59,22 @@ requestJson('cards1');
                 break; 
         }
 
-        let cards = '<div class="row gx-2-">';
-        cards += '<div class="col">';
-        cards += `<button class="btn btn-lg btn-primary" onclick="shuffle('${dataSerialized}', '${level}')">Barajar</button>`;
-        cards += '</div>';
+        let cards = '<div class="row">';
         cards += '<div class="col">';
         cards += `
-                <label for="lst-integer-operation">Nivel</label>
+            <label for="cbo-level-memory" class="fw-bold">Nivel</label>
                 <select name="cbo-level-memory" id="cbo-level-memory" class="form-select select" onchange="changeLevel()">
-                    <option value="cards1" ${sel1}>Fácil</option>
-                    <option value="cards2" ${sel2}>Intermedio</option>
-                    <option value="cards3" ${sel3}>Difícil</option>
-                </select>
-            `;
+                <option value="cards1" ${sel1}>Fácil</option>
+                <option value="cards2" ${sel2}>Intermedio</option>
+                <option value="cards3" ${sel3}>Difícil</option>
+            </select>
+        `;
+        cards += '</div>';
+        cards += '<div class="col">';
+        cards += `<button class="btn btn-primary" onclick="shuffle('${dataSerialized}', '${level}')">Barajar</button>`;
         cards += '</div>';
         cards += '</div>';
-        cards += '<div class="row">&nbsp;</div>';
+        cards += '<div class="row"><div class="col"><hr></div></div>';
         cards += '<div class="row gx-2">';
         data.forEach ((element, index) => {
             if (element.state == 0) {

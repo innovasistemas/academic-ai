@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
                     {{titlePage}}
                 </h1> 
                 <hr>
@@ -123,6 +123,28 @@
                                             <li>Java</li>
                                             <li>Javascript</li>
                                             <li>Kotlin</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="h2">Ejemplos de juegos con programación</h2>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Aplicando la programación en la creación de juegos:
+                                </p>
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul>
+                                            <li>Concéntrese</li>
+                                            <li>Triqui</li>
+                                            <li>Dibuja tu bandera</li>
                                         </ul>
                                     </div>
                                 </div>

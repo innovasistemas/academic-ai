@@ -6,7 +6,7 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
                     {{titlePage}} 
                 </h1> 
                 <hr>
@@ -43,7 +43,7 @@
                         <label for="" class="h4 text-primary fw-bold" id="lbl-total"></label>
                     </div>
                     <div class="col">
-                        <button id="btn-show-alls" type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#div-modal">
+                        <button id="btn-show-alls" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#div-modal">
                             Ver deportes
                         </button>
                     </div>
@@ -64,7 +64,7 @@
             </div>
         
             <div id="div-modal" class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Deportes formativos</h5>
@@ -93,7 +93,7 @@
             el: '#app',
             data: {
                 titlePage: 'Concéntrese',
-                iconPage: iconPage,
+                iconPage: `${routeAssets}/images/memory.png`,
                 alternateText: titlePage,
                 height: '40',
                 width: '40'

@@ -3,10 +3,10 @@
         <?php include "template/menu.php" ?>
         
         <div id="app" class="hero">
-            <div class="col-12">
+            <div class="col">
                 <hr>
                 <h1 class="h1">
-                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
                     {{titlePage}}
                 </h1> 
                 <hr>
@@ -15,12 +15,13 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-1">&nbsp;</div>
-                        <div id="div-result-files" class="col-10 table-responsive"></div>
-                        <div class="col-1">&nbsp;</div>
-                    </div>
+                <div id="div-result-files" class="col table-responsive"></div>
+            </div>
+            <div class="row">
+                <div id="div-iframe-file" class="col embed-responsive embed-responsive-16by9">
+                    <p class="text-center">
+                        <iframe class="embed-responsive-item" name="ifr-file" id="ifr-file" src="about:blank" width="800" height="400"></iframe>
+                    </p>
                 </div>
             </div>
         </div>
@@ -66,6 +67,7 @@
                 arrayFiles.pop();
                 let icon;
                 let ctd = 0;
+                document.querySelector('#ifr-file').src = 'about:blank';
                 let table = `<table class="table table-hover table-white table-bordered">`;
                 table += `<thead>`;
                 table += `<tr><th colspan="5">${titleTable}</th></tr><tr>`;
@@ -91,7 +93,7 @@
                     if (objJson.element === '') {
                         table += `
                             <td>
-                                <a href="#!" onclick="listPrograms(\'${element}\')" class="hover">
+                                <a href="#!" onclick="listPrograms(\'${element}\')" class="hover" title="Lenguaje ${element}">
                                     <img src="${routeAssets}/images/${icon}" height="35" width="35" alt="${element}" />
                                     ${element}
                                 </a>
@@ -100,7 +102,7 @@
                     } else {
                         table += `
                             <td>
-                                <a href="${routeAssets}/examples/${dir}/${element}" target="_blank" class="hover">
+                                <a href="${routeAssets}/examples/${dir}/${element}" target="ifr-file" class="hover" title="Ver programa: ${element}">
                                     <img src="${routeAssets}/images/${icon}" height="35" width="35" alt="${element}" />
                                     ${element}
                                 </a>
