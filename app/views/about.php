@@ -6,8 +6,8 @@
             <div class="col-12">
                 <hr>
                 <h1 class="h1">
-                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" />
-                    {{titlePage}} 
+                    <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded"/>
+                    <span v-text="titlePage"></span>
                 </h1> 
                 <hr>
             </div>

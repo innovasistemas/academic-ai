@@ -7,7 +7,7 @@
                 <hr>
                 <h1 class="h1">
                     <img :src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
-                    {{titlePage}} 
+                    <span v-text="titlePage"></span>
                 </h1> 
                 <hr>
             </div>
@@ -20,13 +20,13 @@
                         <img :src="logoU" v-bind:alt="alternateText" :height="height" :width="width" class-="w-50">
                     </div>
                     <div class="col-5">
-                        <h2 class="text-center text-success">{{subTitle}}</h2>
-                        <h6 class="text-center"><small>{{teacher}}</small></h6>
-                        <h4 class="text-center text-primary">{{legend}}</h4>
+                        <h2 class="text-center text-success" v-text="subTitle"></h2>
+                        <h6 class="text-center"><small v-text="teacher"></small></h6>
+                        <h4 class="text-center text-primary" v-text="legend"></h4>
                     </div>
                     <div class="col-3">
                         <h4 class="text-center">Autor</h4>
-                        <h6 class="text-center">{{author}}</h6>
+                        <h6 class="text-center" v-text="author"></h6>
                     </div>
                 </div>
                 <div class="row">&nbsp;</div>

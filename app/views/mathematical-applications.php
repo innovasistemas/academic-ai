@@ -7,7 +7,7 @@
                 <hr>
                 <h1 class="h1">
                     <img v-bind:src="iconPage" v-bind:alt="alternateText" :height="height" :width="width" class="rounded" />
-                    {{titlePage}}
+                    <span v-text="titlePage"></span>
                 </h1> 
                 <hr>
             </div>
