@@ -18,6 +18,7 @@ let dataMusic = [];
 let index = 0;
 let paused = false;
 let repeat = false;
+let shuffle = false;
 let stPrevNext = false;
 
 fetch(`${routeAssets}/json/music.json`)
@@ -113,9 +114,22 @@ btnNext.addEventListener('click', (e) => {
 });
 
 btnRepeat.addEventListener('click', (e) => {
-    repeat = !repeat;
+    if (!shuffle) {
+        repeat = !repeat;
+        e.currentTarget.classList.toggle('btn-dark');
+        e.currentTarget.classList.toggle('btn-secondary');
+    }
+});
+
+btnShuffle.addEventListener('click', (e) => {
+    shuffle = !shuffle;
     e.currentTarget.classList.toggle('btn-dark');
     e.currentTarget.classList.toggle('btn-secondary');
+    if (shuffle) {
+        btnRepeat.classList.remove('btn-dark');
+        btnRepeat.classList.add('btn-secondary');
+        repeat = true;
+    }
 });
 
 btnVolume.addEventListener('click', (e) => {
@@ -148,14 +162,23 @@ audioPlayer.addEventListener('pause', () => {
 });
 
 audioPlayer.addEventListener('ended', () => {
-    if (index < dataMusic.length - 1) {
-        index++;
-        activateSong(dataMusic[index].src);
-    } else if (repeat) {
-        index = 0;
+    if (shuffle) {
+        let rand;
+        do {
+            rand = parseInt(Math.random() * dataMusic.length); 
+        } while (rand == index);
+        index = rand;
         activateSong(dataMusic[index].src);
     } else {
-        audioPlayer.pause(); 
+        if (index < dataMusic.length - 1) {
+            index++;
+            activateSong(dataMusic[index].src);
+        } else if (repeat) {
+            index = 0;
+            activateSong(dataMusic[index].src);
+        } else {
+            audioPlayer.pause(); 
+        }
     }
 });
 

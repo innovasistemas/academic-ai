@@ -25,17 +25,15 @@
                     </div>
                     <br>
                     <p class="text-center">
-                        <button class="btn btn-info rounded-circle" id="btn-previous" title="Anterior"><i class="bi bi-rewind-fill"></i></button>
-                        <button class="btn btn-info rounded-circle" id="btn-play-pause" title="Reproductir/Pausar"><i class="bi bi-play-fill"></i></button>
-                        <button class="btn btn-info rounded-circle" id="btn-next" title="Siguiente"><i class="bi bi-fast-forward-fill"></i></button>
+                        <button class="btn btn-sm btn-info rounded-circle" id="btn-previous" title="Anterior"><i class="bi bi-rewind-fill"></i></button>
+                        <button class="btn btn-sm btn-info rounded-circle" id="btn-play-pause" title="Reproductir/Pausar"><i class="bi bi-play-fill"></i></button>
+                        <button class="btn btn-sm btn-info rounded-circle" id="btn-next" title="Siguiente"><i class="bi bi-fast-forward-fill"></i></button>
+                        <button class="btn btn-sm btn-dark" id="btn-repeat" title="Repetir"><i class="bi bi-repeat"></i></button>
+                        <button class="btn btn-sm btn-dark" id="btn-shuffle" title="Aleatorio"><i class="bi bi-shuffle"></i></button>
+                        <button class="btn btn-sm btn-dark" id="btn-volume" title="Escuchar/Silenciar"><i class="bi bi-volume-down-fill"></i></button>
                     </p>
                     <p class="text-center">
-                        <button class="btn btn-dark" id="btn-repeat" title="Repetir"><i class="bi bi-repeat"></i></button>
-                        <button class="btn btn-dark" id="btn-shuffle" title="Aleatorio"><i class="bi bi-shuffle"></i></button>
-                        <button class="btn btn-dark" id="btn-volume" title="Escuchar/Silenciar"><i class="bi bi-volume-down-fill"></i></button>
-                    </p>
-                    <p class="text-center">
-                        <input type="range" id="rng-volume" min="0" max="1" step="0.1" value="1" title="Volumen">
+                        <input type="range" id="rng-volume" class="form-range" min="0" max="1" step="0.1" value="1" title="Volumen">
                     </p>
                 </div>
                 <div class="col-6">
