@@ -132,11 +132,11 @@
                         <hr>
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="h2">Ejemplos de juegos con programación</h2>
+                                <h2 class="h2">Entretenimiento</h2>
                             </div>
                             <div class="col-12">
                                 <p>
-                                    Aplicando la programación en la creación de juegos:
+                                    Aplicando la programación en la creación de juegos y el entretenimiento:
                                 </p>
                                 
                                 <div class="row">
@@ -145,6 +145,7 @@
                                             <li>Concéntrese</li>
                                             <li>Triqui</li>
                                             <li>Dibuja tu bandera</li>
+                                            <li>Reproductor de música</li>
                                         </ul>
                                     </div>
                                 </div>

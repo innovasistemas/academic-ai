@@ -16,22 +16,49 @@
         <div id="app-container" class="container">
             <div class="row">
                 <div class="col-3">
-                    <h4 class="text-center bg-light border rounded">Canciones</h4>
+                    <h5 class="text-center h5 bg-info border border-light rounded-3">Canciones</h5>
+                    <div id="div-list" class="bg-light border rounded-3" style="height: 230px; min-height: 150px; overflow: auto;"></div>
+                    <div id="div-records" class="bg-light border rounded-3">
+                        <small class="text-secondary">
+                            Canción: <span id="small-records" class="text-info"></span>
+                        </small>
+                    </div>
+                    <br>
                     <p class="text-center">
-                        <button class="btn btn-dark" id="btn-previous" title="Anterior"><i class="bi bi-rewind-fill"></i></button>
-                        <button class="btn btn-dark" id="btn-play-pause" title="Reproductir/Pausar"><i class="bi bi-play-fill"></i></button>
-                        <button class="btn btn-dark" id="btn-next" title="Siguiente"><i class="bi bi-fast-forward-fill"></i></button>
+                        <button class="btn btn-info rounded-circle" id="btn-previous" title="Anterior"><i class="bi bi-rewind-fill"></i></button>
+                        <button class="btn btn-info rounded-circle" id="btn-play-pause" title="Reproductir/Pausar"><i class="bi bi-play-fill"></i></button>
+                        <button class="btn btn-info rounded-circle" id="btn-next" title="Siguiente"><i class="bi bi-fast-forward-fill"></i></button>
                     </p>
-                    <div id="div-list" class="bg-light border rounded" style="height: 200px; min-height: 150px; overflow: auto;"></div>
-                    <div id="div-records" class="bg-light border rounded"></div>
+                    <p class="text-center">
+                        <button class="btn btn-dark" id="btn-repeat" title="Repetir"><i class="bi bi-repeat"></i></button>
+                        <button class="btn btn-dark" id="btn-shuffle" title="Aleatorio"><i class="bi bi-shuffle"></i></button>
+                        <button class="btn btn-dark" id="btn-volume" title="Escuchar/Silenciar"><i class="bi bi-volume-down-fill"></i></button>
+                    </p>
+                    <p class="text-center">
+                        <input type="range" id="rng-volume" min="0" max="1" step="0.1" value="1" title="Volumen">
+                    </p>
                 </div>
-                <div class="col-6" style-="height: 200px !important; max-height: 200px;">
-                    <audio id="audio-player" controls>
-                        El navegador no soporta el elemento de audio.
-                    </audio>    
+                <div class="col-6">
+                    <p>&nbsp;</p>
+                    <p class="text-center">
+                        <audio id="audio-player" controls>
+                            El navegador no soporta el elemento de audio.
+                        </audio>
+                    </p>
                 </div>
                 <div class="col-3">
-
+                    <div id="div-information" class="bg-light border rounded-3 w-25-" style="width: 200px;">
+                        <h6 class="h6 text-center bg-info border border-light rounded-3 w-50-">Información</h6>
+                        <small>Canción N°:</small> <small id="inf-song" class="text-info"></small>
+                        <br>
+                        <small>Título:</small> <small id="inf-title" class="text-info"></small>
+                        <br>
+                        <small>Álbum</small>: <small id="inf-album" class="text-info"></small>
+                        <br>
+                        <small>Autor:</small> <small id="inf-author" class="text-info"></small>
+                        <br>
+                        <small>Duración:</small> <small id="inf-duration" class="text-info"></small>
+                    </div>
                 </div>
             </div>
             <div class="row">&nbsp;</div>
