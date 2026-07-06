@@ -17,14 +17,23 @@
             <div class="row">
                 <div class="col-3">
                     <h5 class="text-center h5 bg-info border border-light rounded-3">Canciones</h5>
-                    <div id="div-list" class="bg-light border rounded-3" style="height: 230px; min-height: 150px; overflow: auto;"></div>
+                    <div id="div-list" class="bg-light border rounded-3" style="height: 250px; min-height: 150px; overflow: auto;"></div>
                     <div id="div-records" class="bg-light border rounded-3">
                         <small class="text-secondary">
                             Canción: <span id="small-records" class="text-info"></span>
                         </small>
                     </div>
+                    
+                </div>
+                <div class="col-6">
+                    <p>&nbsp;</p>
+                    <div class="card align-items-center shadow-sm p-3">
+                        <audio id="audio-player" controls class="w-100">
+                            El navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
                     <br>
-                    <p class="text-center">
+                    <p class="text-center shadow-sm">
                         <button class="btn btn-sm btn-info rounded-circle" id="btn-previous" title="Anterior"><i class="bi bi-rewind-fill"></i></button>
                         <button class="btn btn-sm btn-info rounded-circle" id="btn-play-pause" title="Reproductir/Pausar"><i class="bi bi-play-fill"></i></button>
                         <button class="btn btn-sm btn-info rounded-circle" id="btn-next" title="Siguiente"><i class="bi bi-fast-forward-fill"></i></button>
@@ -34,14 +43,6 @@
                     </p>
                     <p class="text-center">
                         <input type="range" id="rng-volume" class="form-range" min="0" max="1" step="0.1" value="1" title="Volumen">
-                    </p>
-                </div>
-                <div class="col-6">
-                    <p>&nbsp;</p>
-                    <p class="text-center">
-                        <audio id="audio-player" controls>
-                            El navegador no soporta el elemento de audio.
-                        </audio>
                     </p>
                 </div>
                 <div class="col-3">

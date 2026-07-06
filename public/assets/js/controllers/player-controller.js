@@ -91,6 +91,15 @@ function configActiveSong()
     } 
 }
 
+function randomIndex()
+{
+    let rand;
+    do {
+        rand = parseInt(Math.random() * dataMusic.length); 
+    } while (rand == index);
+    index = rand;
+}
+
 btnPlayPause.addEventListener('click', (e) => {
     if (audioPlayer.paused) {
         configActiveSong();
@@ -102,13 +111,21 @@ btnPlayPause.addEventListener('click', (e) => {
 });
 
 btnPrevious.addEventListener('click', (e) => {
-    index = index == 0 ? dataMusic.length - 1 : index - 1;
+    if (shuffle) {
+        randomIndex();
+    } else {
+        index = index == 0 ? dataMusic.length - 1 : index - 1;
+    }
     stPrevNext = true;
     activateSong(dataMusic[index].src);
 });
 
 btnNext.addEventListener('click', (e) => {
-    index = index == dataMusic.length - 1 ? 0 : index + 1;
+    if (shuffle) {
+        randomIndex();
+    } else {
+        index = index == dataMusic.length - 1 ? 0 : index + 1;
+    }
     stPrevNext = true;
     activateSong(dataMusic[index].src);
 });
@@ -163,11 +180,7 @@ audioPlayer.addEventListener('pause', () => {
 
 audioPlayer.addEventListener('ended', () => {
     if (shuffle) {
-        let rand;
-        do {
-            rand = parseInt(Math.random() * dataMusic.length); 
-        } while (rand == index);
-        index = rand;
+        randomIndex();
         activateSong(dataMusic[index].src);
     } else {
         if (index < dataMusic.length - 1) {
