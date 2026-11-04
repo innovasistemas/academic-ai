@@ -17,25 +17,25 @@
             <div class="link-tabs">
                 <ul class="list-inline menu-tab">
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sistemas numéricos">Sistemas numéricos</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sistemas numéricos"><i class="bi bi-123"></i> Sistemas numéricos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lógica y circuitos">Lógica y circuitos</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lógica y circuitos"><i class="bi bi-file-spreadsheet-fill"></i> Lógica y circuitos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos">Conjuntos</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conjuntos"><i class="bi bi-union"></i> Conjuntos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal">Álgebra lineal</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Álgebra lineal"><i class="bi bi-columns-gap"></i> Álgebra lineal</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía">Criptografía</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Criptografía"><i class="bi bi-command"></i> Criptografía</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones">Simulaciones</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Simulaciones"><i class="bi bi-infinity"></i> Simulaciones</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="list-group-item link-tab" data-tab="6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Analítica">Analítica</a>
+                        <a href="#!" class="list-group-item link-secondary link-tab" data-tab="6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Analítica"><i class="bi bi-percent"></i> Analítica</a>
                     </li>
                 </ul>
             </div>
@@ -111,22 +111,19 @@
                 });
             });
             
-
             function tabOpenClose(tab)
             {
                 let $classTab = document.querySelectorAll('.content-tab');
                 $classTab.forEach ((element, index) => {
                     if (index === parseInt(tab)) {
                         element.style.display = 'block';
-                        $tagsA[index].classList.add('text-white');
+                        $tagsA[index].classList.add('text-white', 'bg-primary');
                         $tagsA[index].classList.add('active');
                     } else {
                         element.style.display = 'none';
-                        $tagsA[index].classList.remove('text-white');
+                        $tagsA[index].classList.remove('text-white', 'bg-primary');
                         $tagsA[index].classList.remove('active');
                     }
                 });
             }
-
-            // ************************************
         </script>

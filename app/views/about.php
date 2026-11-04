@@ -23,15 +23,15 @@
                         </tr>
                         <tr>
                             <th>Áreas</th>
-                            <td>Informática - Matemáticas - Ciencias naturales - Ingeniería</td>
+                            <td>Matemáticas / Ciencias naturales / Informática / Ingeniería</td>
                         </tr>
                         <tr>
                             <th>Tipo de software</th>
-                            <td>Página / aplicación web</td>
+                            <td>Página / Aplicación web</td>
                         </tr>
                         <tr>
                             <th>Desarrollado en</th>
-                            <td>PHP - Javascript - C# - CSS Bootstrap - HTML5</td>
+                            <td><mark>Backend:</mark> PHP / C# / Python <mark>Frontend:</mark> HTML5 / Javascript (Vanilla JS / Vue) / CSS (Bootstrap)</td>
                         </tr>
                         <tr>
                             <th>Framework</th>
@@ -54,7 +54,7 @@
                             <td>http://localhost/ - http://localhost:5259/</td>
                         </tr>
                         <tr>
-                            <th>Dominio web - webservices</th>
+                            <th>Dominio / Webservices</th>
                             <td>http://localhost/academic-ai - http://localhost:5259/</td>
                         </tr>
                         <tr>
@@ -67,11 +67,11 @@
                         </tr>
                         <tr>
                             <th>Iconos</th>
-                            <td><a href="https://www.flaticon.es" target="_blank">Flaticon</a></td>
+                            <td>Bootstrap Icons</td>
                         </tr>
                         <tr>
                             <th>Desarrollado por</th>
-                            <td class="text-info">{{author}}</td>
+                            <td><mark>{{author}}</mark></td>
                         </tr>
                     </table>
                 </div>

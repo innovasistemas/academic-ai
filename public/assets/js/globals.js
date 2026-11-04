@@ -13,7 +13,7 @@ function activateMenu(page)
         const arrayList = document.querySelectorAll('ul.active-option li a'); 
         arrayList.forEach((element) => {
             if (element.href.indexOf(page, 0) >= 0) {
-                element.classList.add('active', 'bg-dark');
+                element.classList.add('active', 'bg-primary');
             }
         });
     } 

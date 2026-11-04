@@ -46,22 +46,28 @@ ul.active-option li a:hover {
 
 /* Estilos para las pestañas (tab) */
 
-.link-tabs {
-    position: relative;
-}
-
 .menu-tab {
     list-style-type: none;
-    text-align: left;
+    text-align: center;
     padding: 20px;
 }
 
 .menu-tab li {
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .menu-tab li a {
-    border-radius: 15px;
+    padding: 5px;
+}
+
+.menu-tab li a:hover {
+    padding: 5px;
+    background-color: #9FA6B2;
+    color: #ffffff !important;
+}
+
+.menu-tab li a:focus {
+    color: #ffffff !important;
 }
 
 .tabs {

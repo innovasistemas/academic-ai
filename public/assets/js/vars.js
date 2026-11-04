@@ -9,21 +9,21 @@ const arrayLinks = [
     '../Controllers/Simulations.php'
 ];
 
-let arraySlider = [
+const arraySlider = [
     '../public/assets/images/banner_header11.jpg',
     '../public/assets/images/banner_header2.jpg',
     '../public/assets/images/banner_header3.jpg'
 ];
 
-let iconPage = '../../public/favicon.png';
-let routeAssets ='../../public/assets';
+const iconPage = '../../public/favicon.png';
+const routeAssets ='../../public/assets';
 
 // Titles
-let titlePage = 'Academic AI';
+const titlePage = 'Academic AI';
 
 // Dates
-let fullDate = new Date();
-let year = fullDate.getFullYear();
+const fullDate = new Date();
+const year = fullDate.getFullYear();
 
 // General
-let author = 'Jaime E. Montoya M.';
+const author = 'Jaime E. Montoya M.';

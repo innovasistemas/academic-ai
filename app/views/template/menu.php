@@ -10,38 +10,38 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 active-option">
                     <li class="nav-item">
-                        <a class="nav-link text-white active" aria-current="page" href="mathematical-applications.php" title="Aplicaciones" data-bs-toggle="tooltip" data-bs-placement="bottom">Aplicaciones</a>
+                        <a class="nav-link text-white active" aria-current="page" href="mathematical-applications.php" title="Aplicaciones" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-window-sidebar"></i> Aplicaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="questions.php" title="Preguntas" data-bs-toggle="tooltip" data-bs-placement="bottom">Preguntas</a>
+                        <a class="nav-link text-white" href="questions.php" title="Preguntas" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-patch-question"></i> Preguntas</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="academic.php" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
-                            Académico
+                            <i class="bi bi-book-half"></i> Académico
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="documents.php" title="Documentos" data-bs-toggle="tooltip" data-bs-placement="bottom">Documentos</a></li>
-                            <li><a class="dropdown-item" href="examples.php" title="Ejemplos" data-bs-toggle="tooltip" data-bs-placement="bottom">Ejemplos</a></li>
+                            <li><a class="dropdown-item" href="documents.php" title="Documentos" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-file-earmark-pdf-fill"></i> Documentos</a></li>
+                            <li><a class="dropdown-item" href="examples.php" title="Ejemplos" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-braces"></i> Ejemplos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="academic.php" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Académico">
-                            Entretenimiento
+                            <i class="bi bi-controller"></i> Entretenimiento
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="memory.php" title="Concéntrese" data-bs-toggle="tooltip" data-bs-placement="bottom">Concéntrese</a></li>
-                            <li><a class="dropdown-item" href="triqui.php" title="Triqui" data-bs-toggle="tooltip" data-bs-placement="bottom">Triqui</a></li>
-                            <li><a class="dropdown-item" href="flag.php" title="Dibuja tu bandera" data-bs-toggle="tooltip" data-bs-placement="bottom">Dibuja tu bandera</a></li>
-                            <li><a class="dropdown-item" href="player.php" title="Reproductor de música" data-bs-toggle="tooltip" data-bs-placement="bottom">Reproductor de música</a></li>
+                            <li><a class="dropdown-item" href="memory.php" title="Concéntrese" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-memory"></i> Concéntrese</a></li>
+                            <li><a class="dropdown-item" href="triqui.php" title="Triqui" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-table"></i> Triqui</a></li>
+                            <li><a class="dropdown-item" href="flag.php" title="Dibuja tu bandera" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-flag-fill"></i> Dibuja tu bandera</a></li>
+                            <li><a class="dropdown-item" href="player.php" title="Reproductor de música" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-boombox"></i> Reproductor de música</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="help.php" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Ayuda">
-                            Ayuda
+                            <i class="bi bi-info-circle"></i> Ayuda
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="documentation.php" title="Documentación" data-bs-toggle="tooltip" data-bs-placement="bottom">Documentación</a></li>
-                            <li><a class="dropdown-item" href="about.php" title="Acerca de" data-bs-toggle="tooltip" data-bs-placement="bottom">Acerca de</a></li>
+                            <li><a class="dropdown-item" href="documentation.php" title="Documentación" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-file-code"></i> Documentación</a></li>
+                            <li><a class="dropdown-item" href="about.php" title="Acerca de" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="bi bi-file-person"></i> Acerca de</a></li>
                         </ul>
                     </li>
                 </ul>
